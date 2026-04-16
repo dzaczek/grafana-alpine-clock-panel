@@ -1,0 +1,1191 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 2,
+  "uid": "alpine-clock-showcase",
+  "links": [],
+  "liveNow": false,
+  "schemaVersion": 39,
+  "tags": ["alpine-clock", "showcase"],
+  "templating": { "list": [] },
+  "time": { "from": "now-6h", "to": "now" },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Alpine Clock — 16 styles + 8 TestData metrics",
+  "version": 1,
+  "weekStart": "",
+  "panels": [
+    {
+      "id": 1,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "01 · Classic Swiss",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 0 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialShape": "round",
+        "dialBackground": "#ffffff",
+        "dialBorderColor": "#111111",
+        "hourNumberColor": "#111111",
+        "hourTickColor": "#111111",
+        "minuteTickColor": "#111111",
+        "hourHandColor": "#111111",
+        "minuteHandColor": "#111111",
+        "secondHandColor": "#c62828",
+        "hourHandShape": "rect",
+        "minuteHandShape": "rect",
+        "secondHandShape": "rect"
+      }
+    },
+    {
+      "id": 2,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "02 · Vintage Gold",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 0 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialBackground": "#f4ecd2",
+        "dialBorderColor": "#8b5a2b",
+        "hourNumberColor": "#5a3a1a",
+        "hourTickColor": "#8b5a2b",
+        "minuteTickColor": "#8b5a2b",
+        "hourHandShape": "breguet",
+        "minuteHandShape": "breguet",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#b8860b",
+        "minuteHandColor": "#b8860b",
+        "secondHandColor": "#8b5a2b",
+        "hourNumberFontFamily": "Georgia, serif"
+      }
+    },
+    {
+      "id": 3,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "03 · Minimal Baton",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 0 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialBackground": "#0d0d0d",
+        "dialBorderColor": "#0d0d0d",
+        "showHourTicks": false,
+        "showMinuteTicks": false,
+        "showSecondTicks": false,
+        "showHourNumbers": false,
+        "hourHandShape": "baton",
+        "minuteHandShape": "baton",
+        "secondHandShape": "baton",
+        "hourHandColor": "#ffffff",
+        "minuteHandColor": "#ffffff",
+        "secondHandColor": "#00d4ff",
+        "centerCapColor": "#00d4ff"
+      }
+    },
+    {
+      "id": 4,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "04 · Square Sharp",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 0 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialShape": "square",
+        "dialCornerRadius": 8,
+        "dialBackground": "#1a1a2e",
+        "dialBorderColor": "#e94560",
+        "hourNumberColor": "#e94560",
+        "hourTickColor": "#e94560",
+        "minuteTickColor": "#533483",
+        "hourHandShape": "pointer",
+        "minuteHandShape": "pointer",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#e94560",
+        "minuteHandColor": "#e94560",
+        "secondHandColor": "#f39c12"
+      }
+    },
+    {
+      "id": 5,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "05 · Vertical Rect Alpha",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 8 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialShape": "rect-v",
+        "dialBackground": "#2c3e50",
+        "dialBorderColor": "#ecf0f1",
+        "hourNumberColor": "#ecf0f1",
+        "hourTickColor": "#ecf0f1",
+        "hourHandShape": "alpha",
+        "minuteHandShape": "alpha",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#ecf0f1",
+        "minuteHandColor": "#ecf0f1",
+        "secondHandColor": "#e67e22"
+      }
+    },
+    {
+      "id": 6,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "06 · Hex Flat Sword",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 8 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialShape": "hex-flat",
+        "dialBackground": "#0a0a0a",
+        "dialBorderColor": "#d4af37",
+        "dialBorderWidth": 3,
+        "hourNumberColor": "#d4af37",
+        "hourTickColor": "#d4af37",
+        "minuteTickColor": "#8b7500",
+        "hourHandShape": "sword",
+        "minuteHandShape": "sword",
+        "secondHandShape": "sword",
+        "hourHandColor": "#d4af37",
+        "minuteHandColor": "#d4af37",
+        "secondHandColor": "#ffdf6e"
+      }
+    },
+    {
+      "id": 7,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "07 · Radial Blue Arrow",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 8 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialFillMode": "radial",
+        "dialBackground": "#0077be",
+        "dialColor2": "#001a33",
+        "dialGradientCenterX": 50,
+        "dialGradientCenterY": 50,
+        "dialGradientInnerStop": 10,
+        "dialGradientOuterStop": 95,
+        "dialBorderColor": "#001a33",
+        "hourNumberColor": "#ffffff",
+        "hourTickColor": "#ffffff",
+        "minuteTickColor": "#9fc9e8",
+        "hourHandShape": "arrow",
+        "minuteHandShape": "arrow",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#ffffff",
+        "minuteHandColor": "#ffffff",
+        "secondHandColor": "#ffeb3b"
+      }
+    },
+    {
+      "id": 8,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "08 · Sunset Dauphine",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 8 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialFillMode": "linear",
+        "dialBackground": "#ff6b6b",
+        "dialColor2": "#4ecdc4",
+        "dialGradientAngle": 135,
+        "dialBorderColor": "#2d3436",
+        "hourNumberColor": "#2d3436",
+        "hourTickColor": "#2d3436",
+        "hourHandShape": "dauphine",
+        "minuteHandShape": "dauphine",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#2d3436",
+        "minuteHandColor": "#2d3436",
+        "secondHandColor": "#ffffff"
+      }
+    },
+    {
+      "id": 9,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "09 · Oval Horizontal Spade",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 16 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialShape": "oval-h",
+        "dialBackground": "#eee8d5",
+        "dialBorderColor": "#586e75",
+        "hourNumberColor": "#586e75",
+        "hourTickColor": "#586e75",
+        "hourHandShape": "spade",
+        "minuteHandShape": "spade",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#586e75",
+        "minuteHandColor": "#586e75",
+        "secondHandColor": "#dc322f"
+      }
+    },
+    {
+      "id": 10,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "10 · Oval Vertical Lozenge",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 16 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialShape": "oval-v",
+        "dialBackground": "#073642",
+        "dialBorderColor": "#b58900",
+        "hourNumberColor": "#93a1a1",
+        "hourTickColor": "#93a1a1",
+        "hourHandShape": "lozenge",
+        "minuteHandShape": "lozenge",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#93a1a1",
+        "minuteHandColor": "#93a1a1",
+        "secondHandColor": "#b58900"
+      }
+    },
+    {
+      "id": 11,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "11 · Skeleton Light",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 16 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialBackground": "#f8f9fa",
+        "dialBorderColor": "#212529",
+        "dialBorderWidth": 2,
+        "hourNumberColor": "#212529",
+        "hourTickColor": "#212529",
+        "hourHandShape": "skeleton",
+        "minuteHandShape": "skeleton",
+        "secondHandShape": "skeleton",
+        "hourHandColor": "#212529",
+        "minuteHandColor": "#212529",
+        "secondHandColor": "#adb5bd",
+        "hourHandWidth": 8,
+        "minuteHandWidth": 6
+      }
+    },
+    {
+      "id": 12,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "12 · Syringe Panerai",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 16 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialBackground": "#000000",
+        "dialBorderColor": "#c1f0c1",
+        "hourNumberColor": "#c1f0c1",
+        "hourTickColor": "#c1f0c1",
+        "minuteTickColor": "#4c6f4c",
+        "hourHandShape": "syringe",
+        "minuteHandShape": "syringe",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#c1f0c1",
+        "minuteHandColor": "#c1f0c1",
+        "secondHandColor": "#c1f0c1",
+        "hourNumberFontFamily": "Arial, sans-serif"
+      }
+    },
+    {
+      "id": 13,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "13 · Pilot 24h Bezel",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 24 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialBackground": "#0d0d0d",
+        "dialBorderColor": "#ff9800",
+        "showBezel": true,
+        "bezelThickness": 14,
+        "bezelBackground": "#1c1c1c",
+        "bezelBorderColor": "#ff9800",
+        "bezelNumbersMode": "24",
+        "bezelNumberColor": "#ff9800",
+        "bezelNumberUpright": true,
+        "showBezelTicks": true,
+        "bezelTickColor": "#ff9800",
+        "hourNumberColor": "#ffffff",
+        "hourTickColor": "#ffffff",
+        "hourHandShape": "pointer",
+        "minuteHandShape": "pointer",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#ffffff",
+        "minuteHandColor": "#ffffff",
+        "secondHandColor": "#ff9800"
+      }
+    },
+    {
+      "id": 14,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "14 · Diver Rotating Bezel",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 24 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialBackground": "#001f1a",
+        "dialBorderColor": "#4caf50",
+        "showBezel": true,
+        "bezelThickness": 16,
+        "bezelBackground": "#004d40",
+        "bezelBorderColor": "#4caf50",
+        "bezelNumbersMode": "60",
+        "bezelNumberColor": "#ffffff",
+        "bezelNumberUpright": true,
+        "showBezelTicks": true,
+        "bezelTickColor": "#ffffff",
+        "hourNumberColor": "#4caf50",
+        "hourTickColor": "#4caf50",
+        "hourHandShape": "sword",
+        "minuteHandShape": "sword",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#4caf50",
+        "minuteHandColor": "#4caf50",
+        "secondHandColor": "#ffeb3b"
+      }
+    },
+    {
+      "id": 15,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "15 · Day & Date Classic",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 24 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialBackground": "#f5f5dc",
+        "dialBorderColor": "#2c2c2c",
+        "hourNumberColor": "#2c2c2c",
+        "hourTickColor": "#2c2c2c",
+        "hourHandShape": "dauphine",
+        "minuteHandShape": "dauphine",
+        "secondHandShape": "pointer",
+        "hourHandColor": "#2c2c2c",
+        "minuteHandColor": "#2c2c2c",
+        "secondHandColor": "#c62828",
+        "showDayWindow": true,
+        "dayWindowPosition": "left",
+        "dayWindowFormat": "ddd",
+        "dayWindowTextColor": "#2c2c2c",
+        "dayWindowBgColor": "#ffffff",
+        "dayWindowBorderColor": "#2c2c2c",
+        "dayWindowUppercase": true,
+        "showDateWindow": true,
+        "dateWindowPosition": "right",
+        "dateWindowTextColor": "#2c2c2c",
+        "dateWindowBgColor": "#ffffff",
+        "dateWindowBorderColor": "#2c2c2c"
+      }
+    },
+    {
+      "id": 16,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "16 · Railroad Taper",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 24 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
+      "options": {
+        "dialBackground": "#fffef2",
+        "dialBorderColor": "#000000",
+        "dialBorderWidth": 3,
+        "showHourNumbers": true,
+        "showMinuteTicks": true,
+        "showMinuteNumbers": true,
+        "hourNumberColor": "#000000",
+        "hourNumberFontFamily": "Georgia, serif",
+        "hourTickColor": "#000000",
+        "minuteTickColor": "#000000",
+        "minuteNumberColor": "#cc0000",
+        "hourHandShape": "taper",
+        "minuteHandShape": "taper",
+        "secondHandShape": "taper",
+        "hourHandColor": "#000000",
+        "minuteHandColor": "#000000",
+        "secondHandColor": "#cc0000"
+      }
+    },
+
+    {
+      "id": 17,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "17 · TestData · CPU Random Walk (analog subdial)",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 32 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "cpu", "min": 0, "max": 100, "noise": 2, "startValue": 50 }
+      ],
+      "options": {
+        "dialBackground": "#0d0d0d",
+        "dialBorderColor": "#00ff88",
+        "hourNumberColor": "#ffffff",
+        "hourTickColor": "#ffffff",
+        "hourHandColor": "#ffffff",
+        "minuteHandColor": "#ffffff",
+        "secondHandColor": "#00ff88",
+        "subdial1Enabled": true,
+        "subdial1Mode": "analog",
+        "subdial1Distance": 50,
+        "subdial1Angle": 180,
+        "subdial1Size": 38,
+        "subdial1Label": "CPU %",
+        "subdial1LabelPosition": "inside-top",
+        "subdial1LabelColor": "#0d0d0d",
+        "subdial1Min": 0,
+        "subdial1Max": 100,
+        "subdial1Unit": "%",
+        "subdial1Reducer": "lastNotNull",
+        "subdial1QueryRefId": "A",
+        "subdial1HandColor": "#d94e1f",
+        "subdial1ThresholdMode": "both",
+        "subdial1Threshold1": 60,
+        "subdial1Threshold1Color": "#f4b400",
+        "subdial1Threshold2": 85,
+        "subdial1Threshold2Color": "#db4437"
+      }
+    },
+    {
+      "id": 18,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "18 · TestData · CPU / MEM / IO (digital)",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 32 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "cpu", "min": 0, "max": 100, "noise": 3, "startValue": 40 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "mem", "min": 0, "max": 100, "noise": 1, "startValue": 60 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "io",  "min": 0, "max": 100, "noise": 5, "startValue": 20 }
+      ],
+      "options": {
+        "dialBackground": "#101820",
+        "dialBorderColor": "#fee715",
+        "hourNumberColor": "#fee715",
+        "hourTickColor": "#fee715",
+        "hourHandColor": "#fee715",
+        "minuteHandColor": "#fee715",
+        "secondHandColor": "#ffffff",
+        "subdial1Enabled": true,
+        "subdial1Mode": "digital",
+        "subdial1Distance": 55,
+        "subdial1Angle": 270,
+        "subdial1Size": 28,
+        "subdial1Label": "CPU",
+        "subdial1Unit": "%",
+        "subdial1Decimals": 0,
+        "subdial1QueryRefId": "A",
+        "subdial1BgColor": "#0b0f14",
+        "subdial1BorderColor": "#fee715",
+        "subdial1DigitalColor": "#fee715",
+        "subdial2Enabled": true,
+        "subdial2Mode": "digital",
+        "subdial2Distance": 55,
+        "subdial2Angle": 90,
+        "subdial2Size": 28,
+        "subdial2Label": "MEM",
+        "subdial2Unit": "%",
+        "subdial2Decimals": 0,
+        "subdial2QueryRefId": "B",
+        "subdial2BgColor": "#0b0f14",
+        "subdial2BorderColor": "#fee715",
+        "subdial2DigitalColor": "#fee715",
+        "subdial3Enabled": true,
+        "subdial3Mode": "digital",
+        "subdial3Distance": 55,
+        "subdial3Angle": 180,
+        "subdial3Size": 28,
+        "subdial3Label": "IO",
+        "subdial3Unit": "%",
+        "subdial3Decimals": 0,
+        "subdial3QueryRefId": "C",
+        "subdial3BgColor": "#0b0f14",
+        "subdial3BorderColor": "#fee715",
+        "subdial3DigitalColor": "#fee715"
+      }
+    },
+    {
+      "id": 19,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "19 · TestData · Predictable Pulse (analog)",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 32 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "predictable_pulse", "pulseWave": { "timeStep": 60, "onCount": 3, "offCount": 3, "onValue": 100, "offValue": 0 } }
+      ],
+      "options": {
+        "dialBackground": "#1e1e2e",
+        "dialBorderColor": "#89b4fa",
+        "hourNumberColor": "#cdd6f4",
+        "hourTickColor": "#cdd6f4",
+        "hourHandColor": "#cdd6f4",
+        "minuteHandColor": "#cdd6f4",
+        "secondHandColor": "#f38ba8",
+        "subdial1Enabled": true,
+        "subdial1Mode": "analog",
+        "subdial1Distance": 45,
+        "subdial1Angle": 180,
+        "subdial1Size": 45,
+        "subdial1Label": "Pulse",
+        "subdial1LabelPosition": "inside-top",
+        "subdial1Min": 0,
+        "subdial1Max": 100,
+        "subdial1QueryRefId": "A",
+        "subdial1HandColor": "#f38ba8",
+        "subdial1BgColor": "#313244",
+        "subdial1BorderColor": "#89b4fa",
+        "subdial1LabelColor": "#cdd6f4",
+        "subdial1NumberColor": "#cdd6f4",
+        "subdial1TickColor": "#cdd6f4"
+      }
+    },
+    {
+      "id": 20,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "20 · TestData · Slow Increase (digital counter)",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 32 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "slow_increase", "alias": "counter" }
+      ],
+      "options": {
+        "dialBackground": "#f5f5f5",
+        "dialBorderColor": "#333333",
+        "hourNumberColor": "#333333",
+        "hourTickColor": "#333333",
+        "hourHandColor": "#333333",
+        "minuteHandColor": "#333333",
+        "secondHandColor": "#1976d2",
+        "subdial1Enabled": true,
+        "subdial1Mode": "digital",
+        "subdial1Distance": 55,
+        "subdial1Angle": 0,
+        "subdial1Size": 38,
+        "subdial1Label": "Counter",
+        "subdial1LabelPosition": "inside-bottom",
+        "subdial1Decimals": 0,
+        "subdial1QueryRefId": "A",
+        "subdial1BgColor": "#ffffff",
+        "subdial1BorderColor": "#1976d2",
+        "subdial1DigitalColor": "#1976d2",
+        "subdial1LabelColor": "#333333"
+      }
+    },
+    {
+      "id": 21,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "21 · TestData · Quad Metrics Chronograph",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 40 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "north", "min": 0, "max": 100, "startValue": 20 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "east",  "min": 0, "max": 100, "startValue": 50 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "south", "min": 0, "max": 100, "startValue": 75 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "west",  "min": 0, "max": 100, "startValue": 35 }
+      ],
+      "options": {
+        "dialBackground": "#f4ecd2",
+        "dialBorderColor": "#1a1a1a",
+        "hourNumberColor": "#1a1a1a",
+        "hourTickColor": "#1a1a1a",
+        "hourHandShape": "breguet",
+        "minuteHandShape": "breguet",
+        "hourHandColor": "#1a1a1a",
+        "minuteHandColor": "#1a1a1a",
+        "secondHandColor": "#d94e1f",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 55, "subdial1Angle": 0,   "subdial1Size": 25, "subdial1Label": "N", "subdial1QueryRefId": "A", "subdial1HandColor": "#d94e1f",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 55, "subdial2Angle": 90,  "subdial2Size": 25, "subdial2Label": "E", "subdial2QueryRefId": "B", "subdial2HandColor": "#d94e1f",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 55, "subdial3Angle": 180, "subdial3Size": 25, "subdial3Label": "S", "subdial3QueryRefId": "C", "subdial3HandColor": "#d94e1f",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 55, "subdial4Angle": 270, "subdial4Size": 25, "subdial4Label": "W", "subdial4QueryRefId": "D", "subdial4HandColor": "#d94e1f"
+      }
+    },
+    {
+      "id": 22,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "22 · TestData · CSV Metric Values",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 40 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "csv_metric_values", "stringInput": "5,10,25,40,60,75,90,100,95,80,65,50" }
+      ],
+      "options": {
+        "dialBackground": "#012a36",
+        "dialBorderColor": "#00e0d1",
+        "hourNumberColor": "#00e0d1",
+        "hourTickColor": "#00e0d1",
+        "hourHandColor": "#00e0d1",
+        "minuteHandColor": "#00e0d1",
+        "secondHandColor": "#ff4081",
+        "subdial1Enabled": true,
+        "subdial1Mode": "digital",
+        "subdial1Distance": 55,
+        "subdial1Angle": 180,
+        "subdial1Size": 42,
+        "subdial1Label": "CSV",
+        "subdial1LabelPosition": "inside-top",
+        "subdial1Decimals": 1,
+        "subdial1QueryRefId": "A",
+        "subdial1BgColor": "#001a22",
+        "subdial1BorderColor": "#00e0d1",
+        "subdial1DigitalColor": "#00e0d1",
+        "subdial1LabelColor": "#00e0d1"
+      }
+    },
+    {
+      "id": 23,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "23 · TestData · Predictable CSV Wave (analog)",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 40 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "predictable_csv_wave", "csvWave": [{ "timeStep": 60, "valuesCSV": "0,25,50,75,100,75,50,25" }] }
+      ],
+      "options": {
+        "dialBackground": "#2b1b17",
+        "dialBorderColor": "#d4af37",
+        "hourNumberColor": "#d4af37",
+        "hourTickColor": "#d4af37",
+        "hourHandShape": "dauphine",
+        "minuteHandShape": "dauphine",
+        "hourHandColor": "#d4af37",
+        "minuteHandColor": "#d4af37",
+        "secondHandColor": "#ff5722",
+        "subdial1Enabled": true,
+        "subdial1Mode": "analog",
+        "subdial1Distance": 45,
+        "subdial1Angle": 180,
+        "subdial1Size": 45,
+        "subdial1Label": "Wave",
+        "subdial1LabelPosition": "inside-top",
+        "subdial1Min": 0,
+        "subdial1Max": 100,
+        "subdial1QueryRefId": "A",
+        "subdial1BgColor": "#f4ecd2",
+        "subdial1BorderColor": "#d4af37",
+        "subdial1HandColor": "#ff5722",
+        "subdial1LabelColor": "#2b1b17",
+        "subdial1NumberColor": "#2b1b17",
+        "subdial1TickColor": "#2b1b17"
+      }
+    },
+    {
+      "id": 24,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "24 · TestData · Live Streaming Signal",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 40 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "streaming_client", "stream": { "type": "signal", "speed": 250, "spread": 3.5, "noise": 2.2, "bands": 1 } }
+      ],
+      "options": {
+        "dialBackground": "#000000",
+        "dialBorderColor": "#39ff14",
+        "hourNumberColor": "#39ff14",
+        "hourTickColor": "#39ff14",
+        "hourHandColor": "#39ff14",
+        "minuteHandColor": "#39ff14",
+        "secondHandColor": "#ffffff",
+        "hourHandShape": "syringe",
+        "minuteHandShape": "syringe",
+        "subdial1Enabled": true,
+        "subdial1Mode": "digital",
+        "subdial1Distance": 55,
+        "subdial1Angle": 270,
+        "subdial1Size": 30,
+        "subdial1Label": "LIVE",
+        "subdial1LabelPosition": "inside-top",
+        "subdial1Decimals": 2,
+        "subdial1QueryRefId": "A",
+        "subdial1BgColor": "#0a0a0a",
+        "subdial1BorderColor": "#39ff14",
+        "subdial1DigitalColor": "#39ff14",
+        "subdial1LabelColor": "#39ff14",
+        "subdial2Enabled": true,
+        "subdial2Mode": "analog",
+        "subdial2Distance": 55,
+        "subdial2Angle": 90,
+        "subdial2Size": 30,
+        "subdial2Label": "sig",
+        "subdial2Min": -10,
+        "subdial2Max": 10,
+        "subdial2QueryRefId": "A",
+        "subdial2BgColor": "#0a0a0a",
+        "subdial2BorderColor": "#39ff14",
+        "subdial2HandColor": "#39ff14",
+        "subdial2LabelColor": "#39ff14",
+        "subdial2NumberColor": "#39ff14",
+        "subdial2TickColor": "#39ff14"
+      }
+    },
+
+    {
+      "id": 25,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "25 · Quad Big · Dark Gold Breguet",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 48 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 20 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 45 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 70 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 35 }
+      ],
+      "options": {
+        "dialBackground": "#0a0a0a",
+        "dialBorderColor": "#d4af37",
+        "hourNumberColor": "#d4af37",
+        "hourTickColor": "#d4af37",
+        "hourHandShape": "breguet", "minuteHandShape": "breguet",
+        "hourHandColor": "#d4af37", "minuteHandColor": "#d4af37", "secondHandColor": "#ffdf6e",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#1a1a1a", "subdial1BorderColor": "#d4af37", "subdial1HandColor": "#ffdf6e", "subdial1LabelColor": "#d4af37", "subdial1NumberColor": "#d4af37", "subdial1TickColor": "#d4af37",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#1a1a1a", "subdial2BorderColor": "#d4af37", "subdial2HandColor": "#ffdf6e", "subdial2LabelColor": "#d4af37", "subdial2NumberColor": "#d4af37", "subdial2TickColor": "#d4af37",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#1a1a1a", "subdial3BorderColor": "#d4af37", "subdial3HandColor": "#ffdf6e", "subdial3LabelColor": "#d4af37", "subdial3NumberColor": "#d4af37", "subdial3TickColor": "#d4af37",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#1a1a1a", "subdial4BorderColor": "#d4af37", "subdial4HandColor": "#ffdf6e", "subdial4LabelColor": "#d4af37", "subdial4NumberColor": "#d4af37", "subdial4TickColor": "#d4af37"
+      }
+    },
+    {
+      "id": 26,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "26 · Quad Big · White Minimal",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 48 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 10 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 40 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 65 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 90 }
+      ],
+      "options": {
+        "dialBackground": "#ffffff",
+        "dialBorderColor": "#111111",
+        "hourNumberColor": "#111111", "hourTickColor": "#111111",
+        "hourHandColor": "#111111", "minuteHandColor": "#111111", "secondHandColor": "#d32f2f",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#f5f5f5", "subdial1BorderColor": "#111111", "subdial1HandColor": "#d32f2f", "subdial1LabelColor": "#111111", "subdial1NumberColor": "#111111", "subdial1TickColor": "#111111",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#f5f5f5", "subdial2BorderColor": "#111111", "subdial2HandColor": "#d32f2f", "subdial2LabelColor": "#111111", "subdial2NumberColor": "#111111", "subdial2TickColor": "#111111",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#f5f5f5", "subdial3BorderColor": "#111111", "subdial3HandColor": "#d32f2f", "subdial3LabelColor": "#111111", "subdial3NumberColor": "#111111", "subdial3TickColor": "#111111",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#f5f5f5", "subdial4BorderColor": "#111111", "subdial4HandColor": "#d32f2f", "subdial4LabelColor": "#111111", "subdial4NumberColor": "#111111", "subdial4TickColor": "#111111"
+      }
+    },
+    {
+      "id": 27,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "27 · Quad Big · Navy Arrow",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 48 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 30 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 55 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 15 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 80 }
+      ],
+      "options": {
+        "dialBackground": "#0b2545",
+        "dialBorderColor": "#ffd60a",
+        "hourNumberColor": "#ffd60a", "hourTickColor": "#ffd60a",
+        "hourHandShape": "arrow", "minuteHandShape": "arrow",
+        "hourHandColor": "#ffffff", "minuteHandColor": "#ffffff", "secondHandColor": "#ffd60a",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#13315c", "subdial1BorderColor": "#ffd60a", "subdial1HandColor": "#ffd60a", "subdial1LabelColor": "#ffd60a", "subdial1NumberColor": "#ffffff", "subdial1TickColor": "#ffffff",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#13315c", "subdial2BorderColor": "#ffd60a", "subdial2HandColor": "#ffd60a", "subdial2LabelColor": "#ffd60a", "subdial2NumberColor": "#ffffff", "subdial2TickColor": "#ffffff",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#13315c", "subdial3BorderColor": "#ffd60a", "subdial3HandColor": "#ffd60a", "subdial3LabelColor": "#ffd60a", "subdial3NumberColor": "#ffffff", "subdial3TickColor": "#ffffff",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#13315c", "subdial4BorderColor": "#ffd60a", "subdial4HandColor": "#ffd60a", "subdial4LabelColor": "#ffd60a", "subdial4NumberColor": "#ffffff", "subdial4TickColor": "#ffffff"
+      }
+    },
+    {
+      "id": 28,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "28 · Quad Big · Forest Sword",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 48 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 25 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 50 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 75 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 95 }
+      ],
+      "options": {
+        "dialBackground": "#0d1f0d", "dialBorderColor": "#4caf50",
+        "hourNumberColor": "#a5d6a7", "hourTickColor": "#a5d6a7",
+        "hourHandShape": "sword", "minuteHandShape": "sword",
+        "hourHandColor": "#4caf50", "minuteHandColor": "#4caf50", "secondHandColor": "#ffeb3b",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#1b2e1b", "subdial1BorderColor": "#4caf50", "subdial1HandColor": "#ffeb3b", "subdial1LabelColor": "#a5d6a7", "subdial1NumberColor": "#a5d6a7", "subdial1TickColor": "#a5d6a7",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#1b2e1b", "subdial2BorderColor": "#4caf50", "subdial2HandColor": "#ffeb3b", "subdial2LabelColor": "#a5d6a7", "subdial2NumberColor": "#a5d6a7", "subdial2TickColor": "#a5d6a7",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#1b2e1b", "subdial3BorderColor": "#4caf50", "subdial3HandColor": "#ffeb3b", "subdial3LabelColor": "#a5d6a7", "subdial3NumberColor": "#a5d6a7", "subdial3TickColor": "#a5d6a7",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#1b2e1b", "subdial4BorderColor": "#4caf50", "subdial4HandColor": "#ffeb3b", "subdial4LabelColor": "#a5d6a7", "subdial4NumberColor": "#a5d6a7", "subdial4TickColor": "#a5d6a7"
+      }
+    },
+    {
+      "id": 29,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "29 · Quad Big · Red Racing",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 56 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 50 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 60 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 40 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 70 }
+      ],
+      "options": {
+        "dialBackground": "#1a0000", "dialBorderColor": "#ff1744",
+        "hourNumberColor": "#ff1744", "hourTickColor": "#ff1744",
+        "hourHandShape": "pointer", "minuteHandShape": "pointer",
+        "hourHandColor": "#ffffff", "minuteHandColor": "#ffffff", "secondHandColor": "#ff1744",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#2a0000", "subdial1BorderColor": "#ff1744", "subdial1HandColor": "#ff1744", "subdial1LabelColor": "#ffffff", "subdial1NumberColor": "#ffffff", "subdial1TickColor": "#ffffff",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#2a0000", "subdial2BorderColor": "#ff1744", "subdial2HandColor": "#ff1744", "subdial2LabelColor": "#ffffff", "subdial2NumberColor": "#ffffff", "subdial2TickColor": "#ffffff",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#2a0000", "subdial3BorderColor": "#ff1744", "subdial3HandColor": "#ff1744", "subdial3LabelColor": "#ffffff", "subdial3NumberColor": "#ffffff", "subdial3TickColor": "#ffffff",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#2a0000", "subdial4BorderColor": "#ff1744", "subdial4HandColor": "#ff1744", "subdial4LabelColor": "#ffffff", "subdial4NumberColor": "#ffffff", "subdial4TickColor": "#ffffff"
+      }
+    },
+    {
+      "id": 30,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "30 · Quad Big · Purple Lozenge",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 56 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 15 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 85 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 35 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 65 }
+      ],
+      "options": {
+        "dialBackground": "#1a0826", "dialBorderColor": "#b388ff",
+        "hourNumberColor": "#b388ff", "hourTickColor": "#b388ff",
+        "hourHandShape": "lozenge", "minuteHandShape": "lozenge",
+        "hourHandColor": "#b388ff", "minuteHandColor": "#b388ff", "secondHandColor": "#ffea00",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#2d1142", "subdial1BorderColor": "#b388ff", "subdial1HandColor": "#ffea00", "subdial1LabelColor": "#b388ff", "subdial1NumberColor": "#b388ff", "subdial1TickColor": "#b388ff",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#2d1142", "subdial2BorderColor": "#b388ff", "subdial2HandColor": "#ffea00", "subdial2LabelColor": "#b388ff", "subdial2NumberColor": "#b388ff", "subdial2TickColor": "#b388ff",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#2d1142", "subdial3BorderColor": "#b388ff", "subdial3HandColor": "#ffea00", "subdial3LabelColor": "#b388ff", "subdial3NumberColor": "#b388ff", "subdial3TickColor": "#b388ff",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#2d1142", "subdial4BorderColor": "#b388ff", "subdial4HandColor": "#ffea00", "subdial4LabelColor": "#b388ff", "subdial4NumberColor": "#b388ff", "subdial4TickColor": "#b388ff"
+      }
+    },
+    {
+      "id": 31,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "31 · Quad Big · Teal Syringe",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 56 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 20 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 50 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 70 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 40 }
+      ],
+      "options": {
+        "dialBackground": "#002f33", "dialBorderColor": "#26c6da",
+        "hourNumberColor": "#26c6da", "hourTickColor": "#26c6da",
+        "hourHandShape": "syringe", "minuteHandShape": "syringe",
+        "hourHandColor": "#26c6da", "minuteHandColor": "#26c6da", "secondHandColor": "#fff176",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#004447", "subdial1BorderColor": "#26c6da", "subdial1HandColor": "#fff176", "subdial1LabelColor": "#26c6da", "subdial1NumberColor": "#26c6da", "subdial1TickColor": "#26c6da",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#004447", "subdial2BorderColor": "#26c6da", "subdial2HandColor": "#fff176", "subdial2LabelColor": "#26c6da", "subdial2NumberColor": "#26c6da", "subdial2TickColor": "#26c6da",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#004447", "subdial3BorderColor": "#26c6da", "subdial3HandColor": "#fff176", "subdial3LabelColor": "#26c6da", "subdial3NumberColor": "#26c6da", "subdial3TickColor": "#26c6da",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#004447", "subdial4BorderColor": "#26c6da", "subdial4HandColor": "#fff176", "subdial4LabelColor": "#26c6da", "subdial4NumberColor": "#26c6da", "subdial4TickColor": "#26c6da"
+      }
+    },
+    {
+      "id": 32,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "32 · Quad Big · Rose Gold Dauphine",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 56 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 45 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 25 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 80 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 55 }
+      ],
+      "options": {
+        "dialBackground": "#fff0ea", "dialBorderColor": "#b76e79",
+        "hourNumberColor": "#8c4a54", "hourTickColor": "#b76e79",
+        "hourHandShape": "dauphine", "minuteHandShape": "dauphine",
+        "hourHandColor": "#b76e79", "minuteHandColor": "#b76e79", "secondHandColor": "#8c4a54",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#ffe4db", "subdial1BorderColor": "#b76e79", "subdial1HandColor": "#8c4a54", "subdial1LabelColor": "#8c4a54", "subdial1NumberColor": "#8c4a54", "subdial1TickColor": "#b76e79",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#ffe4db", "subdial2BorderColor": "#b76e79", "subdial2HandColor": "#8c4a54", "subdial2LabelColor": "#8c4a54", "subdial2NumberColor": "#8c4a54", "subdial2TickColor": "#b76e79",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#ffe4db", "subdial3BorderColor": "#b76e79", "subdial3HandColor": "#8c4a54", "subdial3LabelColor": "#8c4a54", "subdial3NumberColor": "#8c4a54", "subdial3TickColor": "#b76e79",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#ffe4db", "subdial4BorderColor": "#b76e79", "subdial4HandColor": "#8c4a54", "subdial4LabelColor": "#8c4a54", "subdial4NumberColor": "#8c4a54", "subdial4TickColor": "#b76e79"
+      }
+    },
+    {
+      "id": 33,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "33 · Quad Big · Matte Black Orange",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 64 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 30 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 60 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 90 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 10 }
+      ],
+      "options": {
+        "dialBackground": "#1c1c1c", "dialBorderColor": "#ff6d00",
+        "hourNumberColor": "#ff6d00", "hourTickColor": "#ff6d00",
+        "hourHandShape": "baton", "minuteHandShape": "baton",
+        "hourHandColor": "#ff6d00", "minuteHandColor": "#ff6d00", "secondHandColor": "#ffffff",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#2c2c2c", "subdial1BorderColor": "#ff6d00", "subdial1HandColor": "#ffffff", "subdial1LabelColor": "#ff6d00", "subdial1NumberColor": "#ff6d00", "subdial1TickColor": "#ff6d00",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#2c2c2c", "subdial2BorderColor": "#ff6d00", "subdial2HandColor": "#ffffff", "subdial2LabelColor": "#ff6d00", "subdial2NumberColor": "#ff6d00", "subdial2TickColor": "#ff6d00",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#2c2c2c", "subdial3BorderColor": "#ff6d00", "subdial3HandColor": "#ffffff", "subdial3LabelColor": "#ff6d00", "subdial3NumberColor": "#ff6d00", "subdial3TickColor": "#ff6d00",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#2c2c2c", "subdial4BorderColor": "#ff6d00", "subdial4HandColor": "#ffffff", "subdial4LabelColor": "#ff6d00", "subdial4NumberColor": "#ff6d00", "subdial4TickColor": "#ff6d00"
+      }
+    },
+    {
+      "id": 34,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "34 · Quad Big · Ice Blue Radial",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 64 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 20 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 70 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 50 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 30 }
+      ],
+      "options": {
+        "dialFillMode": "radial",
+        "dialBackground": "#e3f2fd", "dialColor2": "#1565c0",
+        "dialGradientInnerStop": 15, "dialGradientOuterStop": 95,
+        "dialBorderColor": "#0d47a1",
+        "hourNumberColor": "#0d47a1", "hourTickColor": "#0d47a1",
+        "hourHandColor": "#0d47a1", "minuteHandColor": "#0d47a1", "secondHandColor": "#ffeb3b",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#ffffff", "subdial1BorderColor": "#0d47a1", "subdial1HandColor": "#0d47a1", "subdial1LabelColor": "#0d47a1", "subdial1NumberColor": "#0d47a1", "subdial1TickColor": "#0d47a1",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#ffffff", "subdial2BorderColor": "#0d47a1", "subdial2HandColor": "#0d47a1", "subdial2LabelColor": "#0d47a1", "subdial2NumberColor": "#0d47a1", "subdial2TickColor": "#0d47a1",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#ffffff", "subdial3BorderColor": "#0d47a1", "subdial3HandColor": "#0d47a1", "subdial3LabelColor": "#0d47a1", "subdial3NumberColor": "#0d47a1", "subdial3TickColor": "#0d47a1",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#ffffff", "subdial4BorderColor": "#0d47a1", "subdial4HandColor": "#0d47a1", "subdial4LabelColor": "#0d47a1", "subdial4NumberColor": "#0d47a1", "subdial4TickColor": "#0d47a1"
+      }
+    },
+    {
+      "id": 35,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "35 · Quad Big · Copper Radial",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 64 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 55 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 15 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 85 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 45 }
+      ],
+      "options": {
+        "dialFillMode": "radial",
+        "dialBackground": "#b87333", "dialColor2": "#3e1e0f",
+        "dialGradientInnerStop": 5, "dialGradientOuterStop": 95,
+        "dialBorderColor": "#3e1e0f",
+        "hourNumberColor": "#ffd7a6", "hourTickColor": "#ffd7a6",
+        "hourHandShape": "alpha", "minuteHandShape": "alpha",
+        "hourHandColor": "#ffd7a6", "minuteHandColor": "#ffd7a6", "secondHandColor": "#ffffff",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#3e1e0f", "subdial1BorderColor": "#b87333", "subdial1HandColor": "#ffd7a6", "subdial1LabelColor": "#ffd7a6", "subdial1NumberColor": "#ffd7a6", "subdial1TickColor": "#b87333",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#3e1e0f", "subdial2BorderColor": "#b87333", "subdial2HandColor": "#ffd7a6", "subdial2LabelColor": "#ffd7a6", "subdial2NumberColor": "#ffd7a6", "subdial2TickColor": "#b87333",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#3e1e0f", "subdial3BorderColor": "#b87333", "subdial3HandColor": "#ffd7a6", "subdial3LabelColor": "#ffd7a6", "subdial3NumberColor": "#ffd7a6", "subdial3TickColor": "#b87333",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#3e1e0f", "subdial4BorderColor": "#b87333", "subdial4HandColor": "#ffd7a6", "subdial4LabelColor": "#ffd7a6", "subdial4NumberColor": "#ffd7a6", "subdial4TickColor": "#b87333"
+      }
+    },
+    {
+      "id": 36,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "36 · Quad Big · Burgundy Linear",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 64 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 40 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 60 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 20 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 75 }
+      ],
+      "options": {
+        "dialFillMode": "linear",
+        "dialBackground": "#6d001a", "dialColor2": "#1a0008",
+        "dialGradientAngle": 160,
+        "dialBorderColor": "#d4af37",
+        "hourNumberColor": "#d4af37", "hourTickColor": "#d4af37",
+        "hourHandShape": "spade", "minuteHandShape": "spade",
+        "hourHandColor": "#d4af37", "minuteHandColor": "#d4af37", "secondHandColor": "#ffffff",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#1a0008", "subdial1BorderColor": "#d4af37", "subdial1HandColor": "#d4af37", "subdial1LabelColor": "#d4af37", "subdial1NumberColor": "#d4af37", "subdial1TickColor": "#d4af37",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#1a0008", "subdial2BorderColor": "#d4af37", "subdial2HandColor": "#d4af37", "subdial2LabelColor": "#d4af37", "subdial2NumberColor": "#d4af37", "subdial2TickColor": "#d4af37",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#1a0008", "subdial3BorderColor": "#d4af37", "subdial3HandColor": "#d4af37", "subdial3LabelColor": "#d4af37", "subdial3NumberColor": "#d4af37", "subdial3TickColor": "#d4af37",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#1a0008", "subdial4BorderColor": "#d4af37", "subdial4HandColor": "#d4af37", "subdial4LabelColor": "#d4af37", "subdial4NumberColor": "#d4af37", "subdial4TickColor": "#d4af37"
+      }
+    },
+    {
+      "id": 37,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "37 · Quad Big · Square Modern",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 72 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 25 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 65 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 45 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 85 }
+      ],
+      "options": {
+        "dialShape": "square", "dialCornerRadius": 10,
+        "dialBackground": "#fafafa", "dialBorderColor": "#212121",
+        "hourNumberColor": "#212121", "hourTickColor": "#212121",
+        "hourHandColor": "#212121", "minuteHandColor": "#212121", "secondHandColor": "#ff5252",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#eeeeee", "subdial1BorderColor": "#212121", "subdial1HandColor": "#ff5252", "subdial1LabelColor": "#212121", "subdial1NumberColor": "#212121", "subdial1TickColor": "#212121",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#eeeeee", "subdial2BorderColor": "#212121", "subdial2HandColor": "#ff5252", "subdial2LabelColor": "#212121", "subdial2NumberColor": "#212121", "subdial2TickColor": "#212121",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#eeeeee", "subdial3BorderColor": "#212121", "subdial3HandColor": "#ff5252", "subdial3LabelColor": "#212121", "subdial3NumberColor": "#212121", "subdial3TickColor": "#212121",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#eeeeee", "subdial4BorderColor": "#212121", "subdial4HandColor": "#ff5252", "subdial4LabelColor": "#212121", "subdial4NumberColor": "#212121", "subdial4TickColor": "#212121"
+      }
+    },
+    {
+      "id": 38,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "38 · Quad Big · Hex Point Dark",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 72 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 35 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 75 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 15 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 55 }
+      ],
+      "options": {
+        "dialShape": "hex-point",
+        "dialBackground": "#0a0a14", "dialBorderColor": "#7c4dff",
+        "hourNumberColor": "#7c4dff", "hourTickColor": "#7c4dff",
+        "hourHandShape": "pointer", "minuteHandShape": "pointer",
+        "hourHandColor": "#b388ff", "minuteHandColor": "#b388ff", "secondHandColor": "#ffffff",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#1a1a2e", "subdial1BorderColor": "#7c4dff", "subdial1HandColor": "#b388ff", "subdial1LabelColor": "#b388ff", "subdial1NumberColor": "#b388ff", "subdial1TickColor": "#7c4dff",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#1a1a2e", "subdial2BorderColor": "#7c4dff", "subdial2HandColor": "#b388ff", "subdial2LabelColor": "#b388ff", "subdial2NumberColor": "#b388ff", "subdial2TickColor": "#7c4dff",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#1a1a2e", "subdial3BorderColor": "#7c4dff", "subdial3HandColor": "#b388ff", "subdial3LabelColor": "#b388ff", "subdial3NumberColor": "#b388ff", "subdial3TickColor": "#7c4dff",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#1a1a2e", "subdial4BorderColor": "#7c4dff", "subdial4HandColor": "#b388ff", "subdial4LabelColor": "#b388ff", "subdial4NumberColor": "#b388ff", "subdial4TickColor": "#7c4dff"
+      }
+    },
+    {
+      "id": 39,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "39 · Quad Big · Olive Dauphine",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 72 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 50 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 30 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 70 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 20 }
+      ],
+      "options": {
+        "dialBackground": "#3a3f1e", "dialBorderColor": "#d4d48a",
+        "hourNumberColor": "#e8e8b0", "hourTickColor": "#e8e8b0",
+        "hourHandShape": "dauphine", "minuteHandShape": "dauphine",
+        "hourHandColor": "#e8e8b0", "minuteHandColor": "#e8e8b0", "secondHandColor": "#ff6f00",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#4d5226", "subdial1BorderColor": "#d4d48a", "subdial1HandColor": "#ff6f00", "subdial1LabelColor": "#e8e8b0", "subdial1NumberColor": "#e8e8b0", "subdial1TickColor": "#d4d48a",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#4d5226", "subdial2BorderColor": "#d4d48a", "subdial2HandColor": "#ff6f00", "subdial2LabelColor": "#e8e8b0", "subdial2NumberColor": "#e8e8b0", "subdial2TickColor": "#d4d48a",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#4d5226", "subdial3BorderColor": "#d4d48a", "subdial3HandColor": "#ff6f00", "subdial3LabelColor": "#e8e8b0", "subdial3NumberColor": "#e8e8b0", "subdial3TickColor": "#d4d48a",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#4d5226", "subdial4BorderColor": "#d4d48a", "subdial4HandColor": "#ff6f00", "subdial4LabelColor": "#e8e8b0", "subdial4NumberColor": "#e8e8b0", "subdial4TickColor": "#d4d48a"
+      }
+    },
+    {
+      "id": 40,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "40 · Quad Big · Cyan Cyber",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 72 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 60 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 40 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 80 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 25 }
+      ],
+      "options": {
+        "dialBackground": "#000814", "dialBorderColor": "#00ffff",
+        "hourNumberColor": "#00ffff", "hourTickColor": "#00ffff",
+        "hourHandShape": "skeleton", "minuteHandShape": "skeleton",
+        "hourHandColor": "#00ffff", "minuteHandColor": "#00ffff", "secondHandColor": "#ff00ff",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#001a33", "subdial1BorderColor": "#00ffff", "subdial1HandColor": "#ff00ff", "subdial1LabelColor": "#00ffff", "subdial1NumberColor": "#00ffff", "subdial1TickColor": "#00ffff",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#001a33", "subdial2BorderColor": "#00ffff", "subdial2HandColor": "#ff00ff", "subdial2LabelColor": "#00ffff", "subdial2NumberColor": "#00ffff", "subdial2TickColor": "#00ffff",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#001a33", "subdial3BorderColor": "#00ffff", "subdial3HandColor": "#ff00ff", "subdial3LabelColor": "#00ffff", "subdial3NumberColor": "#00ffff", "subdial3TickColor": "#00ffff",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#001a33", "subdial4BorderColor": "#00ffff", "subdial4HandColor": "#ff00ff", "subdial4LabelColor": "#00ffff", "subdial4NumberColor": "#00ffff", "subdial4TickColor": "#00ffff"
+      }
+    },
+    {
+      "id": 41,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "41 · Quad Big · Cream Pastel",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 80 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 40 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 60 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 30 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 70 }
+      ],
+      "options": {
+        "dialBackground": "#fdf6e3", "dialBorderColor": "#657b83",
+        "hourNumberColor": "#657b83", "hourTickColor": "#93a1a1",
+        "hourHandShape": "leaf", "minuteHandShape": "leaf",
+        "hourHandColor": "#657b83", "minuteHandColor": "#657b83", "secondHandColor": "#cb4b16",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#eee8d5", "subdial1BorderColor": "#657b83", "subdial1HandColor": "#cb4b16", "subdial1LabelColor": "#657b83", "subdial1NumberColor": "#657b83", "subdial1TickColor": "#93a1a1",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#eee8d5", "subdial2BorderColor": "#657b83", "subdial2HandColor": "#cb4b16", "subdial2LabelColor": "#657b83", "subdial2NumberColor": "#657b83", "subdial2TickColor": "#93a1a1",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#eee8d5", "subdial3BorderColor": "#657b83", "subdial3HandColor": "#cb4b16", "subdial3LabelColor": "#657b83", "subdial3NumberColor": "#657b83", "subdial3TickColor": "#93a1a1",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#eee8d5", "subdial4BorderColor": "#657b83", "subdial4HandColor": "#cb4b16", "subdial4LabelColor": "#657b83", "subdial4NumberColor": "#657b83", "subdial4TickColor": "#93a1a1"
+      }
+    },
+    {
+      "id": 42,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "42 · Quad Big · Slate Arrow",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 80 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 15 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 85 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 50 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 35 }
+      ],
+      "options": {
+        "dialBackground": "#37474f", "dialBorderColor": "#cfd8dc",
+        "hourNumberColor": "#eceff1", "hourTickColor": "#cfd8dc",
+        "hourHandShape": "arrow", "minuteHandShape": "arrow",
+        "hourHandColor": "#eceff1", "minuteHandColor": "#eceff1", "secondHandColor": "#ff6e40",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#455a64", "subdial1BorderColor": "#cfd8dc", "subdial1HandColor": "#ff6e40", "subdial1LabelColor": "#eceff1", "subdial1NumberColor": "#eceff1", "subdial1TickColor": "#cfd8dc",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#455a64", "subdial2BorderColor": "#cfd8dc", "subdial2HandColor": "#ff6e40", "subdial2LabelColor": "#eceff1", "subdial2NumberColor": "#eceff1", "subdial2TickColor": "#cfd8dc",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#455a64", "subdial3BorderColor": "#cfd8dc", "subdial3HandColor": "#ff6e40", "subdial3LabelColor": "#eceff1", "subdial3NumberColor": "#eceff1", "subdial3TickColor": "#cfd8dc",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#455a64", "subdial4BorderColor": "#cfd8dc", "subdial4HandColor": "#ff6e40", "subdial4LabelColor": "#eceff1", "subdial4NumberColor": "#eceff1", "subdial4TickColor": "#cfd8dc"
+      }
+    },
+    {
+      "id": 43,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "43 · Quad Big · Oxblood Sword",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 80 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 55 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 25 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 90 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 65 }
+      ],
+      "options": {
+        "dialBackground": "#3d0000", "dialBorderColor": "#f5deb3",
+        "hourNumberColor": "#f5deb3", "hourTickColor": "#f5deb3",
+        "hourHandShape": "sword", "minuteHandShape": "sword",
+        "hourHandColor": "#f5deb3", "minuteHandColor": "#f5deb3", "secondHandColor": "#ffca28",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#5a0000", "subdial1BorderColor": "#f5deb3", "subdial1HandColor": "#ffca28", "subdial1LabelColor": "#f5deb3", "subdial1NumberColor": "#f5deb3", "subdial1TickColor": "#f5deb3",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#5a0000", "subdial2BorderColor": "#f5deb3", "subdial2HandColor": "#ffca28", "subdial2LabelColor": "#f5deb3", "subdial2NumberColor": "#f5deb3", "subdial2TickColor": "#f5deb3",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#5a0000", "subdial3BorderColor": "#f5deb3", "subdial3HandColor": "#ffca28", "subdial3LabelColor": "#f5deb3", "subdial3NumberColor": "#f5deb3", "subdial3TickColor": "#f5deb3",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#5a0000", "subdial4BorderColor": "#f5deb3", "subdial4HandColor": "#ffca28", "subdial4LabelColor": "#f5deb3", "subdial4NumberColor": "#f5deb3", "subdial4TickColor": "#f5deb3"
+      }
+    },
+    {
+      "id": 44,
+      "type": "dzaczek-alpineclock-panel",
+      "title": "44 · Quad Big · Monochrome Taper",
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 80 },
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 45 },
+        { "refId": "B", "scenarioId": "random_walk", "alias": "b", "min": 0, "max": 100, "startValue": 75 },
+        { "refId": "C", "scenarioId": "random_walk", "alias": "c", "min": 0, "max": 100, "startValue": 20 },
+        { "refId": "D", "scenarioId": "random_walk", "alias": "d", "min": 0, "max": 100, "startValue": 60 }
+      ],
+      "options": {
+        "dialBackground": "#ffffff", "dialBorderColor": "#000000", "dialBorderWidth": 3,
+        "hourNumberColor": "#000000", "hourTickColor": "#000000",
+        "hourHandShape": "taper", "minuteHandShape": "taper",
+        "hourHandColor": "#000000", "minuteHandColor": "#000000", "secondHandColor": "#000000",
+        "subdial1Enabled": true, "subdial1Mode": "analog", "subdial1Distance": 58, "subdial1Angle": 0,   "subdial1Size": 45, "subdial1Label": "A", "subdial1LabelFontSize": 10, "subdial1QueryRefId": "A", "subdial1BgColor": "#f0f0f0", "subdial1BorderColor": "#000000", "subdial1HandColor": "#000000", "subdial1LabelColor": "#000000", "subdial1NumberColor": "#000000", "subdial1TickColor": "#000000",
+        "subdial2Enabled": true, "subdial2Mode": "analog", "subdial2Distance": 58, "subdial2Angle": 90,  "subdial2Size": 45, "subdial2Label": "B", "subdial2LabelFontSize": 10, "subdial2QueryRefId": "B", "subdial2BgColor": "#f0f0f0", "subdial2BorderColor": "#000000", "subdial2HandColor": "#000000", "subdial2LabelColor": "#000000", "subdial2NumberColor": "#000000", "subdial2TickColor": "#000000",
+        "subdial3Enabled": true, "subdial3Mode": "analog", "subdial3Distance": 58, "subdial3Angle": 180, "subdial3Size": 45, "subdial3Label": "C", "subdial3LabelFontSize": 10, "subdial3QueryRefId": "C", "subdial3BgColor": "#f0f0f0", "subdial3BorderColor": "#000000", "subdial3HandColor": "#000000", "subdial3LabelColor": "#000000", "subdial3NumberColor": "#000000", "subdial3TickColor": "#000000",
+        "subdial4Enabled": true, "subdial4Mode": "analog", "subdial4Distance": 58, "subdial4Angle": 270, "subdial4Size": 45, "subdial4Label": "D", "subdial4LabelFontSize": 10, "subdial4QueryRefId": "D", "subdial4BgColor": "#f0f0f0", "subdial4BorderColor": "#000000", "subdial4HandColor": "#000000", "subdial4LabelColor": "#000000", "subdial4NumberColor": "#000000", "subdial4TickColor": "#000000"
+      }
+    }
+  ]
+}

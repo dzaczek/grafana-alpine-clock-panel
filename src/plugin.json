@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "panel",
+  "name": "Alpine Clock Panel",
+  "id": "dzaczek-alpineclock-panel",
+  "info": {
+    "keywords": ["panel", "clock", "analog", "alpine", "timezone"],
+    "description": "Fully configurable analog clock with timezone selector, stop-to-go second hand, and customizable dial, hands and counterweight.",
+    "author": {
+      "name": "Dzaczek"
+    },
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaDependency": ">=12.3.0",
+    "plugins": []
+  }
+}
