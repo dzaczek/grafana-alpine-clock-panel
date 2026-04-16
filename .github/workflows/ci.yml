@@ -203,6 +203,8 @@ jobs:
       - name: Run Playwright tests
         id: run-tests
         run: npm run e2e
+        env:
+          GRAFANA_VERSION: ${{ matrix.GRAFANA_IMAGE.VERSION }}
 
       - name: Upload e2e test summary
         uses: grafana/plugin-actions/playwright-gh-pages/upload-report-artifacts@upload-report-artifacts/v1.0.1
