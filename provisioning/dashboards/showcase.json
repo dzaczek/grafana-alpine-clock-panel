@@ -21,7 +21,7 @@
       "id": 1,
       "type": "dzaczek-alpineclock-panel",
       "title": "01 · Classic Swiss",
-      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 0 },
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 80 },
       "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
       "targets": [{ "refId": "A", "scenarioId": "random_walk" }],
       "options": {
@@ -1168,7 +1168,7 @@
       "id": 44,
       "type": "dzaczek-alpineclock-panel",
       "title": "44 · Quad Big · Monochrome Taper",
-      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 80 },
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 0 },
       "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
       "targets": [
         { "refId": "A", "scenarioId": "random_walk", "alias": "a", "min": 0, "max": 100, "startValue": 45 },
