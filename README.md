@@ -1,5 +1,9 @@
 # Alpine Clock Panel for Grafana
 
+<p align="center">
+  <img src="./src/img/logo.svg" alt="Alpine Clock Panel logo" width="160" />
+</p>
+
 A fully configurable **analog clock panel plugin** for Grafana. Designed to look like a real watch — every visual detail is adjustable from the panel editor.
 
 ## Features

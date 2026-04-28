@@ -1,50 +1,37 @@
-<!-- This README file is going to be the one displayed on the Grafana.com website for your plugin. Uncomment and replace the content here before publishing.
+# Alpine Clock Panel
 
-Remove any remaining comments before publishing as these may be displayed on Grafana.com -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dzaczek/grafana-alpine-clock-panel/main/src/img/logo.svg" alt="Alpine Clock Panel logo" width="160" />
+</p>
 
-# Alpine-Clock-Panel
+Alpine Clock Panel is a configurable analog clock plugin for Grafana with watch-inspired styling, timezone support, metric-driven complications, and rich visual customization.
 
-<!-- To help maximize the impact of your README and improve usability for users, we propose the following loose structure:
+## Highlights
 
-**BEFORE YOU BEGIN**
-- Ensure all links are absolute URLs so that they will work when the README is displayed within Grafana and Grafana.com
-- Be inspired ✨
-  - [grafana-polystat-panel](https://github.com/grafana/grafana-polystat-panel)
-  - [volkovlabs-variable-panel](https://github.com/volkovlabs/volkovlabs-variable-panel)
-
-**ADD SOME BADGES**
-
-Badges convey useful information at a glance for users whether in the Catalog or viewing the source code. You can use the generator on [Shields.io](https://shields.io/badges/dynamic-json-badge) together with the Grafana.com API
-to create dynamic badges that update automatically when you publish a new version to the marketplace.
-
-- For the URL parameter use `https://grafana.com/api/plugins/your-plugin-id`.
-- Example queries:
-  - Downloads: `$.downloads`
-  - Catalog Version: `$.version`
-  - Grafana Dependency: `$.grafanaDependency`
-  - Signature Type: `$.versionSignatureType`
-- Optionally, for the logo parameter use `grafana`.
-
-Full example: ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?logo=grafana&query=$.version&url=https://grafana.com/api/plugins/grafana-polystat-panel&label=Marketplace&prefix=v&color=F47A20)
-
-Consider other [badges](https://shields.io/badges) as you feel appropriate for your project.
-
-## Overview / Introduction
-Provide one or more paragraphs as an introduction to your plugin to help users understand why they should use it.
-
-Consider including screenshots:
-- in [plugin.json](https://grafana.com/developers/plugin-tools/reference/plugin-json#info) include them as relative links.
-- in the README ensure they are absolute URLs.
+- Configurable dial shapes, gradients, bezels, tick marks, numerals, and hand styles
+- Timezone-aware rendering with optional dashboard time synchronization
+- Stop-to-go second hand, animated bounce, and dynamic hand shadows
+- Date/day windows, rolling date strip, four subdials, and a global metric hand
+- Showcase dashboard with multiple design presets and TestData scenarios
 
 ## Requirements
-List any requirements or dependencies they may need to run the plugin.
 
-## Getting Started
-Provide a quick start on how to configure and use the plugin.
+- Grafana 12.3.0 or newer
+- Node.js version from the repository `.nvmrc` for local development
+
+## Getting started
+
+1. Install dependencies with `npm install`.
+2. Start development mode with `npm run dev`.
+3. Start Grafana locally with `npm run server`.
+4. Open `http://localhost:3000` and add the Alpine Clock Panel to a dashboard.
 
 ## Documentation
-If your project has dedicated documentation available for users, provide links here. For help in following Grafana's style recommendations for technical documentation, refer to our [Writer's Toolkit](https://grafana.com/docs/writers-toolkit/).
+
+- Repository and full setup guide: https://github.com/dzaczek/grafana-alpine-clock-panel
+- Local showcase dashboard: `provisioning/dashboards/showcase.json`
 
 ## Contributing
-Do you want folks to contribute to the plugin or provide feedback through specific means? If so, tell them how!
--->
+
+Issues and pull requests are welcome in the GitHub repository:
+https://github.com/dzaczek/grafana-alpine-clock-panel
