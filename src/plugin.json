@@ -4,8 +4,8 @@
   "name": "Alpine Clock Panel",
   "id": "dzaczek-alpineclock-panel",
   "info": {
-    "keywords": ["panel", "clock", "analog", "alpine", "timezone"],
-    "description": "Fully configurable analog clock with timezone selector, stop-to-go second hand, and customizable dial, hands and counterweight.",
+    "keywords": ["panel", "clock", "analog", "watch", "timezone", "gauge", "bezel", "chronograph"],
+    "description": "The most geeky clock panel ever for Grafana: build a watch-style clock from hand geometry and numerals to bezel scales, subdials, segmented gauges, and transparent mechanical movement.",
     "author": {
       "name": "Dzaczek"
     },
@@ -13,7 +13,24 @@
       "small": "img/logo.svg",
       "large": "img/logo.svg"
     },
-    "links": [],
+    "links": [
+      {
+        "name": "documentation",
+        "url": "https://github.com/dzaczek/grafana-alpine-clock-panel#readme"
+      },
+      {
+        "name": "repository",
+        "url": "https://github.com/dzaczek/grafana-alpine-clock-panel"
+      },
+      {
+        "name": "license",
+        "url": "https://github.com/dzaczek/grafana-alpine-clock-panel/blob/main/LICENSE"
+      },
+      {
+        "name": "raise issue",
+        "url": "https://github.com/dzaczek/grafana-alpine-clock-panel/issues"
+      }
+    ],
     "screenshots": [],
     "version": "%VERSION%",
     "updated": "%TODAY%"

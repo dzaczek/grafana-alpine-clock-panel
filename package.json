@@ -1,6 +1,15 @@
 {
   "name": "alpine-clock-panel",
-  "version": "1.1.0",
+  "version": "1.2.0",
+  "description": "The most geeky clock panel ever for Grafana, with watch-style configuration from hands and indices to bezel scales, subdials, gauges, and transparent movement.",
+  "homepage": "https://github.com/dzaczek/grafana-alpine-clock-panel#readme",
+  "bugs": {
+    "url": "https://github.com/dzaczek/grafana-alpine-clock-panel/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzaczek/grafana-alpine-clock-panel.git"
+  },
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",

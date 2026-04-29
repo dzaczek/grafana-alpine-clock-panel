@@ -4,150 +4,146 @@
   <img src="./src/img/logo.svg" alt="Alpine Clock Panel logo" width="160" />
 </p>
 
-A fully configurable **analog clock panel plugin** for Grafana. Designed to look like a real watch — every visual detail is adjustable from the panel editor.
+The most geeky clock panel ever built for Grafana.
 
-## Features
+Alpine Clock Panel is a watch-inspired panel plugin with deep visual control: from hand geometry and counterweights, through dial shapes, numerals, and bezel markings, all the way to metric-driven complications, segmented gauges, transparent mechanical movement, and chronograph-style subdials.
 
-### Clock face
-- **8 dial shapes**: round, horizontal/vertical oval, square, horizontal/vertical rectangle, flat-top hexagon, pointy hexagon
-- **Gradient fills**: solid, linear gradient, or radial gradient with configurable stops
-- **Bezel** (outer ring) with custom numbers (`12h`, `24h`, `60`, `60-all`), ticks, rotation offset, and font controls
-- **Hour / minute / second tick marks** with independent colors, lengths, widths, and optional 3-D sun-shadow elevation
-- **Hour numbers** with configurable font family, size, color, and radial distance
+If you want to build your own clock instead of choosing from a fixed widget, this plugin is for you.
 
-### Hands
-- **14 hand shapes**: rect, taper, lozenge, pointer, sword, dauphine, breguet, alpha, syringe, arrow, baton, leaf, skeleton, spade
-- **Per-hand counterweight** with 5 shapes: none, circle, square, diamond, ring
-- **Smooth-sweep** option (continuous vs. tick-step motion) per hand
-- **Bounce animation** — damped harmonic oscillation on each tick; configurable amplitude, damping, and frequency per hand
-- **Center cap** with configurable size and color
+## Why this plugin exists
 
-### Stop-to-go second hand
-The second hand can be configured to pause and then sweep quickly to catch up — mimicking the mechanism found in precision Swiss movements. The sweep duration and pause duration are both configurable in milliseconds.
+- Build anything from a minimal studio clock to a dense mechanical watch face.
+- Tune almost every visible element directly from the Grafana panel editor.
+- Mix pure timekeeping with dashboard data by using subdials, a global metric hand, value windows, segmented gauges, and mechanical cutaway styles.
+- Use the included showcase dashboard as a design catalog and starting point for your own presets.
 
-### Time source
-- **Timezone selector** — any IANA timezone from the bundled `moment-timezone` database
-- **Dashboard time range** — optionally use the Grafana panel query time instead of the local clock
+## Highlights
 
-### Virtual sun & hand shadows
-A virtual sun orbits the dial and casts dynamic SVG shadows from each hand, simulating a real light source. Control the shadow color, opacity, blur, and minimum/maximum shadow distances. Night behavior is configurable: hide, fade, or keep shadows.
+- 8 dial shapes: `round`, `oval-h`, `oval-v`, `square`, `rect-h`, `rect-v`, `hex-flat`, `hex-point`
+- 14 hand shapes: `rect`, `taper`, `lozenge`, `pointer`, `sword`, `dauphine`, `breguet`, `alpha`, `syringe`, `arrow`, `baton`, `leaf`, `skeleton`, `spade`
+- Arabic, Roman, circled Arabic, and circled Roman hour numerals
+- Fully configurable bezel with 12/24/60 scales, ticks, rotation, fonts, and ring placement
+- Stop-to-go seconds, smooth sweep, per-hand bounce, dynamic sun shadows, and timezone support
+- Day window, date window, rolling date strip, and up to 4 configurable subdials
+- Global metric hand with arcs, thresholds, value windows, scale rings, segmented gauge overlays, and mechanical gauge styling
+- Transparent dial / skeleton movement mode with animated wheels, bridges, jewels, and escapement-inspired motion
+- 150+ ready-to-preview showcase examples provisioned for local Grafana
 
-### Date / day windows
-- **Day-of-week window** — shows the full day name (Monday), short (Mon), or 2-letter (Mo); supports curved arc layout
-- **Date window** — shows the day-of-month number; supports curved arc layout
-- Both windows are fully configurable: position, size, colors, font, corner radius
+## Configuration coverage
 
-### Subdials (×4)
-Up to four independent subdials can be placed anywhere on the face. Each subdial can show:
-- **Analog** — gauge hand with ticks and optional numbers
-- **Digital** — numeric readout
-- Bound to any Grafana query field with reducer (last, mean, min, max, sum, …)
-- Linear scale and offset transform
-- Threshold coloring (value, background, or both) with two configurable thresholds
-- Optional label with configurable position and style
+The panel currently exposes more than **220 editor options**.
 
-### Global metric hand
-A full-face gauge overlay driven by query data. Features:
-- Configurable sweep geometry (start angle, sweep span)
-- Same hand shapes and counterweight options as the clock hands
-- Fill arc between min and current value with optional threshold-color bands
-- Scale ring with tick marks and numeric labels around the dial
-- Value display options: floating window, center readout, or counterweight display
+- Time source and stop-to-go timing
+- Dial size, shape, gradients, border, and transparency behavior
+- Bezel numbers, fonts, ticks, offsets, thickness, and border
+- Hour, minute, and second indices, including numeral styles
+- Hour, minute, and second hand geometry, motion, counterweights, and bounce
+- Center cap, virtual sun, and dynamic shadows
+- Day window, date window, and rolling date strip
+- 4 subdials with analog or digital rendering and query-driven thresholds
+- Global metric hand, arc fill, thresholds, value windows, and scale ring
+- Segmented global metric gauge with labels, rim, sparkline, and split value
+- Skeleton movement rendering and movement-style parameters
 
-### Rolling date strip
-A scrolling strip showing surrounding dates, with the current date highlighted — like a perpetual calendar complication.
+For the exhaustive option reference, see [docs/CONFIGURATION.md](./docs/CONFIGURATION.md).
 
 ## Requirements
 
 | Dependency | Version |
 |---|---|
-| Grafana | ≥ 12.3.0 |
-| Node.js | see `.nvmrc` |
+| Grafana | `>=12.3.0` |
+| Node.js | `>=22` |
+| npm | `>=10` |
 
-## Getting started
+## Local development
 
-### 1. Install dependencies
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Develop (watch mode)
+### Start frontend watch mode
 
 ```bash
 npm run dev
 ```
 
-### 3. Run Grafana locally via Docker
+### Start Grafana locally
 
 ```bash
 npm run server
 ```
 
-Open [http://localhost:3000](http://localhost:3000) — the plugin is provisioned automatically.
+Then open `http://localhost:3000`.
 
-### 4. Production build
+### Validation
 
 ```bash
+npm run typecheck
+npm run lint
+npm run test:ci
 npm run build
 ```
 
-Output goes to `dist/`. Copy the `dist/` folder to your Grafana plugin directory (e.g. `/var/lib/grafana/plugins/dzaczek-alpineclock-panel/`).
+## Release and versioning
 
-### 5. Tests
+This repository follows **Semantic Versioning** (`MAJOR.MINOR.PATCH`), which matches Grafana plugin metadata expectations for `plugin.json` and release packaging.
 
-```bash
-# Unit tests (Jest, watch mode)
-npm run test
-
-# Unit tests (CI, single run)
-npm run test:ci
-
-# E2E tests (Playwright — requires `npm run server` first)
-npm run e2e
-```
-
-### 6. Lint
+Recommended release flow:
 
 ```bash
-npm run lint
-npm run lint:fix
-```
-
-## Signing & publishing
-
-To distribute the plugin through the Grafana catalog the plugin must be signed.
-
-1. Create a [Grafana Cloud account](https://grafana.com/signup).
-2. Confirm that your Grafana Cloud account slug matches the plugin ID prefix (`dzaczek`).
-3. Create a Grafana Cloud API key with the `PluginPublisher` role.
-4. Add the key as a repository secret named `GRAFANA_API_KEY`.
-5. Push a version tag to trigger the release workflow:
-
-```bash
-npm version minor   # or major / patch
+npm version patch   # or minor / major
 git push origin main --follow-tags
 ```
 
-The bundled [release workflow](./.github/workflows/release.yml) will sign and package the plugin automatically.
+Important details:
+
+- Release tags must use the `v*` pattern, for example `v1.2.0`.
+- The GitHub release workflow packages the plugin from the versioned tag.
+- The plugin metadata uses a SemVer version in `plugin.json`, as recommended by Grafana Plugin Tools.
+- CI already validates build, lint, tests, packaging, and metadata compatibility.
+
+Reference:
+
+- Grafana plugin metadata: https://grafana.com/developers/plugin-tools/reference/plugin-json
+- Grafana packaging guide: https://grafana.com/developers/plugin-tools/publish-a-plugin/package-a-plugin
+- Grafana publishing best practices: https://grafana.com/developers/plugin-tools/publish-a-plugin/publishing-best-practices
+
+## Publishing notes
+
+- The plugin is designed to be packaged and signed with Grafana Plugin Tools workflows.
+- `plugin.json` contains catalog-facing metadata such as description, keywords, links, logos, and SemVer placeholders.
+- Before publishing to the Grafana catalog, add real screenshots to `src/plugin.json` if you want a richer catalog presentation.
 
 ## Project structure
 
-```
+```text
 alpine-clock-panel/
 ├── src/
-│   ├── module.ts              # Plugin entry point & panel options registry
-│   ├── types.ts               # TypeScript types for all panel options
-│   ├── timezones.ts           # IANA timezone list
+│   ├── module.ts
+│   ├── types.ts
+│   ├── timezones.ts
 │   ├── components/
-│   │   └── AlpineClockPanel.tsx  # Main SVG rendering component
+│   │   └── AlpineClockPanel.tsx
 │   └── img/
 │       └── logo.svg
-├── provisioning/              # Auto-provisioned Grafana datasource & dashboard
-├── .config/                   # Managed by @grafana/create-plugin — do not edit
-├── dist/                      # Build output (git-ignored)
-└── docker-compose.yaml        # Local dev environment
+├── docs/
+│   └── CONFIGURATION.md
+├── provisioning/
+├── .github/workflows/
+├── .config/
+└── dist/
 ```
+
+## Contributing
+
+Ideas, bug reports, and feature requests are welcome.
+
+- Repository: https://github.com/dzaczek/grafana-alpine-clock-panel
+- Issues: https://github.com/dzaczek/grafana-alpine-clock-panel/issues
+
+If you have an idea for a new complication, dial style, mechanical behavior, or data-driven watch feature, open an issue on GitHub.
 
 ## License
 

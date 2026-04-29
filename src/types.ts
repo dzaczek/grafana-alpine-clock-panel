@@ -13,6 +13,11 @@ export type SubdialReducer =
   | 'count';
 
 export type SubdialThresholdMode = 'none' | 'value' | 'background' | 'both';
+export type GlobalMetricGaugePlacement = 'none' | 'dial' | 'bezel';
+export type GlobalMetricGaugeStyle = 'flat' | 'mechanical';
+export type MechanicalMovementMode = 'off' | 'skeleton';
+export type MechanicalMovementDriveMode = 'run' | 'wind' | 'set-time';
+export type HourNumberStyle = 'arabic' | 'roman' | 'circled-arabic' | 'circled-roman';
 
 export type DialShape =
   | 'round'     // Circle
@@ -123,6 +128,7 @@ export interface AlpineClockOptions {
   hourTickWidth: number;
   hourTickHeight: number;     // px — 3D elevation for virtual-sun shadow; 0 = flat
   showHourNumbers: boolean;
+  hourNumberStyle: HourNumberStyle;
   hourNumberFontSize: number;
   hourNumberColor: string;
   hourNumberFontFamily: string;
@@ -473,6 +479,55 @@ export interface AlpineClockOptions {
   gmValueFontFamily: string;
   gmValueFontSize: number;   // px for window/center, % of radius for center mode
   gmValueCornerRadius: number;
+
+  // Optional segmented semi-gauge tied to the same global metric value.
+  gmGaugePlacement: GlobalMetricGaugePlacement;
+  gmGaugeStyle: GlobalMetricGaugeStyle;
+  gmGaugeOpacity: number;          // 0..100
+  gmGaugeStartAngle: number;       // degrees; 0 = 12 o'clock, positive = clockwise
+  gmGaugeSweepAngle: number;       // degrees span (typically 180)
+  gmGaugeInnerRadius: number;      // % of placement base radius
+  gmGaugeOuterRadius: number;      // % of placement base radius
+  gmGaugeLabelRadius: number;      // % of placement base radius
+  gmGaugeSegmentCount: number;
+  gmGaugeSegmentGap: number;       // % of each segment reserved as spacing
+  gmGaugeActiveColor1: string;
+  gmGaugeActiveColor2: string;
+  gmGaugeInactiveColor: string;
+  gmGaugeRimEnabled: boolean;
+  gmGaugeRimColor1: string;
+  gmGaugeRimColor2: string;
+  gmGaugeRimWidth: number;         // px
+  gmGaugeLabelValues: string;      // comma-separated values, e.g. "10,30,60,90"
+  gmGaugeLabelColor: string;
+  gmGaugeLabelFontFamily: string;
+  gmGaugeLabelFontSize: number;    // % of placement base radius
+  gmGaugeShowValue: boolean;
+  gmGaugeValueColor: string;
+  gmGaugeValueFontFamily: string;
+  gmGaugeValueFontSize: number;    // px
+  gmGaugeValueYOffset: number;     // % of placement base radius
+  gmGaugeUnitColor: string;
+  gmGaugeUnitFontSize: number;     // px
+  gmGaugeShowSparkline: boolean;
+  gmGaugeSparklineColor: string;
+  gmGaugeSparklineFillColor: string;
+  gmGaugeSparklineOpacity: number; // 0..100
+  gmGaugeSparklineWidth: number;   // % of placement base radius
+  gmGaugeSparklineHeight: number;  // % of placement base radius
+  gmGaugeSparklineYOffset: number; // % of placement base radius
+  gmGaugeSparklineStrokeWidth: number; // px
+
+  // Skeleton movement shown through a transparent dial. This is a separate
+  // dial style and works best on clean watches without metric overlays.
+  mechanicalMovementMode: MechanicalMovementMode;
+  mechanicalMovementDriveMode: MechanicalMovementDriveMode;
+  mechanicalMovementCrownSpeed: number;  // crown turns per minute in wind / set-time demos
+  mechanicalMovementOpacity: number;      // 0..100
+  mechanicalMovementDialOpacity: number;  // 0..100
+  mechanicalMovementMetalColor: string;
+  mechanicalMovementBridgeColor: string;
+  mechanicalMovementJewelColor: string;
 
   // Vertical rolling date strip
   showRollingDate: boolean;

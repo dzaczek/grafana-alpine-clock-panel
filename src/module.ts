@@ -28,6 +28,35 @@ const COUNTERWEIGHT_OPTIONS = [
   { value: 'ring', label: 'Ring' },
 ];
 
+const GM_GAUGE_PLACEMENT_OPTIONS = [
+  { value: 'none', label: 'Disabled' },
+  { value: 'dial', label: 'Dial background' },
+  { value: 'bezel', label: 'Bezel ring' },
+];
+
+const GM_GAUGE_STYLE_OPTIONS = [
+  { value: 'flat', label: 'Flat overlay' },
+  { value: 'mechanical', label: 'Mechanical cutouts' },
+];
+
+const MECHANICAL_MOVEMENT_MODE_OPTIONS = [
+  { value: 'off', label: 'Off' },
+  { value: 'skeleton', label: 'Transparent dial + movement' },
+];
+
+const MECHANICAL_MOVEMENT_DRIVE_MODE_OPTIONS = [
+  { value: 'run', label: 'Run' },
+  { value: 'wind', label: 'Wind mainspring' },
+  { value: 'set-time', label: 'Set time' },
+];
+
+const HOUR_NUMBER_STYLE_OPTIONS = [
+  { value: 'arabic', label: 'Arabic numerals' },
+  { value: 'roman', label: 'Roman numerals' },
+  { value: 'circled-arabic', label: 'Circled Arabic' },
+  { value: 'circled-roman', label: 'Circled Roman' },
+];
+
 interface HandDefaults {
   color: string;
   length: number;
@@ -494,6 +523,8 @@ function registerSubdial(
 function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOptions>) {
   const cat = ['Global metric'];
   const en = (c: AlpineClockOptions) => c.gmEnabled;
+  const gaugeCat = ['Global metric', 'Segmented gauge'];
+  const gaugeEn = (c: AlpineClockOptions) => en(c) && c.gmGaugePlacement !== 'none';
 
   builder
     .addBooleanSwitch({
@@ -954,6 +985,354 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 4,
       settings: { min: 0, max: 40, step: 1 },
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    })
+
+    // Segmented gauge track
+    .addRadio({
+      path: 'gmGaugePlacement',
+      name: 'Segmented gauge placement',
+      category: gaugeCat,
+      defaultValue: 'none',
+      description: 'Semi-circular segmented gauge tied to the global metric. Can sit subtly on the dial or wrap the bezel.',
+      settings: { options: GM_GAUGE_PLACEMENT_OPTIONS },
+      showIf: en,
+    })
+    .addRadio({
+      path: 'gmGaugeStyle',
+      name: 'Gauge presentation',
+      category: gaugeCat,
+      defaultValue: 'flat',
+      description: 'Mechanical cutouts use a date-wheel style cylinder for the value and recessed drum-bars for the chart.',
+      settings: { options: GM_GAUGE_STYLE_OPTIONS },
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeOpacity',
+      name: 'Gauge opacity (%)',
+      category: gaugeCat,
+      defaultValue: 30,
+      settings: { min: 0, max: 100, step: 1 },
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeStartAngle',
+      name: 'Gauge start angle (deg, 0 = 12 o\'clock)',
+      category: gaugeCat,
+      defaultValue: 225,
+      settings: { min: -360, max: 360, step: 1 },
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeSweepAngle',
+      name: 'Gauge sweep span (deg)',
+      category: gaugeCat,
+      defaultValue: 180,
+      settings: { min: 30, max: 360, step: 1 },
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeInnerRadius',
+      name: 'Gauge inner radius (% of placement radius)',
+      category: gaugeCat,
+      defaultValue: 58,
+      settings: { min: 0, max: 140, step: 1 },
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeOuterRadius',
+      name: 'Gauge outer radius (% of placement radius)',
+      category: gaugeCat,
+      defaultValue: 74,
+      settings: { min: 0, max: 160, step: 1 },
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeLabelRadius',
+      name: 'Label radius (% of placement radius)',
+      category: gaugeCat,
+      defaultValue: 84,
+      settings: { min: 0, max: 180, step: 1 },
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeSegmentCount',
+      name: 'Segment count',
+      category: gaugeCat,
+      defaultValue: 30,
+      settings: { min: 3, max: 120, step: 1 },
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeSegmentGap',
+      name: 'Segment gap (% of segment)',
+      category: gaugeCat,
+      defaultValue: 32,
+      settings: { min: 0, max: 90, step: 1 },
+      showIf: gaugeEn,
+    })
+    .addColorPicker({
+      path: 'gmGaugeActiveColor1',
+      name: 'Active gradient start',
+      category: gaugeCat,
+      defaultValue: '#f3c54b',
+      showIf: gaugeEn,
+    })
+    .addColorPicker({
+      path: 'gmGaugeActiveColor2',
+      name: 'Active gradient end',
+      category: gaugeCat,
+      defaultValue: '#ff6b5f',
+      showIf: gaugeEn,
+    })
+    .addColorPicker({
+      path: 'gmGaugeInactiveColor',
+      name: 'Inactive segment color',
+      category: gaugeCat,
+      defaultValue: '#3a3f47',
+      showIf: gaugeEn,
+    })
+    .addBooleanSwitch({
+      path: 'gmGaugeRimEnabled',
+      name: 'Show inactive outer rim',
+      category: gaugeCat,
+      defaultValue: true,
+      showIf: gaugeEn,
+    })
+    .addColorPicker({
+      path: 'gmGaugeRimColor1',
+      name: 'Outer rim start color',
+      category: gaugeCat,
+      defaultValue: '#9cd8d8',
+      showIf: (c) => gaugeEn(c) && c.gmGaugeRimEnabled,
+    })
+    .addColorPicker({
+      path: 'gmGaugeRimColor2',
+      name: 'Outer rim end color',
+      category: gaugeCat,
+      defaultValue: '#ff8a3d',
+      showIf: (c) => gaugeEn(c) && c.gmGaugeRimEnabled,
+    })
+    .addSliderInput({
+      path: 'gmGaugeRimWidth',
+      name: 'Outer rim width (px)',
+      category: gaugeCat,
+      defaultValue: 2,
+      settings: { min: 0, max: 12, step: 0.5 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeRimEnabled,
+    })
+    .addTextInput({
+      path: 'gmGaugeLabelValues',
+      name: 'Scale labels (comma-separated)',
+      category: gaugeCat,
+      defaultValue: '10,30,60,90',
+      description: 'Values placed outside the arc. Leave empty to hide.',
+      showIf: gaugeEn,
+    })
+    .addColorPicker({
+      path: 'gmGaugeLabelColor',
+      name: 'Label color',
+      category: gaugeCat,
+      defaultValue: '#d0d5db',
+      showIf: gaugeEn,
+    })
+    .addTextInput({
+      path: 'gmGaugeLabelFontFamily',
+      name: 'Label font family',
+      category: gaugeCat,
+      defaultValue: 'Arial, sans-serif',
+      showIf: gaugeEn,
+    })
+    .addSliderInput({
+      path: 'gmGaugeLabelFontSize',
+      name: 'Label font size (% of placement radius)',
+      category: gaugeCat,
+      defaultValue: 6,
+      settings: { min: 2, max: 20, step: 0.5 },
+      showIf: gaugeEn,
+    })
+    .addBooleanSwitch({
+      path: 'gmGaugeShowValue',
+      name: 'Show centered split value',
+      category: gaugeCat,
+      defaultValue: true,
+      showIf: gaugeEn,
+    })
+    .addColorPicker({
+      path: 'gmGaugeValueColor',
+      name: 'Value color',
+      category: gaugeCat,
+      defaultValue: '#ffffff',
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    })
+    .addTextInput({
+      path: 'gmGaugeValueFontFamily',
+      name: 'Value font family',
+      category: gaugeCat,
+      defaultValue: 'Arial, sans-serif',
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    })
+    .addSliderInput({
+      path: 'gmGaugeValueFontSize',
+      name: 'Value font size (px)',
+      category: gaugeCat,
+      defaultValue: 36,
+      settings: { min: 6, max: 160, step: 1 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    })
+    .addSliderInput({
+      path: 'gmGaugeValueYOffset',
+      name: 'Value vertical offset (% of placement radius)',
+      category: gaugeCat,
+      defaultValue: 12,
+      settings: { min: -100, max: 100, step: 1 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    })
+    .addColorPicker({
+      path: 'gmGaugeUnitColor',
+      name: 'Unit color',
+      category: gaugeCat,
+      defaultValue: '#d0d5db',
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    })
+    .addSliderInput({
+      path: 'gmGaugeUnitFontSize',
+      name: 'Unit font size (px)',
+      category: gaugeCat,
+      defaultValue: 16,
+      settings: { min: 4, max: 80, step: 1 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    })
+    .addBooleanSwitch({
+      path: 'gmGaugeShowSparkline',
+      name: 'Show sparkline',
+      category: gaugeCat,
+      defaultValue: false,
+      showIf: gaugeEn,
+    })
+    .addColorPicker({
+      path: 'gmGaugeSparklineColor',
+      name: 'Sparkline stroke color',
+      category: gaugeCat,
+      defaultValue: '#ff6b5f',
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    })
+    .addColorPicker({
+      path: 'gmGaugeSparklineFillColor',
+      name: 'Sparkline fill color',
+      category: gaugeCat,
+      defaultValue: '#ff6b5f',
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    })
+    .addSliderInput({
+      path: 'gmGaugeSparklineOpacity',
+      name: 'Sparkline fill opacity (%)',
+      category: gaugeCat,
+      defaultValue: 35,
+      settings: { min: 0, max: 100, step: 1 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    })
+    .addSliderInput({
+      path: 'gmGaugeSparklineWidth',
+      name: 'Sparkline width (% of placement radius)',
+      category: gaugeCat,
+      defaultValue: 82,
+      settings: { min: 10, max: 160, step: 1 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    })
+    .addSliderInput({
+      path: 'gmGaugeSparklineHeight',
+      name: 'Sparkline height (% of placement radius)',
+      category: gaugeCat,
+      defaultValue: 20,
+      settings: { min: 2, max: 100, step: 1 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    })
+    .addSliderInput({
+      path: 'gmGaugeSparklineYOffset',
+      name: 'Sparkline vertical offset (% of placement radius)',
+      category: gaugeCat,
+      defaultValue: 42,
+      settings: { min: -100, max: 100, step: 1 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    })
+    .addSliderInput({
+      path: 'gmGaugeSparklineStrokeWidth',
+      name: 'Sparkline stroke width (px)',
+      category: gaugeCat,
+      defaultValue: 2,
+      settings: { min: 0.5, max: 10, step: 0.5 },
+      showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    });
+}
+
+function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClockOptions>) {
+  const cat = ['Mechanical movement'];
+  const en = (c: AlpineClockOptions) => c.mechanicalMovementMode === 'skeleton';
+
+  builder
+    .addRadio({
+      path: 'mechanicalMovementMode',
+      name: 'Movement style',
+      category: cat,
+      defaultValue: 'off',
+      description:
+        'Separate transparent-dial watch movement style, independent from the global metric gauge. It looks best on clean dials without metric overlays and with minimal subdials/windows.',
+      settings: { options: MECHANICAL_MOVEMENT_MODE_OPTIONS },
+    })
+    .addSliderInput({
+      path: 'mechanicalMovementOpacity',
+      name: 'Movement opacity (%)',
+      category: cat,
+      defaultValue: 78,
+      settings: { min: 0, max: 100, step: 1 },
+      showIf: en,
+    })
+    .addSliderInput({
+      path: 'mechanicalMovementDialOpacity',
+      name: 'Transparent dial tint opacity (%)',
+      category: cat,
+      defaultValue: 16,
+      settings: { min: 0, max: 100, step: 1 },
+      showIf: en,
+    })
+    .addRadio({
+      path: 'mechanicalMovementDriveMode',
+      name: 'Mechanism mode',
+      category: cat,
+      defaultValue: 'run',
+      description:
+        'Run keeps the train alive from the escapement, wind engages the crown and ratchet, and set time drives the minute works while freezing the escapement.',
+      settings: { options: MECHANICAL_MOVEMENT_DRIVE_MODE_OPTIONS },
+      showIf: en,
+    })
+    .addSliderInput({
+      path: 'mechanicalMovementCrownSpeed',
+      name: 'Crown speed (turns/min)',
+      category: cat,
+      defaultValue: 18,
+      settings: { min: 1, max: 60, step: 1 },
+      showIf: en,
+    })
+    .addColorPicker({
+      path: 'mechanicalMovementMetalColor',
+      name: 'Wheel metal color',
+      category: cat,
+      defaultValue: '#b9a27c',
+      showIf: en,
+    })
+    .addColorPicker({
+      path: 'mechanicalMovementBridgeColor',
+      name: 'Bridge / plate color',
+      category: cat,
+      defaultValue: '#635141',
+      showIf: en,
+    })
+    .addColorPicker({
+      path: 'mechanicalMovementJewelColor',
+      name: 'Jewel accent color',
+      category: cat,
+      defaultValue: '#cb5a6a',
+      showIf: en,
     });
 }
 
@@ -1124,7 +1503,11 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 100,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.dialFillMode === 'radial',
-    })
+    });
+
+  registerMechanicalMovement(builder);
+
+  builder
 
     // Bezel (lunette)
     .addBooleanSwitch({
@@ -1331,6 +1714,14 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       name: 'Show hour numbers',
       category: ['Hour indices'],
       defaultValue: false,
+    })
+    .addSelect({
+      path: 'hourNumberStyle',
+      name: 'Number style',
+      category: ['Hour indices'],
+      defaultValue: 'arabic',
+      settings: { options: HOUR_NUMBER_STYLE_OPTIONS },
+      showIf: (c) => c.showHourNumbers,
     })
     .addColorPicker({
       path: 'hourNumberColor',

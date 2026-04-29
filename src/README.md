@@ -29,6 +29,7 @@ Alpine Clock Panel is a configurable analog clock plugin for Grafana with watch-
 ## Documentation
 
 - Repository and full setup guide: https://github.com/dzaczek/grafana-alpine-clock-panel
+- Full configuration reference: https://github.com/dzaczek/grafana-alpine-clock-panel/blob/main/docs/CONFIGURATION.md
 - Local showcase dashboard: `provisioning/dashboards/showcase.json`
 
 ## Contributing
