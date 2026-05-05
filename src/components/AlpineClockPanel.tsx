@@ -3255,25 +3255,22 @@ function Hand({
   );
 }
 
-function useAnimationClock(callback: () => void, intervalMs = 33) {
+function useAnimationClock(callback: () => void) {
   const cbRef = useRef(callback);
   useEffect(() => {
     cbRef.current = callback;
   }, [callback]);
   useEffect(() => {
     let raf = 0;
-    let interval = 0;
     const loop = () => {
       cbRef.current();
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
-    interval = window.setInterval(() => cbRef.current(), intervalMs);
     return () => {
       cancelAnimationFrame(raf);
-      window.clearInterval(interval);
     };
-  }, [intervalMs]);
+  }, []);
 }
 
 export const AlpineClockPanel: React.FC<Props> = ({ options, data, width, height }) => {
