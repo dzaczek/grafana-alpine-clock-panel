@@ -63,3 +63,19 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+## 5. Project-Specific: Releasing
+
+**Always bump `package.json` version before pushing the git tag.**
+
+The release workflow validates that `PLUGIN_VERSION` (read from `package.json`) matches the git tag. If they differ, the release fails with:
+```
+Plugin version doesn't match tag name. The tag should be vX.Y.Z
+```
+
+Correct release order — never skip a step:
+1. Update `"version"` in `package.json` to the new version
+2. Commit and push to main
+3. Only then: `git tag vX.Y.Z && git push origin vX.Y.Z`
+
+Version bump rules: patch (deps, bugfixes), minor (new features), major (breaking changes).
