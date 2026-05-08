@@ -1,0 +1,122 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
+      },
+      "gridPos": {
+        "h": 20,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "dialShape": "round",
+        "dialBackground": "#000000",
+        "dialBorderColor": "#333333",
+        "hourNumberColor": "#00ff00",
+        "hourTickColor": "#00ff00",
+        "minuteTickColor": "#00aa00",
+        "hourHandColor": "#ffffff",
+        "minuteHandColor": "#ffffff",
+        "secondHandColor": "#ff00ff",
+        "gmEnabled": true,
+        "gmQueryRefId": "A",
+        "gmMin": 0,
+        "gmMax": 100,
+        "gmUnit": "%",
+        "gmSmooth": true,
+        "gmHandShape": "arrow",
+        "gmHandColor": "#00ff00",
+        "gmHandLength": 80,
+        "gmFillMode": "arc",
+        "gmArcInnerRadius": 75,
+        "gmArcOuterRadius": 80,
+        "gmArcColor": "#00ff00",
+        "gmValueDisplay": "window",
+        "gmValueTextColor": "#00ff00",
+        "gmGaugePlacement": "dial",
+        "gmGaugeStyle": "mechanical",
+        "subdial1Enabled": true,
+        "subdial1Mode": "analog",
+        "subdial1Distance": 50,
+        "subdial1Angle": 90,
+        "subdial1Size": 20,
+        "subdial1Label": "MEM",
+        "subdial1QueryRefId": "B",
+        "subdial1Min": 0,
+        "subdial1Max": 100,
+        "subdial1HandColor": "#00ffff",
+        "subdial2Enabled": true,
+        "subdial2Mode": "digital",
+        "subdial2Distance": 50,
+        "subdial2Angle": 270,
+        "subdial2Size": 20,
+        "subdial2Label": "DISK",
+        "subdial2QueryRefId": "C",
+        "mechanicalMovementMode": "skeleton",
+        "mechanicalMovementMetalColor": "#555555",
+        "mechanicalMovementJewelColor": "#ff0000",
+        "showDateWindow": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
+          },
+          "refId": "A",
+          "scenarioId": "random_walk"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
+          },
+          "refId": "B",
+          "scenarioId": "random_walk"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
+          },
+          "refId": "C",
+          "scenarioId": "random_walk"
+        }
+      ],
+      "title": "Wielki zegar full wypas z metrykami",
+      "type": "dzaczek-alpineclock-panel"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 39,
+  "tags": [
+    "alpine-clock",
+    "custom"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Wielki Zegar - Full Wypas Metryki",
+  "uid": "huge-clock-metrics-full",
+  "version": 1,
+  "weekStart": ""
+}
