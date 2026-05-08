@@ -152,7 +152,7 @@ function registerHand(
       path: `${cwPrefix}Position` as any,
       name: 'Counterweight position along hand (% of radius)',
       category: cat,
-      defaultValue: prefix === 'second' ? 65 : -10,
+      defaultValue: prefix === 'second' ? -23 : -10,
       settings: { min: -80, max: 120, step: 1 },
       description: 'Distance from pivot. Positive = toward tip, negative = toward tail.',
       showIf: (c) => (c as any)[`${cwPrefix}Shape`] !== 'none',
