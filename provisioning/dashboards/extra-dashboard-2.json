@@ -15,7 +15,7 @@
         "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
       },
       "gridPos": {
-        "h": 20,
+        "h": 26,
         "w": 24,
         "x": 0,
         "y": 0
@@ -46,7 +46,7 @@
         "gmArcColor": "#00ff00",
         "gmValueDisplay": "window",
         "gmValueTextColor": "#00ff00",
-        "gmGaugePlacement": "dial",
+        "gmGaugePlacement": "bezel",
         "gmGaugeStyle": "mechanical",
         "subdial1Enabled": true,
         "subdial1Mode": "analog",
@@ -96,7 +96,7 @@
           "scenarioId": "random_walk"
         }
       ],
-      "title": "Wielki zegar full wypas z metrykami",
+      "title": "Full-Featured Metrics Clock with Mechanical Movement",
       "type": "dzaczek-alpineclock-panel"
     }
   ],
@@ -115,7 +115,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Wielki Zegar - Full Wypas Metryki",
+  "title": "Full-Featured Metrics Clock",
   "uid": "huge-clock-metrics-full",
   "version": 1,
   "weekStart": ""

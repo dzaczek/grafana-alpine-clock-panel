@@ -29,7 +29,6 @@
         "sunShadowBlur": 8,
         "sunShadowMinDistance": 5,
         "sunShadowMaxDistance": 15,
-        "smoothSecondHand": false,
         "secondBounce": true,
         "secondBounceDurationMs": 500,
         "secondBounceAmplitudeDeg": 5.0,
@@ -55,7 +54,7 @@
           "scenarioId": "random_walk"
         }
       ],
-      "title": "Wielki zegar z cieniem i drgajaca wskazowka",
+      "title": "Large Clock with Shadow and Bouncing Hand",
       "type": "dzaczek-alpineclock-panel"
     }
   ],
@@ -74,7 +73,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Wielki Zegar - Cien i Drganie",
+  "title": "Large Clock — Shadow & Bounce",
   "uid": "huge-clock-shadow-bounce",
   "version": 1,
   "weekStart": ""
