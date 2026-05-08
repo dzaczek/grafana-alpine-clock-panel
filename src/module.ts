@@ -88,6 +88,7 @@ function registerHand(
       name: 'Color',
       category: cat,
       defaultValue: defaults.color,
+      description: `Fill color of the ${prefix} hand.`,
     })
     .addSliderInput({
       path: `${handPath}Length` as any,
@@ -95,6 +96,7 @@ function registerHand(
       category: cat,
       defaultValue: defaults.length,
       settings: { min: 5, max: 120, step: 1 },
+      description: `How far the ${prefix} hand reaches from pivot toward the edge, as a percentage of the dial radius.`,
     })
     .addSliderInput({
       path: `${handPath}Tail` as any,
@@ -102,6 +104,7 @@ function registerHand(
       category: cat,
       defaultValue: defaults.tail,
       settings: { min: 0, max: 80, step: 1 },
+      description: `Length of the ${prefix} hand extending past the pivot in the opposite direction.`,
     })
     .addSliderInput({
       path: `${handPath}PivotOffset` as any,
@@ -117,6 +120,7 @@ function registerHand(
       category: cat,
       defaultValue: defaults.width,
       settings: { min: 1, max: 40, step: 1 },
+      description: `Line thickness of the ${prefix} hand in pixels.`,
     })
     .addSelect({
       path: `${handPath}Shape` as any,
@@ -124,12 +128,14 @@ function registerHand(
       category: cat,
       defaultValue: 'rect',
       settings: { options: HAND_SHAPE_OPTIONS },
+      description: `Silhouette style of the ${prefix} hand (rect, dauphine, sword, arrow, etc.).`,
     })
     .addBooleanSwitch({
       path: smoothPath as any,
       name: 'Smooth motion',
       category: cat,
       defaultValue: prefix === 'hour',
+      description: `When enabled, the ${prefix} hand sweeps continuously instead of jumping from tick to tick.`,
     })
 
     // Per-hand counterweight
@@ -139,6 +145,7 @@ function registerHand(
       category: cat,
       defaultValue: prefix === 'second' ? 'circle' : 'none',
       settings: { options: COUNTERWEIGHT_OPTIONS },
+      description: `Decorative weight shape on the tail side of the ${prefix} hand pivot.`,
     })
     .addSliderInput({
       path: `${cwPrefix}Size` as any,
@@ -147,6 +154,7 @@ function registerHand(
       defaultValue: 10,
       settings: { min: 0, max: 40, step: 1 },
       showIf: (c) => (c as any)[`${cwPrefix}Shape`] !== 'none',
+      description: `Diameter of the counterweight disc as a percentage of the dial radius.`,
     })
     .addSliderInput({
       path: `${cwPrefix}Position` as any,
@@ -163,6 +171,7 @@ function registerHand(
       category: cat,
       defaultValue: defaults.color,
       showIf: (c) => (c as any)[`${cwPrefix}Shape`] !== 'none',
+      description: `Fill color of the ${prefix} hand counterweight.`,
     })
 
     // Per-hand damped bounce on discrete tick
@@ -179,6 +188,7 @@ function registerHand(
       category: cat,
       defaultValue: 500,
       showIf: (c) => (c as any)[bouncePrefix] && !(c as any)[smoothPath],
+      description: 'How long the damped oscillation lasts after each tick, in milliseconds.',
     })
     .addNumberInput({
       path: `${bouncePrefix}AmplitudeDeg` as any,
@@ -186,6 +196,7 @@ function registerHand(
       category: cat,
       defaultValue: defaults.bounceAmp,
       showIf: (c) => (c as any)[bouncePrefix] && !(c as any)[smoothPath],
+      description: 'Initial angular displacement of the oscillation in degrees.',
     })
     .addNumberInput({
       path: `${bouncePrefix}Damping` as any,
@@ -193,6 +204,7 @@ function registerHand(
       category: cat,
       defaultValue: 8,
       showIf: (c) => (c as any)[bouncePrefix] && !(c as any)[smoothPath],
+      description: 'Damping ratio. Higher values settle faster with less overshoot.',
     })
     .addNumberInput({
       path: `${bouncePrefix}Frequency` as any,
@@ -200,6 +212,7 @@ function registerHand(
       category: cat,
       defaultValue: 30,
       showIf: (c) => (c as any)[bouncePrefix] && !(c as any)[smoothPath],
+      description: 'Natural angular frequency of the damped harmonic oscillator in radians per second.',
     });
 }
 
@@ -259,6 +272,7 @@ function registerSubdial(
       defaultValue: defaults.distance,
       settings: { min: 0, max: 100, step: 1 },
       showIf: en,
+      description: 'Radial distance of the subdial center from the main dial center.',
     })
     .addSliderInput({
       path: `subdial${n}Angle` as any,
@@ -267,6 +281,7 @@ function registerSubdial(
       defaultValue: defaults.angle,
       settings: { min: 0, max: 360, step: 1 },
       showIf: en,
+      description: "Angular position of the subdial on the main dial. 0° = 12 o'clock.",
     })
     .addSliderInput({
       path: `subdial${n}Size` as any,
@@ -275,6 +290,7 @@ function registerSubdial(
       defaultValue: 30,
       settings: { min: 5, max: 100, step: 1 },
       showIf: en,
+      description: 'Outer diameter of the subdial as a percentage of the main dial radius.',
     })
     .addRadio({
       path: `subdial${n}Mode` as any,
@@ -283,6 +299,7 @@ function registerSubdial(
       defaultValue: 'analog',
       settings: { options: SUBDIAL_MODE_OPTIONS },
       showIf: en,
+      description: 'Analog draws a mini hand on a small scale; digital shows a numeric readout.',
     })
     .addColorPicker({
       path: `subdial${n}BgColor` as any,
@@ -290,6 +307,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '#f4ecd2',
       showIf: en,
+      description: 'Fill color of the subdial face.',
     })
     .addColorPicker({
       path: `subdial${n}BorderColor` as any,
@@ -297,6 +315,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '#1a1a1a',
       showIf: en,
+      description: 'Color of the subdial outer ring.',
     })
     .addSliderInput({
       path: `subdial${n}BorderWidth` as any,
@@ -305,6 +324,7 @@ function registerSubdial(
       defaultValue: 1,
       settings: { min: 0, max: 10, step: 1 },
       showIf: en,
+      description: 'Thickness of the subdial outer ring in pixels.',
     })
     .addNumberInput({
       path: `subdial${n}Min` as any,
@@ -312,6 +332,7 @@ function registerSubdial(
       category: cat,
       defaultValue: 0,
       showIf: en,
+      description: 'Value that maps to the start of the subdial scale.',
     })
     .addNumberInput({
       path: `subdial${n}Max` as any,
@@ -319,6 +340,7 @@ function registerSubdial(
       category: cat,
       defaultValue: 100,
       showIf: en,
+      description: 'Value that maps to the end of the subdial scale.',
     })
     .addTextInput({
       path: `subdial${n}Label` as any,
@@ -326,6 +348,7 @@ function registerSubdial(
       category: cat,
       defaultValue: defaults.label,
       showIf: en,
+      description: 'Short text label displayed on or near the subdial (e.g. MEM, CPU).',
     })
     .addSelect({
       path: `subdial${n}LabelPosition` as any,
@@ -334,6 +357,7 @@ function registerSubdial(
       defaultValue: 'inside-bottom',
       settings: { options: SUBDIAL_LABEL_POSITION_OPTIONS },
       showIf: en,
+      description: 'Where the label sits relative to the subdial face.',
     })
     .addColorPicker({
       path: `subdial${n}LabelColor` as any,
@@ -341,6 +365,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '#2a2a2a',
       showIf: en,
+      description: 'Text color of the subdial label.',
     })
     .addSliderInput({
       path: `subdial${n}LabelFontSize` as any,
@@ -349,6 +374,7 @@ function registerSubdial(
       defaultValue: 14,
       settings: { min: 4, max: 40, step: 1 },
       showIf: en,
+      description: 'Font size of the label text relative to the subdial radius.',
     })
     .addTextInput({
       path: `subdial${n}Unit` as any,
@@ -356,6 +382,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '',
       showIf: en,
+      description: 'Unit suffix displayed after the value (e.g. %, GB, rpm).',
     })
     .addColorPicker({
       path: `subdial${n}HandColor` as any,
@@ -363,6 +390,7 @@ function registerSubdial(
       category: cat,
       defaultValue: defaults.handColor,
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog',
+      description: 'Color of the analog subdial indicator hand.',
     })
     .addSliderInput({
       path: `subdial${n}HandWidth` as any,
@@ -371,6 +399,7 @@ function registerSubdial(
       defaultValue: 6,
       settings: { min: 1, max: 30, step: 1 },
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog',
+      description: 'Line thickness of the analog subdial hand relative to the subdial radius.',
     })
     .addSliderInput({
       path: `subdial${n}TickCount` as any,
@@ -379,6 +408,7 @@ function registerSubdial(
       defaultValue: 12,
       settings: { min: 0, max: 60, step: 1 },
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog',
+      description: 'Number of evenly spaced tick marks around the subdial scale.',
     })
     .addColorPicker({
       path: `subdial${n}TickColor` as any,
@@ -386,6 +416,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '#2a2a2a',
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog',
+      description: 'Color of the subdial tick marks.',
     })
     .addBooleanSwitch({
       path: `subdial${n}ShowNumbers` as any,
@@ -393,6 +424,7 @@ function registerSubdial(
       category: cat,
       defaultValue: true,
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog',
+      description: 'Display the min, midpoint, and max values along the subdial scale.',
     })
     .addColorPicker({
       path: `subdial${n}NumberColor` as any,
@@ -400,6 +432,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '#2a2a2a',
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog' && (c as any)[`subdial${n}ShowNumbers`],
+      description: 'Color of the min/mid/max number labels on the subdial.',
     })
     .addSliderInput({
       path: `subdial${n}NumberFontSize` as any,
@@ -408,6 +441,7 @@ function registerSubdial(
       defaultValue: 16,
       settings: { min: 4, max: 40, step: 1 },
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog' && (c as any)[`subdial${n}ShowNumbers`],
+      description: 'Font size of the scale numbers relative to the subdial radius.',
     })
     .addColorPicker({
       path: `subdial${n}DigitalColor` as any,
@@ -415,6 +449,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '#d94e1f',
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'digital',
+      description: 'Color of the numeric readout text in digital mode.',
     })
     .addSliderInput({
       path: `subdial${n}DigitalFontSize` as any,
@@ -423,6 +458,7 @@ function registerSubdial(
       defaultValue: 40,
       settings: { min: 10, max: 100, step: 1 },
       showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'digital',
+      description: 'Font size of the digital readout relative to the subdial radius.',
     })
     .addNumberInput({
       path: `subdial${n}Decimals` as any,
@@ -430,6 +466,7 @@ function registerSubdial(
       category: cat,
       defaultValue: 0,
       showIf: en,
+      description: 'Number of decimal digits shown in digital mode or when formatting the value.',
     })
     .addTextInput({
       path: `subdial${n}FieldName` as any,
@@ -446,6 +483,7 @@ function registerSubdial(
       defaultValue: 'lastNotNull',
       settings: { options: SUBDIAL_REDUCER_OPTIONS },
       showIf: en,
+      description: 'Aggregation applied to the data series (last, mean, min, max, sum, etc.).',
     })
     .addTextInput({
       path: `subdial${n}QueryRefId` as any,
@@ -469,6 +507,7 @@ function registerSubdial(
       category: cat,
       defaultValue: 0,
       showIf: en,
+      description: 'Constant added to the scaled value. Applied after scale, before min/max clamping.',
     })
     .addRadio({
       path: `subdial${n}ThresholdMode` as any,
@@ -484,6 +523,7 @@ function registerSubdial(
         ],
       },
       showIf: en,
+      description: 'How threshold crossings are visualized: hand/text color, background color, or both.',
     })
     .addNumberInput({
       path: `subdial${n}Threshold1` as any,
@@ -491,6 +531,7 @@ function registerSubdial(
       category: cat,
       defaultValue: 70,
       showIf: (c) => en(c) && (c as any)[`subdial${n}ThresholdMode`] !== 'none',
+      description: 'Warning threshold value. Crossing this activates the threshold-1 color.',
     })
     .addColorPicker({
       path: `subdial${n}Threshold1Color` as any,
@@ -498,6 +539,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '#e6b800',
       showIf: (c) => en(c) && (c as any)[`subdial${n}ThresholdMode`] !== 'none',
+      description: 'Color applied when the value crosses threshold 1 (warning zone).',
     })
     .addNumberInput({
       path: `subdial${n}Threshold2` as any,
@@ -505,6 +547,7 @@ function registerSubdial(
       category: cat,
       defaultValue: 90,
       showIf: (c) => en(c) && (c as any)[`subdial${n}ThresholdMode`] !== 'none',
+      description: 'Critical threshold value. Crossing this activates the threshold-2 color.',
     })
     .addColorPicker({
       path: `subdial${n}Threshold2Color` as any,
@@ -512,6 +555,7 @@ function registerSubdial(
       category: cat,
       defaultValue: '#d14343',
       showIf: (c) => en(c) && (c as any)[`subdial${n}ThresholdMode`] !== 'none',
+      description: 'Color applied when the value crosses threshold 2 (critical zone).',
     });
 }
 
@@ -551,6 +595,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 'lastNotNull',
       settings: { options: SUBDIAL_REDUCER_OPTIONS },
       showIf: en,
+    description: 'Aggregation applied to the data series before mapping to the gauge angle.',
     })
     .addTextInput({
       path: 'gmQueryRefId',
@@ -566,6 +611,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 1,
       showIf: en,
+    description: 'Multiplier applied to the raw value before offset, min/max clamping, and display.',
     })
     .addNumberInput({
       path: 'gmOffset',
@@ -573,6 +619,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 0,
       showIf: en,
+    description: 'Constant added after scaling, before min/max clamping.',
     })
     .addNumberInput({
       path: 'gmMin',
@@ -580,6 +627,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 0,
       showIf: en,
+    description: 'Value that maps to the start of the gauge sweep arc.',
     })
     .addNumberInput({
       path: 'gmMax',
@@ -587,6 +635,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 100,
       showIf: en,
+    description: 'Value that maps to the end of the gauge sweep arc.',
     })
     .addNumberInput({
       path: 'gmDecimals',
@@ -594,6 +643,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 1,
       showIf: en,
+    description: 'Number of decimal places shown when the value is displayed.',
     })
     .addTextInput({
       path: 'gmUnit',
@@ -601,6 +651,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '',
       showIf: en,
+    description: 'Unit suffix appended to the numeric value (e.g. %, GB/s, rpm).',
     })
 
     // Sweep geometry
@@ -611,6 +662,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: -135,
       settings: { min: -360, max: 360, step: 1 },
       showIf: en,
+    description: "Angle where the gauge arc begins. 0° = 12 o'clock, positive = clockwise.",
     })
     .addSliderInput({
       path: 'gmSweepAngle',
@@ -619,6 +671,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 270,
       settings: { min: 30, max: 360, step: 1 },
       showIf: en,
+    description: 'Angular span of the gauge arc from min to max value, in degrees.',
     })
     .addBooleanSwitch({
       path: 'gmSmooth',
@@ -626,6 +679,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: true,
       showIf: en,
+    description: 'When enabled, the hand animates smoothly between value changes instead of jumping.',
     })
 
     // Hand geometry
@@ -635,6 +689,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#d94e1f',
       showIf: en,
+    description: 'Color of the global metric indicator hand.',
     })
     .addSliderInput({
       path: 'gmHandLength',
@@ -643,6 +698,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 78,
       settings: { min: 5, max: 120, step: 1 },
       showIf: en,
+    description: 'Distance from the pivot to the hand tip, as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'gmHandTail',
@@ -651,6 +707,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 15,
       settings: { min: 0, max: 80, step: 1 },
       showIf: en,
+    description: 'Length of the hand extending behind the pivot, as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'gmHandPivotOffset',
@@ -659,6 +716,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 0,
       settings: { min: -50, max: 50, step: 1 },
       showIf: en,
+    description: 'Shifts the hand pivot away from the dial center. 0 = centered.',
     })
     .addSliderInput({
       path: 'gmHandWidth',
@@ -667,6 +725,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 6,
       settings: { min: 1, max: 40, step: 1 },
       showIf: en,
+    description: 'Line thickness of the global metric hand in pixels.',
     })
     .addSelect({
       path: 'gmHandShape',
@@ -675,6 +734,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 'pointer',
       settings: { options: HAND_SHAPE_OPTIONS },
       showIf: en,
+    description: 'Silhouette style of the global metric hand.',
     })
 
     // Counterweight
@@ -685,6 +745,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 'circle',
       settings: { options: COUNTERWEIGHT_OPTIONS },
       showIf: en,
+    description: 'Decorative weight shape on the tail side of the global metric hand pivot.',
     })
     .addSliderInput({
       path: 'gmCounterweightSize',
@@ -693,6 +754,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 12,
       settings: { min: 0, max: 40, step: 1 },
       showIf: (c) => en(c) && c.gmCounterweightShape !== 'none',
+    description: 'Diameter of the global metric counterweight as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'gmCounterweightPosition',
@@ -701,6 +763,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: -15,
       settings: { min: -80, max: 120, step: 1 },
       showIf: (c) => en(c) && c.gmCounterweightShape !== 'none',
+    description: 'Distance of the counterweight from the pivot. Positive = toward tip, negative = toward tail.',
     })
     .addColorPicker({
       path: 'gmCounterweightColor',
@@ -708,6 +771,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#d94e1f',
       showIf: (c) => en(c) && c.gmCounterweightShape !== 'none',
+    description: 'Fill color of the global metric hand counterweight.',
     })
 
     // Fill arc
@@ -725,6 +789,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
         ],
       },
       showIf: en,
+    description: 'How the sweep arc is filled: none, arc band, threshold-driven hand color, or both.',
     })
     .addSliderInput({
       path: 'gmArcInnerRadius',
@@ -733,6 +798,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 72,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => en(c) && (c.gmFillMode === 'arc' || c.gmFillMode === 'both'),
+    description: 'Inner radius of the fill arc band as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'gmArcOuterRadius',
@@ -741,6 +807,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 88,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => en(c) && (c.gmFillMode === 'arc' || c.gmFillMode === 'both'),
+    description: 'Outer radius of the fill arc band as a percentage of the dial radius.',
     })
     .addColorPicker({
       path: 'gmArcColor',
@@ -748,6 +815,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#d94e1f',
       showIf: (c) => en(c) && (c.gmFillMode === 'arc' || c.gmFillMode === 'both'),
+    description: 'Fill color of the arc band between the inner and outer radii.',
     })
     .addSliderInput({
       path: 'gmArcOpacity',
@@ -756,6 +824,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 60,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => en(c) && (c.gmFillMode === 'arc' || c.gmFillMode === 'both'),
+    description: 'Opacity of the arc fill as a percentage.',
     })
 
     // Thresholds
@@ -773,6 +842,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
         ],
       },
       showIf: en,
+    description: 'How threshold crossings are shown visually: hand/value color, arc fill color, or both.',
     })
     .addNumberInput({
       path: 'gmThreshold1',
@@ -780,6 +850,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 60,
       showIf: (c) => en(c) && c.gmThresholdMode !== 'none',
+    description: 'Warning threshold value. Crossing this activates the threshold-1 color.',
     })
     .addColorPicker({
       path: 'gmThreshold1Color',
@@ -787,6 +858,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#f4b400',
       showIf: (c) => en(c) && c.gmThresholdMode !== 'none',
+    description: 'Color applied when the value crosses the warning threshold.',
     })
     .addNumberInput({
       path: 'gmThreshold2',
@@ -794,6 +866,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 85,
       showIf: (c) => en(c) && c.gmThresholdMode !== 'none',
+    description: 'Critical threshold value. Crossing this activates the threshold-2 color.',
     })
     .addColorPicker({
       path: 'gmThreshold2Color',
@@ -801,6 +874,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#d14343',
       showIf: (c) => en(c) && c.gmThresholdMode !== 'none',
+    description: 'Color applied when the value crosses the critical threshold.',
     })
 
     // Scale ring
@@ -817,6 +891,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
         ],
       },
       showIf: en,
+    description: 'Extra ring of numeric labels: none, independent scale ring, or replace hour numerals.',
     })
     .addSliderInput({
       path: 'gmScaleRadius',
@@ -825,6 +900,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 62,
       settings: { min: 10, max: 100, step: 1 },
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
+    description: 'Radial position of the scale ring as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'gmScaleTickCount',
@@ -833,6 +909,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 10,
       settings: { min: 2, max: 60, step: 1 },
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
+    description: 'Number of major tick marks and labels on the scale ring.',
     })
     .addSliderInput({
       path: 'gmScaleTickLength',
@@ -841,6 +918,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 4,
       settings: { min: 0, max: 30, step: 1 },
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
+    description: 'Length of scale ring ticks as a percentage of the dial radius.',
     })
     .addColorPicker({
       path: 'gmScaleTickColor',
@@ -848,6 +926,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#1a1a1a',
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
+    description: 'Color of the scale ring tick marks.',
     })
     .addColorPicker({
       path: 'gmScaleNumberColor',
@@ -855,6 +934,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#1a1a1a',
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
+    description: 'Color of the scale ring number labels.',
     })
     .addSliderInput({
       path: 'gmScaleNumberFontSize',
@@ -863,6 +943,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 7,
       settings: { min: 2, max: 20, step: 1 },
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
+    description: 'Font size of scale ring numbers as a percentage of the dial radius.',
     })
     .addTextInput({
       path: 'gmScaleNumberFontFamily',
@@ -870,6 +951,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 'Arial, sans-serif',
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
+    description: 'CSS font-family for scale ring numbers.',
     })
     .addNumberInput({
       path: 'gmScaleDecimals',
@@ -877,6 +959,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 0,
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
+    description: 'Number of decimal places for scale ring labels.',
     })
 
     // Value display
@@ -894,6 +977,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
         ],
       },
       showIf: en,
+    description: 'Where to show the current metric value: hidden, in a window, at center, or on the counterweight.',
     })
     .addRadio({
       path: 'gmValueWindowPosition',
@@ -909,6 +993,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
         ],
       },
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    description: 'Placement of the value window on the dial (top, bottom, left, right).',
     })
     .addSliderInput({
       path: 'gmValueWindowDistance',
@@ -917,6 +1002,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 45,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    description: 'Radial distance of the value window center from the dial center.',
     })
     .addSliderInput({
       path: 'gmValueWindowWidth',
@@ -925,6 +1011,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 70,
       settings: { min: 10, max: 400, step: 1 },
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    description: 'Width of the value window in pixels.',
     })
     .addSliderInput({
       path: 'gmValueWindowHeight',
@@ -933,6 +1020,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 28,
       settings: { min: 10, max: 200, step: 1 },
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    description: 'Height of the value window in pixels.',
     })
     .addColorPicker({
       path: 'gmValueTextColor',
@@ -940,6 +1028,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#d94e1f',
       showIf: (c) => en(c) && c.gmValueDisplay !== 'none',
+    description: 'Color of the numeric value text.',
     })
     .addColorPicker({
       path: 'gmValueBgColor',
@@ -947,6 +1036,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#ffffff',
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    description: 'Background color of the value window.',
     })
     .addColorPicker({
       path: 'gmValueBorderColor',
@@ -954,6 +1044,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: '#1a1a1a',
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    description: 'Border color of the value window.',
     })
     .addSliderInput({
       path: 'gmValueBorderWidth',
@@ -962,6 +1053,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 1,
       settings: { min: 0, max: 10, step: 1 },
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    description: 'Border thickness of the value window in pixels.',
     })
     .addTextInput({
       path: 'gmValueFontFamily',
@@ -969,6 +1061,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: 'Menlo, Monaco, Consolas, monospace',
       showIf: (c) => en(c) && c.gmValueDisplay !== 'none',
+    description: 'CSS font-family for the value display text.',
     })
     .addSliderInput({
       path: 'gmValueFontSize',
@@ -977,6 +1070,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 16,
       settings: { min: 4, max: 200, step: 1 },
       showIf: (c) => en(c) && c.gmValueDisplay !== 'none',
+    description: 'Font size of the value text. In window mode this is px; in center mode it is % of radius.',
     })
     .addSliderInput({
       path: 'gmValueCornerRadius',
@@ -985,6 +1079,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 4,
       settings: { min: 0, max: 40, step: 1 },
       showIf: (c) => en(c) && c.gmValueDisplay === 'window',
+    description: 'Rounding radius of the value window corners in pixels.',
     })
 
     // Segmented gauge track
@@ -1013,6 +1108,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 30,
       settings: { min: 0, max: 100, step: 1 },
       showIf: gaugeEn,
+    description: 'Overall opacity of the segmented gauge as a percentage.',
     })
     .addSliderInput({
       path: 'gmGaugeStartAngle',
@@ -1021,6 +1117,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 225,
       settings: { min: -360, max: 360, step: 1 },
       showIf: gaugeEn,
+    description: "Angle where the segmented gauge arc begins. 0° = 12 o'clock.",
     })
     .addSliderInput({
       path: 'gmGaugeSweepAngle',
@@ -1029,6 +1126,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 180,
       settings: { min: 30, max: 360, step: 1 },
       showIf: gaugeEn,
+    description: 'Angular span of the segmented gauge arc in degrees (typically 180 for a half-circle).',
     })
     .addSliderInput({
       path: 'gmGaugeInnerRadius',
@@ -1037,6 +1135,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 58,
       settings: { min: 0, max: 140, step: 1 },
       showIf: gaugeEn,
+    description: 'Inner radius of the gauge segments as a percentage of the placement base radius.',
     })
     .addSliderInput({
       path: 'gmGaugeOuterRadius',
@@ -1045,6 +1144,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 74,
       settings: { min: 0, max: 160, step: 1 },
       showIf: gaugeEn,
+    description: 'Outer radius of the gauge segments as a percentage of the placement base radius.',
     })
     .addSliderInput({
       path: 'gmGaugeLabelRadius',
@@ -1053,6 +1153,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 84,
       settings: { min: 0, max: 180, step: 1 },
       showIf: gaugeEn,
+    description: 'Radial position of gauge scale labels as a percentage of the placement base radius.',
     })
     .addSliderInput({
       path: 'gmGaugeSegmentCount',
@@ -1061,6 +1162,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 30,
       settings: { min: 3, max: 120, step: 1 },
       showIf: gaugeEn,
+    description: 'Total number of segments in the gauge arc. More segments = finer resolution.',
     })
     .addSliderInput({
       path: 'gmGaugeSegmentGap',
@@ -1069,6 +1171,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 32,
       settings: { min: 0, max: 90, step: 1 },
       showIf: gaugeEn,
+    description: "Gap between adjacent segments as a percentage of each segment's width.",
     })
     .addColorPicker({
       path: 'gmGaugeActiveColor1',
@@ -1076,6 +1179,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#f3c54b',
       showIf: gaugeEn,
+    description: 'Start color of the active segment gradient (low end of the value range).',
     })
     .addColorPicker({
       path: 'gmGaugeActiveColor2',
@@ -1083,6 +1187,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#ff6b5f',
       showIf: gaugeEn,
+    description: 'End color of the active segment gradient (high end of the value range).',
     })
     .addColorPicker({
       path: 'gmGaugeInactiveColor',
@@ -1090,6 +1195,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#3a3f47',
       showIf: gaugeEn,
+    description: 'Color of segments that are beyond the current value.',
     })
     .addBooleanSwitch({
       path: 'gmGaugeRimEnabled',
@@ -1097,6 +1203,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: true,
       showIf: gaugeEn,
+    description: 'Draw a thin outer rim behind the gauge segments.',
     })
     .addColorPicker({
       path: 'gmGaugeRimColor1',
@@ -1104,6 +1211,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#9cd8d8',
       showIf: (c) => gaugeEn(c) && c.gmGaugeRimEnabled,
+    description: 'Start color of the outer rim gradient.',
     })
     .addColorPicker({
       path: 'gmGaugeRimColor2',
@@ -1111,6 +1219,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#ff8a3d',
       showIf: (c) => gaugeEn(c) && c.gmGaugeRimEnabled,
+    description: 'End color of the outer rim gradient.',
     })
     .addSliderInput({
       path: 'gmGaugeRimWidth',
@@ -1119,6 +1228,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 2,
       settings: { min: 0, max: 12, step: 0.5 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeRimEnabled,
+    description: 'Thickness of the outer rim in pixels.',
     })
     .addTextInput({
       path: 'gmGaugeLabelValues',
@@ -1134,6 +1244,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#d0d5db',
       showIf: gaugeEn,
+    description: 'Color of the gauge scale label text.',
     })
     .addTextInput({
       path: 'gmGaugeLabelFontFamily',
@@ -1141,6 +1252,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: 'Arial, sans-serif',
       showIf: gaugeEn,
+    description: 'CSS font-family for gauge labels.',
     })
     .addSliderInput({
       path: 'gmGaugeLabelFontSize',
@@ -1149,6 +1261,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 6,
       settings: { min: 2, max: 20, step: 0.5 },
       showIf: gaugeEn,
+    description: 'Font size of gauge labels as a percentage of the placement base radius.',
     })
     .addBooleanSwitch({
       path: 'gmGaugeShowValue',
@@ -1156,6 +1269,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: true,
       showIf: gaugeEn,
+    description: 'Display the current numeric value centered inside the gauge arc.',
     })
     .addColorPicker({
       path: 'gmGaugeValueColor',
@@ -1163,6 +1277,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#ffffff',
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    description: 'Color of the centered gauge value text.',
     })
     .addTextInput({
       path: 'gmGaugeValueFontFamily',
@@ -1170,6 +1285,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: 'Arial, sans-serif',
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    description: 'CSS font-family for the centered gauge value.',
     })
     .addSliderInput({
       path: 'gmGaugeValueFontSize',
@@ -1178,6 +1294,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 36,
       settings: { min: 6, max: 160, step: 1 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    description: 'Font size of the centered gauge value in pixels.',
     })
     .addSliderInput({
       path: 'gmGaugeValueYOffset',
@@ -1186,6 +1303,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 12,
       settings: { min: -100, max: 100, step: 1 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    description: 'Vertical offset of the centered value as a percentage of the placement base radius.',
     })
     .addColorPicker({
       path: 'gmGaugeUnitColor',
@@ -1193,6 +1311,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#d0d5db',
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    description: 'Color of the unit label displayed below the centered value.',
     })
     .addSliderInput({
       path: 'gmGaugeUnitFontSize',
@@ -1201,6 +1320,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 16,
       settings: { min: 4, max: 80, step: 1 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowValue,
+    description: 'Font size of the unit label in pixels.',
     })
     .addBooleanSwitch({
       path: 'gmGaugeShowSparkline',
@@ -1208,6 +1328,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: false,
       showIf: gaugeEn,
+    description: 'Draw a small sparkline chart inside the gauge arc showing recent value history.',
     })
     .addColorPicker({
       path: 'gmGaugeSparklineColor',
@@ -1215,6 +1336,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#ff6b5f',
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    description: 'Stroke color of the sparkline.',
     })
     .addColorPicker({
       path: 'gmGaugeSparklineFillColor',
@@ -1222,6 +1344,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: gaugeCat,
       defaultValue: '#ff6b5f',
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    description: 'Fill color under the sparkline curve.',
     })
     .addSliderInput({
       path: 'gmGaugeSparklineOpacity',
@@ -1230,6 +1353,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 35,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    description: 'Opacity of the sparkline fill as a percentage.',
     })
     .addSliderInput({
       path: 'gmGaugeSparklineWidth',
@@ -1238,6 +1362,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 82,
       settings: { min: 10, max: 160, step: 1 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    description: 'Width of the sparkline area as a percentage of the placement base radius.',
     })
     .addSliderInput({
       path: 'gmGaugeSparklineHeight',
@@ -1246,6 +1371,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 20,
       settings: { min: 2, max: 100, step: 1 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    description: 'Height of the sparkline area as a percentage of the placement base radius.',
     })
     .addSliderInput({
       path: 'gmGaugeSparklineYOffset',
@@ -1254,6 +1380,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 42,
       settings: { min: -100, max: 100, step: 1 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    description: 'Vertical offset of the sparkline from center, as a percentage of the placement base radius.',
     })
     .addSliderInput({
       path: 'gmGaugeSparklineStrokeWidth',
@@ -1262,6 +1389,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       defaultValue: 2,
       settings: { min: 0.5, max: 10, step: 0.5 },
       showIf: (c) => gaugeEn(c) && c.gmGaugeShowSparkline,
+    description: 'Stroke width of the sparkline in pixels.',
     });
 }
 
@@ -1286,6 +1414,7 @@ function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClo
       defaultValue: 78,
       settings: { min: 0, max: 100, step: 1 },
       showIf: en,
+    description: 'Overall opacity of the mechanical movement layer as a percentage.',
     })
     .addSliderInput({
       path: 'mechanicalMovementDialOpacity',
@@ -1294,6 +1423,7 @@ function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClo
       defaultValue: 16,
       settings: { min: 0, max: 100, step: 1 },
       showIf: en,
+    description: 'Tint opacity of the transparent dial overlay as a percentage.',
     })
     .addRadio({
       path: 'mechanicalMovementDriveMode',
@@ -1312,6 +1442,7 @@ function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClo
       defaultValue: 18,
       settings: { min: 1, max: 60, step: 1 },
       showIf: en,
+    description: 'Speed of the crown rotation in turns per minute during wind or set-time modes.',
     })
     .addColorPicker({
       path: 'mechanicalMovementMetalColor',
@@ -1319,6 +1450,7 @@ function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClo
       category: cat,
       defaultValue: '#b9a27c',
       showIf: en,
+    description: 'Base color for the metal wheels and gears.',
     })
     .addColorPicker({
       path: 'mechanicalMovementBridgeColor',
@@ -1326,6 +1458,7 @@ function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClo
       category: cat,
       defaultValue: '#635141',
       showIf: en,
+    description: 'Color of the bridge plates that hold the movement together.',
     })
     .addColorPicker({
       path: 'mechanicalMovementJewelColor',
@@ -1333,6 +1466,7 @@ function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClo
       category: cat,
       defaultValue: '#cb5a6a',
       showIf: en,
+    description: 'Accent color for the synthetic ruby jewels in the movement.',
     });
 }
 
@@ -1367,6 +1501,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Time'],
       defaultValue: 58500,
       showIf: (c) => c.stopToGo,
+    description: 'Duration of the second-hand sweep phase in milliseconds. Remaining time up to 60 s is the pause.',
     })
     .addNumberInput({
       path: 'pauseMs',
@@ -1374,6 +1509,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Time'],
       defaultValue: 1500,
       showIf: (c) => c.stopToGo,
+    description: "How long the second hand rests at 12 o'clock between sweeps, in milliseconds.",
     })
 
     // Dial
@@ -1394,6 +1530,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
           { value: 'hex-point', label: 'Hexagon (pointy top)' },
         ],
       },
+    description: 'Overall silhouette of the clock face — circle, oval, square, rectangle, or hexagon.',
     })
     .addSliderInput({
       path: 'dialWidthFactor',
@@ -1401,6 +1538,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Dial'],
       defaultValue: 95,
       settings: { min: 10, max: 100, step: 1 },
+    description: 'How much of the available panel width the dial occupies, as a percentage.',
     })
     .addSliderInput({
       path: 'dialHeightFactor',
@@ -1408,6 +1546,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Dial'],
       defaultValue: 95,
       settings: { min: 10, max: 100, step: 1 },
+    description: 'How much of the available panel height the dial occupies, as a percentage.',
     })
     .addSliderInput({
       path: 'dialCornerRadius',
@@ -1416,18 +1555,21 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 0,
       settings: { min: 0, max: 120, step: 1 },
       showIf: (c) => c.dialShape === 'square' || c.dialShape === 'rect-h' || c.dialShape === 'rect-v',
+    description: 'Rounding radius for square or rectangular dial shapes, in pixels.',
     })
     .addColorPicker({
       path: 'dialBackground',
       name: 'Background color',
       category: ['Dial'],
       defaultValue: '#ffffff',
+    description: 'Fill color of the dial face.',
     })
     .addColorPicker({
       path: 'dialBorderColor',
       name: 'Border color',
       category: ['Dial'],
       defaultValue: '#1a1a1a',
+    description: 'Color of the dial outline.',
     })
     .addSliderInput({
       path: 'dialBorderWidth',
@@ -1435,6 +1577,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Dial'],
       defaultValue: 0,
       settings: { min: 0, max: 20, step: 1 },
+    description: 'Thickness of the dial outline in pixels. 0 = no border.',
     })
     .addRadio({
       path: 'dialFillMode',
@@ -1448,6 +1591,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
           { value: 'radial', label: 'Radial gradient' },
         ],
       },
+    description: 'Solid fills the dial with one color. Linear/radial blend toward a second color.',
     })
     .addColorPicker({
       path: 'dialColor2',
@@ -1455,6 +1599,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Dial'],
       defaultValue: '#333333',
       showIf: (c) => c.dialFillMode !== 'solid' && !c.dialGradientFade,
+    description: 'Second color for the gradient fill. Ignored when fade-to-transparent is enabled.',
     })
     .addBooleanSwitch({
       path: 'dialGradientFade',
@@ -1471,6 +1616,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 180,
       settings: { min: 0, max: 360, step: 1 },
       showIf: (c) => c.dialFillMode === 'linear',
+    description: 'Direction of the linear gradient in degrees (0 = up, 90 = right).',
     })
     .addSliderInput({
       path: 'dialGradientCenterX',
@@ -1479,6 +1625,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 50,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.dialFillMode === 'radial',
+    description: 'Horizontal position of the radial gradient center, as a percentage of the dial width.',
     })
     .addSliderInput({
       path: 'dialGradientCenterY',
@@ -1487,6 +1634,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 50,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.dialFillMode === 'radial',
+    description: 'Vertical position of the radial gradient center, as a percentage of the dial height.',
     })
     .addSliderInput({
       path: 'dialGradientInnerStop',
@@ -1495,6 +1643,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 0,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.dialFillMode === 'radial',
+    description: 'Radius where the solid core ends and the radial gradient begins, as a percentage.',
     })
     .addSliderInput({
       path: 'dialGradientOuterStop',
@@ -1503,6 +1652,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 100,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.dialFillMode === 'radial',
+    description: 'Radius where the radial gradient reaches full second color, as a percentage.',
     });
 
   registerMechanicalMovement(builder);
@@ -1524,6 +1674,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 12,
       settings: { min: 2, max: 40, step: 1 },
       showIf: (c) => c.showBezel,
+    description: 'Width of the bezel ring as a percentage of the dial radius.',
     })
     .addColorPicker({
       path: 'bezelBackground',
@@ -1531,6 +1682,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Bezel'],
       defaultValue: '#2a2a2a',
       showIf: (c) => c.showBezel,
+    description: 'Fill color of the bezel ring.',
     })
     .addColorPicker({
       path: 'bezelBorderColor',
@@ -1538,6 +1690,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Bezel'],
       defaultValue: '#000000',
       showIf: (c) => c.showBezel,
+    description: 'Color of the bezel outer edge stroke.',
     })
     .addSliderInput({
       path: 'bezelBorderWidth',
@@ -1546,6 +1699,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 1,
       settings: { min: 0, max: 10, step: 1 },
       showIf: (c) => c.showBezel,
+    description: 'Thickness of the bezel outer edge stroke in pixels.',
     })
     .addSelect({
       path: 'bezelNumbersMode',
@@ -1562,6 +1716,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
         ],
       },
       showIf: (c) => c.showBezel,
+    description: 'Which numbers are drawn on the bezel: 1–12, 00–23, minute markers, or none.',
     })
     .addSliderInput({
       path: 'bezelRotationOffset',
@@ -1570,6 +1725,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 0,
       settings: { min: -180, max: 180, step: 1 },
       showIf: (c) => c.showBezel,
+    description: 'Rotates the entire bezel scale by this many degrees. Useful for dive-watch style tracking.',
     })
     .addColorPicker({
       path: 'bezelNumberColor',
@@ -1577,6 +1733,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Bezel'],
       defaultValue: '#ffffff',
       showIf: (c) => c.showBezel && c.bezelNumbersMode !== 'none',
+    description: 'Color of the bezel number text.',
     })
     .addTextInput({
       path: 'bezelNumberFontFamily',
@@ -1584,6 +1741,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Bezel'],
       defaultValue: 'Helvetica, Arial, sans-serif',
       showIf: (c) => c.showBezel && c.bezelNumbersMode !== 'none',
+    description: 'CSS font-family for bezel numbers.',
     })
     .addSliderInput({
       path: 'bezelNumberFontSize',
@@ -1592,6 +1750,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 7,
       settings: { min: 2, max: 25, step: 1 },
       showIf: (c) => c.showBezel && c.bezelNumbersMode !== 'none',
+    description: 'Font size of bezel numbers as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'bezelNumberRadius',
@@ -1600,6 +1759,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 50,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.showBezel && c.bezelNumbersMode !== 'none',
+    description: 'Radial position of bezel numbers within the bezel ring. 0 = inner edge, 100 = outer edge.',
     })
     .addBooleanSwitch({
       path: 'bezelNumberUpright',
@@ -1615,6 +1775,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Bezel'],
       defaultValue: true,
       showIf: (c) => c.showBezel,
+    description: 'Draw tick marks along the bezel ring.',
     })
     .addColorPicker({
       path: 'bezelTickColor',
@@ -1622,6 +1783,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Bezel'],
       defaultValue: '#ffffff',
       showIf: (c) => c.showBezel && c.showBezelTicks,
+    description: 'Color of the bezel tick marks.',
     })
     .addNumberInput({
       path: 'bezelTickStepDeg',
@@ -1629,6 +1791,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Bezel'],
       defaultValue: 6,
       showIf: (c) => c.showBezel && c.showBezelTicks,
+    description: 'Angular spacing between minor bezel ticks in degrees.',
     })
     .addSliderInput({
       path: 'bezelTickLength',
@@ -1637,6 +1800,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 4,
       settings: { min: 1, max: 40, step: 1 },
       showIf: (c) => c.showBezel && c.showBezelTicks,
+    description: 'Length of minor bezel ticks in pixels.',
     })
     .addSliderInput({
       path: 'bezelTickWidth',
@@ -1645,6 +1809,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 1,
       settings: { min: 1, max: 10, step: 1 },
       showIf: (c) => c.showBezel && c.showBezelTicks,
+    description: 'Thickness of minor bezel ticks in pixels.',
     })
     .addNumberInput({
       path: 'bezelMajorTickStepDeg',
@@ -1652,6 +1817,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Bezel'],
       defaultValue: 30,
       showIf: (c) => c.showBezel && c.showBezelTicks,
+    description: 'Angular spacing between major bezel ticks in degrees.',
     })
     .addSliderInput({
       path: 'bezelMajorTickLength',
@@ -1660,6 +1826,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 8,
       settings: { min: 1, max: 40, step: 1 },
       showIf: (c) => c.showBezel && c.showBezelTicks,
+    description: 'Length of major bezel ticks in pixels.',
     })
     .addSliderInput({
       path: 'bezelMajorTickWidth',
@@ -1668,6 +1835,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 2,
       settings: { min: 1, max: 10, step: 1 },
       showIf: (c) => c.showBezel && c.showBezelTicks,
+    description: 'Thickness of major bezel ticks in pixels.',
     })
 
     // Hour indices
@@ -1676,6 +1844,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       name: 'Show hour ticks',
       category: ['Hour indices'],
       defaultValue: true,
+    description: 'Draw hour markers on the dial (1–12 positions).',
     })
     .addColorPicker({
       path: 'hourTickColor',
@@ -1683,6 +1852,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Hour indices'],
       defaultValue: '#000000',
       showIf: (c) => c.showHourTicks,
+    description: 'Color of the hour tick marks.',
     })
     .addSliderInput({
       path: 'hourTickLength',
@@ -1691,6 +1861,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 18,
       settings: { min: 1, max: 40, step: 1 },
       showIf: (c) => c.showHourTicks,
+    description: 'Length of hour tick marks as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'hourTickWidth',
@@ -1699,6 +1870,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 8,
       settings: { min: 1, max: 30, step: 1 },
       showIf: (c) => c.showHourTicks,
+    description: 'Thickness of hour tick marks in pixels.',
     })
     .addSliderInput({
       path: 'hourTickHeight',
@@ -1714,6 +1886,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       name: 'Show hour numbers',
       category: ['Hour indices'],
       defaultValue: false,
+    description: 'Display hour numerals (1–12) on the dial.',
     })
     .addSelect({
       path: 'hourNumberStyle',
@@ -1722,6 +1895,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 'arabic',
       settings: { options: HOUR_NUMBER_STYLE_OPTIONS },
       showIf: (c) => c.showHourNumbers,
+    description: 'Numeral format: Arabic (1,2,3…), Roman (I,II,III…), or circled variants.',
     })
     .addColorPicker({
       path: 'hourNumberColor',
@@ -1729,6 +1903,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Hour indices'],
       defaultValue: '#000000',
       showIf: (c) => c.showHourNumbers,
+    description: 'Color of the hour numeral text.',
     })
     .addSliderInput({
       path: 'hourNumberFontSize',
@@ -1737,6 +1912,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 14,
       settings: { min: 4, max: 30, step: 1 },
       showIf: (c) => c.showHourNumbers,
+    description: 'Font size of hour numerals as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'hourNumberRadius',
@@ -1745,6 +1921,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 78,
       settings: { min: 20, max: 100, step: 1 },
       showIf: (c) => c.showHourNumbers,
+    description: 'Radial distance of hour numerals from the dial center, as a percentage of radius.',
     })
     .addTextInput({
       path: 'hourNumberFontFamily',
@@ -1752,6 +1929,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Hour indices'],
       defaultValue: 'Helvetica, Arial, sans-serif',
       showIf: (c) => c.showHourNumbers,
+    description: 'CSS font-family for hour numerals.',
     })
 
     // Minute indices
@@ -1760,6 +1938,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       name: 'Show minute ticks',
       category: ['Minute indices'],
       defaultValue: true,
+    description: 'Draw minute markers on the dial (60 positions).',
     })
     .addColorPicker({
       path: 'minuteTickColor',
@@ -1767,6 +1946,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Minute indices'],
       defaultValue: '#000000',
       showIf: (c) => c.showMinuteTicks,
+    description: 'Color of the minute tick marks.',
     })
     .addSliderInput({
       path: 'minuteTickLength',
@@ -1775,6 +1955,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 6,
       settings: { min: 1, max: 25, step: 1 },
       showIf: (c) => c.showMinuteTicks,
+    description: 'Length of minute tick marks as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'minuteTickWidth',
@@ -1783,6 +1964,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 3,
       settings: { min: 1, max: 15, step: 1 },
       showIf: (c) => c.showMinuteTicks,
+    description: 'Thickness of minute tick marks in pixels.',
     })
     .addSliderInput({
       path: 'minuteTickHeight',
@@ -1798,6 +1980,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       name: 'Show minute numbers',
       category: ['Minute indices'],
       defaultValue: false,
+    description: 'Display minute numerals on the dial.',
     })
     .addColorPicker({
       path: 'minuteNumberColor',
@@ -1805,6 +1988,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Minute indices'],
       defaultValue: '#555555',
       showIf: (c) => c.showMinuteNumbers,
+    description: 'Color of the minute numeral text.',
     })
     .addSliderInput({
       path: 'minuteNumberFontSize',
@@ -1813,6 +1997,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 7,
       settings: { min: 3, max: 20, step: 1 },
       showIf: (c) => c.showMinuteNumbers,
+    description: 'Font size of minute numerals as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'minuteNumberRadius',
@@ -1821,6 +2006,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 60,
       settings: { min: 10, max: 100, step: 1 },
       showIf: (c) => c.showMinuteNumbers,
+    description: 'Radial distance of minute numerals from the dial center.',
     })
 
     // Second indices
@@ -1829,6 +2015,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       name: 'Show second ticks',
       category: ['Second indices'],
       defaultValue: false,
+    description: 'Draw sub-second markers on the dial.',
     })
     .addColorPicker({
       path: 'secondTickColor',
@@ -1836,6 +2023,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Second indices'],
       defaultValue: '#888888',
       showIf: (c) => c.showSecondTicks,
+    description: 'Color of the second tick marks.',
     })
     .addSliderInput({
       path: 'secondTickLength',
@@ -1844,6 +2032,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 4,
       settings: { min: 1, max: 20, step: 1 },
       showIf: (c) => c.showSecondTicks,
+    description: 'Length of second tick marks as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'secondTickWidth',
@@ -1852,6 +2041,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 1,
       settings: { min: 1, max: 10, step: 1 },
       showIf: (c) => c.showSecondTicks,
+    description: 'Thickness of second tick marks in pixels.',
     })
     .addSliderInput({
       path: 'secondTickHeight',
@@ -1867,6 +2057,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       name: 'Show second numbers',
       category: ['Second indices'],
       defaultValue: false,
+    description: 'Display second numerals on the dial.',
     })
     .addColorPicker({
       path: 'secondNumberColor',
@@ -1874,6 +2065,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Second indices'],
       defaultValue: '#888888',
       showIf: (c) => c.showSecondNumbers,
+    description: 'Color of the second numeral text.',
     })
     .addSliderInput({
       path: 'secondNumberFontSize',
@@ -1882,6 +2074,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 5,
       settings: { min: 2, max: 20, step: 1 },
       showIf: (c) => c.showSecondNumbers,
+    description: 'Font size of second numerals as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'secondNumberRadius',
@@ -1890,6 +2083,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 45,
       settings: { min: 5, max: 100, step: 1 },
       showIf: (c) => c.showSecondNumbers,
+    description: 'Radial distance of second numerals from the dial center.',
     });
 
   // Hands — registered symmetrically
@@ -1924,6 +2118,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       name: 'Color',
       category: ['Center cap'],
       defaultValue: '#000000',
+    description: 'Color of the center cap that covers the hand pivot point.',
     })
     .addSliderInput({
       path: 'centerCapSize',
@@ -1931,6 +2126,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Center cap'],
       defaultValue: 5,
       settings: { min: 0, max: 20, step: 1 },
+    description: 'Radius of the center cap as a percentage of the dial radius. 0 = hidden.',
     });
 
   // Virtual sun / shadow
@@ -1948,6 +2144,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Virtual sun'],
       defaultValue: '#000000',
       showIf: (c) => c.showSunShadow,
+    description: 'Color of the cast shadow (typically black or a dark tone).',
     })
     .addSliderInput({
       path: 'sunShadowOpacity',
@@ -1956,6 +2153,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 45,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.showSunShadow,
+    description: 'Opacity of the shadow as a percentage. 0 = invisible, 100 = fully opaque.',
     })
     .addSliderInput({
       path: 'sunShadowBlur',
@@ -1964,6 +2162,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 2.5,
       settings: { min: 0, max: 20, step: 0.5 },
       showIf: (c) => c.showSunShadow,
+    description: 'Gaussian blur radius of the shadow in pixels. Higher = softer shadow edges.',
     })
     .addSliderInput({
       path: 'sunShadowMinDistance',
@@ -1972,6 +2171,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 1,
       settings: { min: 0, max: 30, step: 1 },
       showIf: (c) => c.showSunShadow,
+    description: 'Shadow length when the sun is at its highest (noon), as a percentage of radius.',
     })
     .addSliderInput({
       path: 'sunShadowMaxDistance',
@@ -1980,6 +2180,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 6,
       settings: { min: 0, max: 40, step: 1 },
       showIf: (c) => c.showSunShadow,
+    description: 'Shadow length when the sun is near the horizon, as a percentage of radius.',
     })
     .addRadio({
       path: 'sunNightBehavior',
@@ -1994,6 +2195,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
         ],
       },
       showIf: (c) => c.showSunShadow,
+    description: 'What happens to the shadow when the sun is below the horizon: hide, fade with elevation, or keep.',
     })
     .addBooleanSwitch({
       path: 'showSun',
@@ -2009,6 +2211,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Virtual sun'],
       defaultValue: '#ffcc33',
       showIf: (c) => c.showSunShadow && c.showSun,
+    description: 'Color of the visible sun indicator dot.',
     })
     .addSliderInput({
       path: 'sunSize',
@@ -2017,6 +2220,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 4,
       settings: { min: 1, max: 20, step: 1 },
       showIf: (c) => c.showSunShadow && c.showSun,
+    description: 'Diameter of the sun indicator as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'sunOrbitRadius',
@@ -2025,6 +2229,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 80,
       settings: { min: 10, max: 100, step: 1 },
       showIf: (c) => c.showSunShadow && c.showSun,
+    description: 'Distance of the sun indicator from the dial center, as a percentage of radius.',
     });
 
   // Chronograph subdials — 4 totalizers, each with its own category
@@ -2058,6 +2263,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 'top',
       settings: { options: POSITION_OPTIONS },
       showIf: (c) => c.showDayWindow,
+    description: 'Placement of the day window on the dial (top, bottom, left, right).',
     })
     .addSliderInput({
       path: 'dayWindowDistance',
@@ -2066,6 +2272,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 55,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.showDayWindow,
+    description: 'Radial distance of the day window center from the dial center, as a percentage of radius.',
     })
     .addSliderInput({
       path: 'dayWindowWidth',
@@ -2074,6 +2281,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 40,
       settings: { min: 5, max: 100, step: 1 },
       showIf: (c) => c.showDayWindow,
+    description: 'Width of the day window as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'dayWindowHeight',
@@ -2082,6 +2290,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 15,
       settings: { min: 3, max: 60, step: 1 },
       showIf: (c) => c.showDayWindow,
+    description: 'Height of the day window as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'dayWindowCornerRadius',
@@ -2090,6 +2299,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 3,
       settings: { min: 0, max: 40, step: 1 },
       showIf: (c) => c.showDayWindow,
+    description: 'Rounding radius of the window corners in pixels.',
     })
     .addColorPicker({
       path: 'dayWindowBgColor',
@@ -2097,6 +2307,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Day window'],
       defaultValue: '#f4ecd2',
       showIf: (c) => c.showDayWindow,
+    description: 'Background fill color of the day window.',
     })
     .addColorPicker({
       path: 'dayWindowTextColor',
@@ -2104,6 +2315,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Day window'],
       defaultValue: '#2a2a2a',
       showIf: (c) => c.showDayWindow,
+    description: 'Text color of the day name.',
     })
     .addSelect({
       path: 'dayWindowFormat',
@@ -2118,6 +2330,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
         ],
       },
       showIf: (c) => c.showDayWindow,
+    description: 'Day display format: full name (MONDAY), abbreviated (MON), or two-letter (MO).',
     })
     .addBooleanSwitch({
       path: 'dayWindowUppercase',
@@ -2125,6 +2338,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Day window'],
       defaultValue: true,
       showIf: (c) => c.showDayWindow,
+    description: 'Force the day text to uppercase.',
     })
     .addTextInput({
       path: 'dayWindowFontFamily',
@@ -2132,6 +2346,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Day window'],
       defaultValue: 'Helvetica, Arial, sans-serif',
       showIf: (c) => c.showDayWindow,
+    description: 'CSS font-family for the day window text.',
     })
     .addSliderInput({
       path: 'dayWindowFontSize',
@@ -2140,6 +2355,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 9,
       settings: { min: 2, max: 30, step: 1 },
       showIf: (c) => c.showDayWindow,
+    description: 'Font size of the day text as a percentage of the dial radius.',
     })
     .addColorPicker({
       path: 'dayWindowBorderColor',
@@ -2147,6 +2363,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Day window'],
       defaultValue: '#1a1a1a',
       showIf: (c) => c.showDayWindow,
+    description: 'Border color of the day window.',
     })
     .addSliderInput({
       path: 'dayWindowBorderWidth',
@@ -2155,6 +2372,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 0,
       settings: { min: 0, max: 10, step: 1 },
       showIf: (c) => c.showDayWindow,
+    description: 'Border thickness of the day window in pixels.',
     })
     .addBooleanSwitch({
       path: 'dayWindowCurved',
@@ -2171,6 +2389,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 70,
       settings: { min: 10, max: 180, step: 1 },
       showIf: (c) => c.showDayWindow && c.dayWindowCurved,
+    description: 'Angular span of the curved window arc in degrees.',
     });
 
   // Day-of-month window
@@ -2189,6 +2408,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 'bottom',
       settings: { options: POSITION_OPTIONS },
       showIf: (c) => c.showDateWindow,
+    description: 'Placement of the date window on the dial (top, bottom, left, right).',
     })
     .addSliderInput({
       path: 'dateWindowDistance',
@@ -2197,6 +2417,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 40,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.showDateWindow,
+    description: 'Radial distance of the date window center from the dial center, as a percentage of radius.',
     })
     .addSliderInput({
       path: 'dateWindowWidth',
@@ -2205,6 +2426,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 18,
       settings: { min: 3, max: 80, step: 1 },
       showIf: (c) => c.showDateWindow,
+    description: 'Width of the date window as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'dateWindowHeight',
@@ -2213,6 +2435,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 15,
       settings: { min: 3, max: 60, step: 1 },
       showIf: (c) => c.showDateWindow,
+    description: 'Height of the date window as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'dateWindowCornerRadius',
@@ -2221,6 +2444,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 3,
       settings: { min: 0, max: 40, step: 1 },
       showIf: (c) => c.showDateWindow,
+    description: 'Rounding radius of the date window corners in pixels.',
     })
     .addColorPicker({
       path: 'dateWindowBgColor',
@@ -2228,6 +2452,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Date window'],
       defaultValue: '#f4ecd2',
       showIf: (c) => c.showDateWindow,
+    description: 'Background fill color of the date window.',
     })
     .addColorPicker({
       path: 'dateWindowTextColor',
@@ -2235,6 +2460,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Date window'],
       defaultValue: '#d94e1f',
       showIf: (c) => c.showDateWindow,
+    description: 'Text color of the date numeral.',
     })
     .addTextInput({
       path: 'dateWindowFontFamily',
@@ -2242,6 +2468,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Date window'],
       defaultValue: 'Helvetica, Arial, sans-serif',
       showIf: (c) => c.showDateWindow,
+    description: 'CSS font-family for the date window text.',
     })
     .addSliderInput({
       path: 'dateWindowFontSize',
@@ -2250,6 +2477,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 12,
       settings: { min: 2, max: 30, step: 1 },
       showIf: (c) => c.showDateWindow,
+    description: 'Font size of the date numeral as a percentage of the dial radius.',
     })
     .addColorPicker({
       path: 'dateWindowBorderColor',
@@ -2257,6 +2485,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Date window'],
       defaultValue: '#1a1a1a',
       showIf: (c) => c.showDateWindow,
+    description: 'Border color of the date window.',
     })
     .addSliderInput({
       path: 'dateWindowBorderWidth',
@@ -2265,6 +2494,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 0,
       settings: { min: 0, max: 10, step: 1 },
       showIf: (c) => c.showDateWindow,
+    description: 'Border thickness of the date window in pixels.',
     })
     .addBooleanSwitch({
       path: 'dateWindowCurved',
@@ -2272,6 +2502,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Date window'],
       defaultValue: false,
       showIf: (c) => c.showDateWindow,
+    description: 'Render the date window as an arc segment following the dial curvature.',
     })
     .addSliderInput({
       path: 'dateWindowArcSpan',
@@ -2280,6 +2511,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 40,
       settings: { min: 10, max: 180, step: 1 },
       showIf: (c) => c.showDateWindow && c.dateWindowCurved,
+    description: 'Angular span of the curved date window arc in degrees.',
     });
 
   // Vertical rolling date strip
@@ -2298,6 +2530,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 'right',
       settings: { options: POSITION_OPTIONS },
       showIf: (c) => c.showRollingDate,
+    description: 'Placement of the rolling date strip on the dial (top, bottom, left, right).',
     })
     .addSliderInput({
       path: 'rollingDateDistance',
@@ -2306,6 +2539,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 45,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => c.showRollingDate,
+    description: 'Radial distance of the rolling date center from the dial center, as a percentage of radius.',
     })
     .addSliderInput({
       path: 'rollingDateWidth',
@@ -2314,6 +2548,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 22,
       settings: { min: 5, max: 80, step: 1 },
       showIf: (c) => c.showRollingDate,
+    description: 'Width of the rolling date strip as a percentage of the dial radius.',
     })
     .addSliderInput({
       path: 'rollingDateHeight',
@@ -2322,6 +2557,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 38,
       settings: { min: 10, max: 100, step: 1 },
       showIf: (c) => c.showRollingDate,
+    description: 'Height of the rolling date strip as a percentage of the dial radius.',
     })
     .addColorPicker({
       path: 'rollingDateBgColor',
@@ -2329,6 +2565,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Rolling date'],
       defaultValue: '#2a2a2a',
       showIf: (c) => c.showRollingDate,
+    description: 'Background fill color of the rolling date window.',
     })
     .addColorPicker({
       path: 'rollingDateTextColor',
@@ -2336,6 +2573,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Rolling date'],
       defaultValue: '#f4ecd2',
       showIf: (c) => c.showRollingDate,
+    description: 'Text color for the previous and next day numbers.',
     })
     .addColorPicker({
       path: 'rollingDateHighlightColor',
@@ -2343,6 +2581,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Rolling date'],
       defaultValue: '#3a3a3a',
       showIf: (c) => c.showRollingDate,
+    description: 'Background highlight color for the current day row.',
     })
     .addTextInput({
       path: 'rollingDateFontFamily',
@@ -2350,6 +2589,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Rolling date'],
       defaultValue: 'Helvetica, Arial, sans-serif',
       showIf: (c) => c.showRollingDate,
+    description: 'CSS font-family for the rolling date text.',
     })
     .addSliderInput({
       path: 'rollingDateFontSize',
@@ -2358,6 +2598,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 14,
       settings: { min: 4, max: 40, step: 1 },
       showIf: (c) => c.showRollingDate,
+    description: 'Font size of the date numbers as a percentage of the dial radius.',
     })
     .addColorPicker({
       path: 'rollingDateBorderColor',
@@ -2365,6 +2606,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       category: ['Rolling date'],
       defaultValue: '#1a1a1a',
       showIf: (c) => c.showRollingDate,
+    description: 'Border color of the rolling date window.',
     })
     .addSliderInput({
       path: 'rollingDateBorderWidth',
@@ -2373,6 +2615,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       defaultValue: 0,
       settings: { min: 0, max: 10, step: 1 },
       showIf: (c) => c.showRollingDate,
+    description: 'Border thickness of the rolling date window in pixels.',
     });
 
   return builder;
