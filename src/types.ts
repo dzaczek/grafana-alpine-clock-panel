@@ -45,30 +45,6 @@ export type HandShape =
   | 'skeleton'  // Outlined rectangle (hollow)
   | 'spade';    // Diamond with rounded shoulders
 
-/** Common geometry & style for a single hand, including its own counterweight and bounce. */
-export interface HandOptions {
-  color: string;
-  length: number;       // % of radius, distance from pivot to tip
-  tail: number;         // % of radius, distance from pivot to back end
-  pivotOffset: number;  // % of radius, shifts pivot along the hand axis (0 = dial center)
-  width: number;        // px
-  shape: HandShape;
-  smooth: boolean;
-
-  // Per-hand counterweight
-  counterweightShape: CounterweightShape;
-  counterweightSize: number;     // % of radius
-  counterweightPosition: number; // % of radius, + toward tip / - toward tail
-  counterweightColor: string;
-
-  // Damped harmonic oscillation on each discrete tick of this hand
-  bounce: boolean;
-  bounceDurationMs: number;
-  bounceAmplitudeDeg: number;
-  bounceDamping: number;    // ζ
-  bounceFrequency: number;  // ω, rad/s
-}
-
 export interface AlpineClockOptions {
   // Time source
   timezone: string;

@@ -82,7 +82,7 @@ function registerHand(
   const bouncePrefix = `${prefix}Bounce`;
   const cat = [category];
 
-  builder
+  const b = builder
     .addColorPicker({
       path: `${handPath}Color` as any,
       name: 'Color',
@@ -129,15 +129,21 @@ function registerHand(
       defaultValue: 'rect',
       settings: { options: HAND_SHAPE_OPTIONS },
       description: `Silhouette style of the ${prefix} hand (rect, dauphine, sword, arrow, etc.).`,
-    })
-    .addBooleanSwitch({
+    });
+
+  // Smooth-motion toggle — only for hour and minute hands.
+  // The second hand is always smooth (stop-to-go or continuous 360°/60s).
+  if (prefix !== 'second') {
+    b.addBooleanSwitch({
       path: smoothPath as any,
       name: 'Smooth motion',
       category: cat,
       defaultValue: prefix === 'hour',
       description: `When enabled, the ${prefix} hand sweeps continuously instead of jumping from tick to tick.`,
-    })
+    });
+  }
 
+  b
     // Per-hand counterweight
     .addSelect({
       path: `${cwPrefix}Shape` as any,
@@ -1450,8 +1456,8 @@ function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClo
       category: cat,
       defaultValue: 18,
       settings: { min: 1, max: 60, step: 1 },
-      showIf: en,
-    description: 'Speed of the crown rotation in turns per minute during wind or set-time modes.',
+      showIf: (c) => en(c) && c.mechanicalMovementDriveMode !== 'run',
+      description: 'Speed of the crown rotation in turns per minute during wind or set-time modes.',
     })
     .addColorPicker({
       path: 'mechanicalMovementMetalColor',
@@ -1604,7 +1610,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     })
     .addColorPicker({
       path: 'dialColor2',
-      name: 'Second color',
+      name: 'Gradient second color',
       category: ['Dial'],
       defaultValue: '#333333',
       showIf: (c) => c.dialFillMode !== 'solid' && !c.dialGradientFade,
@@ -1663,8 +1669,6 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       showIf: (c) => c.dialFillMode === 'radial',
     description: 'Radius where the radial gradient reaches full second color, as a percentage.',
     });
-
-  registerMechanicalMovement(builder);
 
   builder
 
@@ -1847,18 +1851,18 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     description: 'Thickness of major bezel ticks in pixels.',
     })
 
-    // Hour indices
+    // Hour marks
     .addBooleanSwitch({
       path: 'showHourTicks',
       name: 'Show hour ticks',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: true,
     description: 'Draw hour markers on the dial (1–12 positions).',
     })
     .addColorPicker({
       path: 'hourTickColor',
       name: 'Tick color',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: '#000000',
       showIf: (c) => c.showHourTicks,
     description: 'Color of the hour tick marks.',
@@ -1866,7 +1870,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'hourTickLength',
       name: 'Tick length (% of radius)',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: 18,
       settings: { min: 1, max: 40, step: 1 },
       showIf: (c) => c.showHourTicks,
@@ -1875,7 +1879,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'hourTickWidth',
       name: 'Tick width (px)',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: 8,
       settings: { min: 1, max: 30, step: 1 },
       showIf: (c) => c.showHourTicks,
@@ -1883,8 +1887,8 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     })
     .addSliderInput({
       path: 'hourTickHeight',
-      name: 'Index height / shadow length (px)',
-      category: ['Hour indices'],
+      name: '3D height — shadow cast (px)',
+      category: ['Hour marks'],
       defaultValue: 0,
       settings: { min: 0, max: 30, step: 0.5 },
       showIf: (c) => c.showHourTicks,
@@ -1893,14 +1897,14 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addBooleanSwitch({
       path: 'showHourNumbers',
       name: 'Show hour numbers',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: false,
     description: 'Display hour numerals (1–12) on the dial.',
     })
     .addSelect({
       path: 'hourNumberStyle',
       name: 'Number style',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: 'arabic',
       settings: { options: HOUR_NUMBER_STYLE_OPTIONS },
       showIf: (c) => c.showHourNumbers,
@@ -1909,7 +1913,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addColorPicker({
       path: 'hourNumberColor',
       name: 'Number color',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: '#000000',
       showIf: (c) => c.showHourNumbers,
     description: 'Color of the hour numeral text.',
@@ -1917,7 +1921,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'hourNumberFontSize',
       name: 'Number size (% of radius)',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: 14,
       settings: { min: 4, max: 30, step: 1 },
       showIf: (c) => c.showHourNumbers,
@@ -1926,7 +1930,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'hourNumberRadius',
       name: 'Number distance from center (% of radius)',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: 78,
       settings: { min: 20, max: 100, step: 1 },
       showIf: (c) => c.showHourNumbers,
@@ -1935,24 +1939,24 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addTextInput({
       path: 'hourNumberFontFamily',
       name: 'Font family',
-      category: ['Hour indices'],
+      category: ['Hour marks'],
       defaultValue: 'Helvetica, Arial, sans-serif',
       showIf: (c) => c.showHourNumbers,
     description: 'CSS font-family for hour numerals.',
     })
 
-    // Minute indices
+    // Minute marks
     .addBooleanSwitch({
       path: 'showMinuteTicks',
       name: 'Show minute ticks',
-      category: ['Minute indices'],
+      category: ['Minute marks'],
       defaultValue: true,
     description: 'Draw minute markers on the dial (60 positions).',
     })
     .addColorPicker({
       path: 'minuteTickColor',
       name: 'Tick color',
-      category: ['Minute indices'],
+      category: ['Minute marks'],
       defaultValue: '#000000',
       showIf: (c) => c.showMinuteTicks,
     description: 'Color of the minute tick marks.',
@@ -1960,7 +1964,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'minuteTickLength',
       name: 'Tick length (% of radius)',
-      category: ['Minute indices'],
+      category: ['Minute marks'],
       defaultValue: 6,
       settings: { min: 1, max: 25, step: 1 },
       showIf: (c) => c.showMinuteTicks,
@@ -1969,7 +1973,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'minuteTickWidth',
       name: 'Tick width (px)',
-      category: ['Minute indices'],
+      category: ['Minute marks'],
       defaultValue: 3,
       settings: { min: 1, max: 15, step: 1 },
       showIf: (c) => c.showMinuteTicks,
@@ -1977,8 +1981,8 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     })
     .addSliderInput({
       path: 'minuteTickHeight',
-      name: 'Index height / shadow length (px)',
-      category: ['Minute indices'],
+      name: '3D height — shadow cast (px)',
+      category: ['Minute marks'],
       defaultValue: 0,
       settings: { min: 0, max: 20, step: 0.5 },
       showIf: (c) => c.showMinuteTicks,
@@ -1987,14 +1991,14 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addBooleanSwitch({
       path: 'showMinuteNumbers',
       name: 'Show minute numbers',
-      category: ['Minute indices'],
+      category: ['Minute marks'],
       defaultValue: false,
     description: 'Display minute numerals on the dial.',
     })
     .addColorPicker({
       path: 'minuteNumberColor',
       name: 'Number color',
-      category: ['Minute indices'],
+      category: ['Minute marks'],
       defaultValue: '#555555',
       showIf: (c) => c.showMinuteNumbers,
     description: 'Color of the minute numeral text.',
@@ -2002,7 +2006,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'minuteNumberFontSize',
       name: 'Number size (% of radius)',
-      category: ['Minute indices'],
+      category: ['Minute marks'],
       defaultValue: 7,
       settings: { min: 3, max: 20, step: 1 },
       showIf: (c) => c.showMinuteNumbers,
@@ -2011,25 +2015,25 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'minuteNumberRadius',
       name: 'Number distance from center (% of radius)',
-      category: ['Minute indices'],
+      category: ['Minute marks'],
       defaultValue: 60,
       settings: { min: 10, max: 100, step: 1 },
       showIf: (c) => c.showMinuteNumbers,
     description: 'Radial distance of minute numerals from the dial center.',
     })
 
-    // Second indices
+    // Second marks
     .addBooleanSwitch({
       path: 'showSecondTicks',
       name: 'Show second ticks',
-      category: ['Second indices'],
+      category: ['Second marks'],
       defaultValue: false,
     description: 'Draw sub-second markers on the dial.',
     })
     .addColorPicker({
       path: 'secondTickColor',
       name: 'Tick color',
-      category: ['Second indices'],
+      category: ['Second marks'],
       defaultValue: '#888888',
       showIf: (c) => c.showSecondTicks,
     description: 'Color of the second tick marks.',
@@ -2037,7 +2041,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'secondTickLength',
       name: 'Tick length (% of radius)',
-      category: ['Second indices'],
+      category: ['Second marks'],
       defaultValue: 4,
       settings: { min: 1, max: 20, step: 1 },
       showIf: (c) => c.showSecondTicks,
@@ -2046,7 +2050,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'secondTickWidth',
       name: 'Tick width (px)',
-      category: ['Second indices'],
+      category: ['Second marks'],
       defaultValue: 1,
       settings: { min: 1, max: 10, step: 1 },
       showIf: (c) => c.showSecondTicks,
@@ -2054,8 +2058,8 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     })
     .addSliderInput({
       path: 'secondTickHeight',
-      name: 'Index height / shadow length (px)',
-      category: ['Second indices'],
+      name: '3D height — shadow cast (px)',
+      category: ['Second marks'],
       defaultValue: 0,
       settings: { min: 0, max: 15, step: 0.5 },
       showIf: (c) => c.showSecondTicks,
@@ -2064,14 +2068,14 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addBooleanSwitch({
       path: 'showSecondNumbers',
       name: 'Show second numbers',
-      category: ['Second indices'],
+      category: ['Second marks'],
       defaultValue: false,
     description: 'Display second numerals on the dial.',
     })
     .addColorPicker({
       path: 'secondNumberColor',
       name: 'Number color',
-      category: ['Second indices'],
+      category: ['Second marks'],
       defaultValue: '#888888',
       showIf: (c) => c.showSecondNumbers,
     description: 'Color of the second numeral text.',
@@ -2079,7 +2083,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'secondNumberFontSize',
       name: 'Number size (% of radius)',
-      category: ['Second indices'],
+      category: ['Second marks'],
       defaultValue: 5,
       settings: { min: 2, max: 20, step: 1 },
       showIf: (c) => c.showSecondNumbers,
@@ -2088,7 +2092,7 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     .addSliderInput({
       path: 'secondNumberRadius',
       name: 'Number distance from center (% of radius)',
-      category: ['Second indices'],
+      category: ['Second marks'],
       defaultValue: 45,
       settings: { min: 5, max: 100, step: 1 },
       showIf: (c) => c.showSecondNumbers,
@@ -2240,6 +2244,8 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
       showIf: (c) => c.showSunShadow && c.showSun,
     description: 'Distance of the sun indicator from the dial center, as a percentage of radius.',
     });
+
+  registerMechanicalMovement(builder);
 
   // Chronograph subdials — 4 totalizers, each with its own category
   registerSubdial(builder, 1, { distance: 40, angle: 90, label: 'A', handColor: '#d94e1f' });
