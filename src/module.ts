@@ -754,7 +754,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     description: 'Silhouette style of the global metric hand.',
     })
 
-    // Counterweight (Indicator subcategory)
+    // Counterweight
     .addSelect({
       path: 'gmCounterweightShape',
       name: 'Counterweight shape',
@@ -791,11 +791,11 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     description: 'Fill color of the global metric hand counterweight.',
     })
 
-    // Fill arc (Indicator subcategory)
+    // Fill arc
     .addRadio({
       path: 'gmFillMode',
       name: 'Fill mode',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 'none',
       settings: {
         options: [
@@ -811,7 +811,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addSliderInput({
       path: 'gmArcInnerRadius',
       name: 'Arc inner radius (% of radius)',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 72,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => en(c) && (c.gmFillMode === 'arc' || c.gmFillMode === 'both'),
@@ -820,7 +820,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addSliderInput({
       path: 'gmArcOuterRadius',
       name: 'Arc outer radius (% of radius)',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 88,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => en(c) && (c.gmFillMode === 'arc' || c.gmFillMode === 'both'),
@@ -829,7 +829,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addColorPicker({
       path: 'gmArcColor',
       name: 'Arc color',
-      category: indicatorCat,
+      category: cat,
       defaultValue: '#d94e1f',
       showIf: (c) => en(c) && (c.gmFillMode === 'arc' || c.gmFillMode === 'both'),
     description: 'Fill color of the arc band between the inner and outer radii.',
@@ -837,18 +837,18 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addSliderInput({
       path: 'gmArcOpacity',
       name: 'Arc opacity (%)',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 60,
       settings: { min: 0, max: 100, step: 1 },
       showIf: (c) => en(c) && (c.gmFillMode === 'arc' || c.gmFillMode === 'both'),
     description: 'Opacity of the arc fill as a percentage.',
     })
 
-    // Thresholds (Indicator subcategory)
+    // Thresholds
     .addRadio({
       path: 'gmThresholdMode',
       name: 'Thresholds affect',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 'none',
       settings: {
         options: [
@@ -864,7 +864,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addNumberInput({
       path: 'gmThreshold1',
       name: 'Threshold 1',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 60,
       showIf: (c) => en(c) && c.gmThresholdMode !== 'none',
     description: 'Warning threshold value. Crossing this activates the threshold-1 color.',
@@ -872,7 +872,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addColorPicker({
       path: 'gmThreshold1Color',
       name: 'Threshold 1 color',
-      category: indicatorCat,
+      category: cat,
       defaultValue: '#f4b400',
       showIf: (c) => en(c) && c.gmThresholdMode !== 'none',
     description: 'Color applied when the value crosses the warning threshold.',
@@ -880,7 +880,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addNumberInput({
       path: 'gmThreshold2',
       name: 'Threshold 2',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 85,
       showIf: (c) => en(c) && c.gmThresholdMode !== 'none',
     description: 'Critical threshold value. Crossing this activates the threshold-2 color.',
@@ -888,17 +888,17 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addColorPicker({
       path: 'gmThreshold2Color',
       name: 'Threshold 2 color',
-      category: indicatorCat,
+      category: cat,
       defaultValue: '#d14343',
       showIf: (c) => en(c) && c.gmThresholdMode !== 'none',
     description: 'Color applied when the value crosses the critical threshold.',
     })
 
-    // Scale ring (Indicator subcategory)
+    // Scale ring
     .addRadio({
       path: 'gmScaleMode',
       name: 'Scale ring',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 'none',
       settings: {
         options: [
@@ -913,7 +913,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addSliderInput({
       path: 'gmScaleRadius',
       name: 'Scale ring radius (% of radius)',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 62,
       settings: { min: 10, max: 100, step: 1 },
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
@@ -922,7 +922,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addSliderInput({
       path: 'gmScaleTickCount',
       name: 'Scale tick count',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 10,
       settings: { min: 2, max: 60, step: 1 },
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
@@ -931,7 +931,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addSliderInput({
       path: 'gmScaleTickLength',
       name: 'Scale tick length (% of radius)',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 4,
       settings: { min: 0, max: 30, step: 1 },
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
@@ -940,7 +940,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addColorPicker({
       path: 'gmScaleTickColor',
       name: 'Scale tick color',
-      category: indicatorCat,
+      category: cat,
       defaultValue: '#1a1a1a',
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
     description: 'Color of the scale ring tick marks.',
@@ -948,7 +948,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addColorPicker({
       path: 'gmScaleNumberColor',
       name: 'Scale number color',
-      category: indicatorCat,
+      category: cat,
       defaultValue: '#1a1a1a',
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
     description: 'Color of the scale ring number labels.',
@@ -956,7 +956,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addSliderInput({
       path: 'gmScaleNumberFontSize',
       name: 'Scale number font size (% of radius)',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 7,
       settings: { min: 2, max: 20, step: 1 },
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
@@ -965,7 +965,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addTextInput({
       path: 'gmScaleNumberFontFamily',
       name: 'Scale number font family',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 'Arial, sans-serif',
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
     description: 'CSS font-family for scale ring numbers.',
@@ -973,7 +973,7 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
     .addNumberInput({
       path: 'gmScaleDecimals',
       name: 'Scale number decimals',
-      category: indicatorCat,
+      category: cat,
       defaultValue: 0,
       showIf: (c) => en(c) && c.gmScaleMode !== 'none',
     description: 'Number of decimal places for scale ring labels.',
