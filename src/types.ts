@@ -386,6 +386,7 @@ export interface AlpineClockOptions {
 
   // Global metric hand — a gauge overlaid on the whole clock face
   gmEnabled: boolean;
+  gmShowHand: boolean;    // show the indicator hand (independent from gauge/readout)
 
   // Data binding (reuses subdial reducer semantics)
   gmFieldName: string;

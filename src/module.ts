@@ -584,7 +584,15 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       name: 'Enable global metric hand',
       category: cat,
       defaultValue: false,
-      description: 'A large fourth hand overlaid on the whole clock that points at a metric value.',
+      description: 'Master toggle for the global metric system. Enables data binding, sweep, arc, threshold and scale ring options.',
+    })
+    .addBooleanSwitch({
+      path: 'gmShowHand',
+      name: 'Show indicator hand',
+      category: ['Global metric', 'Indicator'],
+      defaultValue: true,
+      showIf: en,
+      description: 'Display the large fourth hand that sweeps across the dial to indicate the current metric value.',
     })
 
     // Data binding

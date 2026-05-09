@@ -4606,47 +4606,49 @@ export const AlpineClockPanel: React.FC<Props> = ({ options, data, width, height
                       </g>
                     );
                   })}
-                <Hand
-                  angleDeg={gm.angleDeg}
-                  shape={options.gmHandShape}
-                  tip={gm.tip}
-                  tail={gm.tail}
-                  width={options.gmHandWidth}
-                  color={gm.handColor}
-                  pivotOffset={gm.pivot}
-                  counterweightOffset={gm.cwOffset}
-                  counterweight={
-                    options.gmValueDisplay === 'counterweight' ? (
-                      <g>
+                {options.gmShowHand !== false && (
+                  <Hand
+                    angleDeg={gm.angleDeg}
+                    shape={options.gmHandShape}
+                    tip={gm.tip}
+                    tail={gm.tail}
+                    width={options.gmHandWidth}
+                    color={gm.handColor}
+                    pivotOffset={gm.pivot}
+                    counterweightOffset={gm.cwOffset}
+                    counterweight={
+                      options.gmValueDisplay === 'counterweight' ? (
+                        <g>
+                          <Counterweight
+                            shape={options.gmCounterweightShape}
+                            radius={gm.cwSize}
+                            color={options.gmCounterweightColor}
+                          />
+                          <g transform={`rotate(${-gm.angleDeg})`}>
+                            <text
+                              x={0}
+                              y={0}
+                              fontSize={options.gmValueFontSize}
+                              fill={options.gmValueTextColor}
+                              fontFamily={options.gmValueFontFamily}
+                              fontWeight="bold"
+                              textAnchor="middle"
+                              dominantBaseline="central"
+                            >
+                              {gm.formatted}
+                            </text>
+                          </g>
+                        </g>
+                      ) : (
                         <Counterweight
                           shape={options.gmCounterweightShape}
                           radius={gm.cwSize}
                           color={options.gmCounterweightColor}
                         />
-                        <g transform={`rotate(${-gm.angleDeg})`}>
-                          <text
-                            x={0}
-                            y={0}
-                            fontSize={options.gmValueFontSize}
-                            fill={options.gmValueTextColor}
-                            fontFamily={options.gmValueFontFamily}
-                            fontWeight="bold"
-                            textAnchor="middle"
-                            dominantBaseline="central"
-                          >
-                            {gm.formatted}
-                          </text>
-                        </g>
-                      </g>
-                    ) : (
-                      <Counterweight
-                        shape={options.gmCounterweightShape}
-                        radius={gm.cwSize}
-                        color={options.gmCounterweightColor}
-                      />
-                    )
-                  }
-                />
+                      )
+                    }
+                  />
+                )}
                 {options.gmValueDisplay === 'window' && (() => {
                   const anchor = windowAnchor(
                     options.gmValueWindowPosition,
