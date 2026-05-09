@@ -1,5 +1,7 @@
 {
-  "annotations": { "list": [] },
+  "annotations": {
+    "list": []
+  },
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -12,7 +14,12 @@
         "type": "grafana-testdata-datasource",
         "uid": "trlxrdZVk"
       },
-      "gridPos": { "h": 16, "w": 10, "x": 7, "y": 0 },
+      "gridPos": {
+        "h": 16,
+        "w": 10,
+        "x": 7,
+        "y": 0
+      },
       "id": 1,
       "options": {
         "dialShape": "round",
@@ -49,10 +56,6 @@
         "secondHandShape": "pointer",
         "secondHandTail": 32,
         "secondHandWidth": 1.5,
-        "secondCounterweightShape": "diamond",
-        "secondCounterweightSize": 7,
-        "secondCounterweightPosition": -22,
-        "secondCounterweightColor": "#e8e4d8",
         "stopToGo": false,
         "centerCapColor": "#e8e4d8",
         "centerCapSize": 3,
@@ -72,7 +75,10 @@
       },
       "targets": [
         {
-          "datasource": { "type": "grafana-testdata-datasource", "uid": "db84e60d-b92a-4089-82cb-34842fb1754b" },
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
+          },
           "refId": "A",
           "scenarioId": "random_walk"
         }
@@ -83,9 +89,18 @@
   ],
   "refresh": "5s",
   "schemaVersion": 39,
-  "tags": ["alpine-clock", "flieger", "pilot"],
-  "templating": { "list": [] },
-  "time": { "from": "now-6h", "to": "now" },
+  "tags": [
+    "alpine-clock",
+    "flieger",
+    "pilot"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
   "timepicker": {},
   "timezone": "",
   "title": "Flieger Type A",

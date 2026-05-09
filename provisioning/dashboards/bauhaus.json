@@ -1,5 +1,7 @@
 {
-  "annotations": { "list": [] },
+  "annotations": {
+    "list": []
+  },
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -12,7 +14,12 @@
         "type": "grafana-testdata-datasource",
         "uid": "trlxrdZVk"
       },
-      "gridPos": { "h": 16, "w": 10, "x": 7, "y": 0 },
+      "gridPos": {
+        "h": 16,
+        "w": 10,
+        "x": 7,
+        "y": 0
+      },
       "id": 1,
       "options": {
         "dialShape": "round",
@@ -48,7 +55,6 @@
         "secondHandShape": "baton",
         "secondHandTail": 0,
         "secondHandWidth": 1.2,
-        "secondCounterweightShape": "none",
         "stopToGo": true,
         "sweepMs": 59000,
         "pauseMs": 1000,
@@ -63,9 +69,18 @@
   ],
   "refresh": "5s",
   "schemaVersion": 39,
-  "tags": ["alpine-clock", "bauhaus", "minimalist"],
-  "templating": { "list": [] },
-  "time": { "from": "now-6h", "to": "now" },
+  "tags": [
+    "alpine-clock",
+    "bauhaus",
+    "minimalist"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
   "timepicker": {},
   "timezone": "",
   "title": "Bauhaus",

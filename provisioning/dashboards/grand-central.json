@@ -1,5 +1,7 @@
 {
-  "annotations": { "list": [] },
+  "annotations": {
+    "list": []
+  },
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -12,7 +14,12 @@
         "type": "grafana-testdata-datasource",
         "uid": "trlxrdZVk"
       },
-      "gridPos": { "h": 20, "w": 12, "x": 6, "y": 0 },
+      "gridPos": {
+        "h": 20,
+        "w": 12,
+        "x": 6,
+        "y": 0
+      },
       "id": 1,
       "options": {
         "timezone": "America/New_York",
@@ -62,10 +69,6 @@
         "secondHandShape": "pointer",
         "secondHandTail": 28,
         "secondHandWidth": 2,
-        "secondCounterweightShape": "circle",
-        "secondCounterweightSize": 7,
-        "secondCounterweightPosition": -20,
-        "secondCounterweightColor": "#1a1410",
         "stopToGo": true,
         "sweepMs": 59000,
         "pauseMs": 1000,
@@ -81,15 +84,25 @@
         "gmEnabled": false
       },
       "targets": [],
-      "title": "Grand Central Terminal · New York",
+      "title": "Grand Central Terminal \u00b7 New York",
       "type": "dzaczek-alpineclock-panel"
     }
   ],
   "refresh": "1s",
   "schemaVersion": 39,
-  "tags": ["alpine-clock", "station-clock", "grand-central", "classic"],
-  "templating": { "list": [] },
-  "time": { "from": "now-6h", "to": "now" },
+  "tags": [
+    "alpine-clock",
+    "station-clock",
+    "grand-central",
+    "classic"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
   "timepicker": {},
   "timezone": "",
   "title": "Grand Central Terminal Clock",

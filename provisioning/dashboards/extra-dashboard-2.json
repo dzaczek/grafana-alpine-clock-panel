@@ -1,5 +1,7 @@
 {
-  "annotations": { "list": [] },
+  "annotations": {
+    "list": []
+  },
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -12,7 +14,12 @@
         "type": "grafana-testdata-datasource",
         "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
       },
-      "gridPos": { "h": 18, "w": 16, "x": 4, "y": 0 },
+      "gridPos": {
+        "h": 18,
+        "w": 16,
+        "x": 4,
+        "y": 0
+      },
       "id": 1,
       "options": {
         "dialShape": "round",
@@ -57,10 +64,6 @@
         "secondHandShape": "pointer",
         "secondHandTail": 26,
         "secondHandWidth": 1.8,
-        "secondCounterweightShape": "circle",
-        "secondCounterweightSize": 6,
-        "secondCounterweightPosition": -18,
-        "secondCounterweightColor": "#00ff66",
         "stopToGo": false,
         "centerCapColor": "#00cc88",
         "centerCapSize": 3,
@@ -196,17 +199,26 @@
       },
       "targets": [
         {
-          "datasource": { "type": "grafana-testdata-datasource", "uid": "db84e60d-b92a-4089-82cb-34842fb1754b" },
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
+          },
           "refId": "A",
           "scenarioId": "random_walk"
         },
         {
-          "datasource": { "type": "grafana-testdata-datasource", "uid": "db84e60d-b92a-4089-82cb-34842fb1754b" },
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
+          },
           "refId": "B",
           "scenarioId": "random_walk"
         },
         {
-          "datasource": { "type": "grafana-testdata-datasource", "uid": "db84e60d-b92a-4089-82cb-34842fb1754b" },
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "db84e60d-b92a-4089-82cb-34842fb1754b"
+          },
           "refId": "C",
           "scenarioId": "random_walk"
         }
@@ -217,9 +229,18 @@
   ],
   "refresh": "5s",
   "schemaVersion": 39,
-  "tags": ["alpine-clock", "metrics", "cyber"],
-  "templating": { "list": [] },
-  "time": { "from": "now-6h", "to": "now" },
+  "tags": [
+    "alpine-clock",
+    "metrics",
+    "cyber"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
   "timepicker": {},
   "timezone": "",
   "title": "Full-Featured Metrics Clock",

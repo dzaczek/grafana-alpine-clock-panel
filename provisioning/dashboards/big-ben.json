@@ -1,5 +1,7 @@
 {
-  "annotations": { "list": [] },
+  "annotations": {
+    "list": []
+  },
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -12,7 +14,12 @@
         "type": "grafana-testdata-datasource",
         "uid": "trlxrdZVk"
       },
-      "gridPos": { "h": 20, "w": 12, "x": 6, "y": 0 },
+      "gridPos": {
+        "h": 20,
+        "w": 12,
+        "x": 6,
+        "y": 0
+      },
       "id": 1,
       "options": {
         "timezone": "Europe/London",
@@ -60,10 +67,6 @@
         "secondHandShape": "pointer",
         "secondHandTail": 30,
         "secondHandWidth": 2,
-        "secondCounterweightShape": "circle",
-        "secondCounterweightSize": 8,
-        "secondCounterweightPosition": -22,
-        "secondCounterweightColor": "#1a1410",
         "stopToGo": false,
         "centerCapColor": "#d4b850",
         "centerCapSize": 5,
@@ -77,18 +80,30 @@
         "gmEnabled": false
       },
       "targets": [],
-      "title": "Big Ben · London",
+      "title": "Big Ben \u00b7 London",
       "type": "dzaczek-alpineclock-panel"
     }
   ],
   "refresh": "1s",
   "schemaVersion": 39,
-  "tags": ["alpine-clock", "big-ben", "london", "gothic", "victorian", "landmark"],
-  "templating": { "list": [] },
-  "time": { "from": "now-6h", "to": "now" },
+  "tags": [
+    "alpine-clock",
+    "big-ben",
+    "london",
+    "gothic",
+    "victorian",
+    "landmark"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
   "timepicker": {},
   "timezone": "",
-  "title": "Big Ben — Elizabeth Tower Clock",
+  "title": "Big Ben \u2014 Elizabeth Tower Clock",
   "uid": "alpine-big-ben",
   "version": 1,
   "weekStart": ""
