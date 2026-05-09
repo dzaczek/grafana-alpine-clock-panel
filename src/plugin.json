@@ -31,7 +31,12 @@
         "url": "https://github.com/dzaczek/grafana-alpine-clock-panel/issues"
       }
     ],
-    "screenshots": [],
+    "screenshots": [
+      { "name": "Grand Central Terminal clock", "path": "img/screenshot-grand-central.png" },
+      { "name": "Big Ben Elizabeth Tower clock", "path": "img/screenshot-big-ben.png" },
+      { "name": "Night Driver dashboard with GM hand", "path": "img/screenshot-night-driver.png" },
+      { "name": "Panel configuration UI", "path": "img/screenshot-config.png" }
+    ],
     "version": "%VERSION%",
     "updated": "%TODAY%"
   },
