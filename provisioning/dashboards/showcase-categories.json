@@ -34,7 +34,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#3d2010",
         "dialFillMode": "radial",
         "dialColor2": "#4d2a18",
@@ -99,7 +99,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#f4ecd2",
         "dialFillMode": "solid",
         "dialBorderColor": "#8a7040",
@@ -194,7 +194,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#2a1a0e",
         "dialFillMode": "solid",
         "dialBorderColor": "#7a5a3a",
@@ -301,7 +301,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#e8d8b8",
         "dialFillMode": "radial",
         "dialColor2": "#d8c8a0",
@@ -446,7 +446,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#f4ecd2",
         "dialFillMode": "solid",
         "dialBorderColor": "#8a7040",
@@ -508,7 +508,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#2a1a0e",
         "dialFillMode": "radial",
         "dialColor2": "#3a2514",
@@ -606,7 +606,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#e8d8b8",
         "dialFillMode": "solid",
         "dialBorderColor": "#9a7a4a",
@@ -713,7 +713,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#3d2010",
         "dialFillMode": "solid",
         "dialBorderColor": "#8a5a3a",
@@ -774,7 +774,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#f4ecd2",
         "dialFillMode": "radial",
         "dialColor2": "#e8d8b0",
@@ -858,7 +858,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#2a1a0e",
         "dialFillMode": "solid",
         "dialBorderColor": "#7a5a3a",
@@ -920,7 +920,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#e8d8b8",
         "dialFillMode": "solid",
         "dialBorderColor": "#9a7a4a",
@@ -1015,7 +1015,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#f8f6f0",
         "dialFillMode": "radial",
         "dialColor2": "#f0ede5",
@@ -1125,7 +1125,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#1a1a1a",
         "dialFillMode": "solid",
         "dialBorderColor": "#444444",
@@ -1267,7 +1267,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#0d1117",
         "dialFillMode": "radial",
         "dialColor2": "#161b22",
@@ -1332,7 +1332,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#f8f6f0",
         "dialFillMode": "solid",
         "dialBorderColor": "#d0d0d0",
@@ -1427,7 +1427,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#1a1a1a",
         "dialFillMode": "solid",
         "dialBorderColor": "#444444",
@@ -1534,7 +1534,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#e8e8f8",
         "dialFillMode": "radial",
         "dialColor2": "#d8d8f0",
@@ -1598,7 +1598,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#0d1117",
         "dialFillMode": "solid",
         "dialBorderColor": "#30363d",
@@ -1679,7 +1679,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#f8f6f0",
         "dialFillMode": "solid",
         "dialBorderColor": "#d0d0d0",
@@ -1741,7 +1741,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#1a1a1a",
         "dialFillMode": "radial",
         "dialColor2": "#282828",
@@ -1946,7 +1946,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#0d1117",
         "dialFillMode": "solid",
         "dialBorderColor": "#30363d",
@@ -2007,7 +2007,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#050510",
         "dialFillMode": "radial",
         "dialColor2": "#0a0a30",
@@ -2091,7 +2091,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#0a0a0a",
         "dialFillMode": "solid",
         "dialBorderColor": "#444433",
@@ -2153,7 +2153,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#050008",
         "dialFillMode": "solid",
         "dialBorderColor": "#331a55",
@@ -2248,7 +2248,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#001010",
         "dialFillMode": "radial",
         "dialColor2": "#002020",
@@ -2358,7 +2358,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#050510",
         "dialFillMode": "solid",
         "dialBorderColor": "#1a3355",
@@ -2419,7 +2419,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#0a0a0a",
         "dialFillMode": "solid",
         "dialBorderColor": "#444433",
@@ -2500,7 +2500,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#050008",
         "dialFillMode": "radial",
         "dialColor2": "#100020",
@@ -2660,7 +2660,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#050510",
         "dialFillMode": "solid",
         "dialBorderColor": "#1a3355",
@@ -2767,7 +2767,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#0a0a0a",
         "dialFillMode": "radial",
         "dialColor2": "#1a1a0a",
@@ -2831,7 +2831,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#050008",
         "dialFillMode": "solid",
         "dialBorderColor": "#331a55",
@@ -2912,7 +2912,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#001010",
         "dialFillMode": "solid",
         "dialBorderColor": "#115555",
@@ -2974,7 +2974,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#1a1028",
         "dialFillMode": "radial",
         "dialColor2": "#2a1848",
@@ -3072,7 +3072,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#0a1a10",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a7a4a",
@@ -3179,7 +3179,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#2a1a08",
         "dialFillMode": "solid",
         "dialBorderColor": "#8a6a3a",
@@ -3240,7 +3240,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#100818",
         "dialFillMode": "radial",
         "dialColor2": "#1c0c2c",
@@ -3324,7 +3324,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#1a1028",
         "dialFillMode": "solid",
         "dialBorderColor": "#6a4a8a",
@@ -3481,7 +3481,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#2a1a08",
         "dialFillMode": "radial",
         "dialColor2": "#3a280e",
@@ -3591,7 +3591,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#100818",
         "dialFillMode": "solid",
         "dialBorderColor": "#5a3a6a",
@@ -3652,7 +3652,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#1a1028",
         "dialFillMode": "solid",
         "dialBorderColor": "#6a4a8a",
@@ -3733,7 +3733,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#0a1a10",
         "dialFillMode": "radial",
         "dialColor2": "#0e2a18",
@@ -3798,7 +3798,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#2a1a08",
         "dialFillMode": "solid",
         "dialBorderColor": "#8a6a3a",
@@ -3893,7 +3893,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#100818",
         "dialFillMode": "solid",
         "dialBorderColor": "#5a3a6a",
@@ -4000,7 +4000,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#1a1610",
         "dialFillMode": "radial",
         "dialColor2": "#2a2018",
@@ -4064,7 +4064,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#0a0a08",
         "dialFillMode": "solid",
         "dialBorderColor": "#6a5a3a",
@@ -4145,7 +4145,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#faf6ee",
         "dialFillMode": "solid",
         "dialBorderColor": "#c0a870",
@@ -4207,7 +4207,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#201810",
         "dialFillMode": "radial",
         "dialColor2": "#302418",
@@ -4305,7 +4305,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#1a1610",
         "dialFillMode": "solid",
         "dialBorderColor": "#8a7040",
@@ -4412,7 +4412,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#0a0a08",
         "dialFillMode": "solid",
         "dialBorderColor": "#6a5a3a",
@@ -4557,7 +4557,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#201810",
         "dialFillMode": "solid",
         "dialBorderColor": "#9a7a4a",
@@ -4619,7 +4619,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#1a1610",
         "dialFillMode": "solid",
         "dialBorderColor": "#8a7040",
@@ -4714,7 +4714,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#0a0a08",
         "dialFillMode": "radial",
         "dialColor2": "#181410",
@@ -4824,7 +4824,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#faf6ee",
         "dialFillMode": "solid",
         "dialBorderColor": "#c0a870",
@@ -4885,7 +4885,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#201810",
         "dialFillMode": "solid",
         "dialBorderColor": "#9a7a4a",
@@ -4974,7 +4974,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#0a0d12",
         "dialFillMode": "radial",
         "dialColor2": "#141a28",
@@ -5071,7 +5071,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#0d0d0d",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a3a3a",
@@ -5166,7 +5166,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#050a10",
         "dialFillMode": "solid",
         "dialBorderColor": "#1a3a5a",
@@ -5377,7 +5377,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#0a0d12",
         "dialFillMode": "solid",
         "dialBorderColor": "#2a3a4a",
@@ -5458,7 +5458,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#0d0d0d",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a3a3a",
@@ -5528,7 +5528,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#050a10",
         "dialFillMode": "radial",
         "dialColor2": "#0a1520",
@@ -5658,7 +5658,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#0a0a0a",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a3a4a",
@@ -5765,7 +5765,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#0a0d12",
         "dialFillMode": "solid",
         "dialBorderColor": "#2a3a4a",
@@ -5834,7 +5834,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#0d0d0d",
         "dialFillMode": "radial",
         "dialColor2": "#181818",
@@ -5950,7 +5950,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#050a10",
         "dialFillMode": "solid",
         "dialBorderColor": "#1a3a5a",
@@ -6107,7 +6107,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#0d0d0d",
         "dialFillMode": "radial",
         "dialColor2": "#1a1a1a",
@@ -6217,7 +6217,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#002040",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a6a9a",
@@ -6278,7 +6278,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#1a1a1a",
         "dialFillMode": "solid",
         "dialBorderColor": "#555555",
@@ -6359,7 +6359,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#f0f0f0",
         "dialFillMode": "radial",
         "dialColor2": "#e0e0e0",
@@ -6424,7 +6424,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#0d0d0d",
         "dialFillMode": "solid",
         "dialBorderColor": "#444444",
@@ -6626,7 +6626,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#1a1a1a",
         "dialFillMode": "radial",
         "dialColor2": "#282828",
@@ -6690,7 +6690,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#f0f0f0",
         "dialFillMode": "solid",
         "dialBorderColor": "#999999",
@@ -6771,7 +6771,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#0d0d0d",
         "dialFillMode": "solid",
         "dialBorderColor": "#444444",
@@ -6833,7 +6833,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#002040",
         "dialFillMode": "radial",
         "dialColor2": "#003060",
@@ -6931,7 +6931,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#1a1a1a",
         "dialFillMode": "solid",
         "dialBorderColor": "#555555",
@@ -7038,7 +7038,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#f0f0f0",
         "dialFillMode": "solid",
         "dialBorderColor": "#999999",
@@ -7099,7 +7099,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#f8f4ec",
         "dialFillMode": "radial",
         "dialColor2": "#e8e0d0",
@@ -7183,7 +7183,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#1a1a18",
         "dialFillMode": "solid",
         "dialBorderColor": "#5a5a50",
@@ -7245,7 +7245,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#e0d8c8",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a3a30",
@@ -7340,7 +7340,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#141410",
         "dialFillMode": "radial",
         "dialColor2": "#20201c",
@@ -7450,7 +7450,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#f8f4ec",
         "dialFillMode": "solid",
         "dialBorderColor": "#2a2a2a",
@@ -7511,7 +7511,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#1a1a18",
         "dialFillMode": "solid",
         "dialBorderColor": "#5a5a50",
@@ -7592,7 +7592,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#e0d8c8",
         "dialFillMode": "radial",
         "dialColor2": "#d0c8b8",
@@ -7752,7 +7752,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#f8f4ec",
         "dialFillMode": "solid",
         "dialBorderColor": "#2a2a2a",
@@ -7859,7 +7859,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#1a1a18",
         "dialFillMode": "radial",
         "dialColor2": "#282824",
@@ -7923,7 +7923,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#e0d8c8",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a3a30",
@@ -8004,7 +8004,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#141410",
         "dialFillMode": "solid",
         "dialBorderColor": "#5a5a4a",
@@ -8164,7 +8164,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#0c0c08",
         "dialFillMode": "solid",
         "dialBorderColor": "#4a4a3a",
@@ -8271,7 +8271,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#f0ead8",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a3a28",
@@ -8332,7 +8332,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#101010",
         "dialFillMode": "radial",
         "dialColor2": "#1c1c1c",
@@ -8416,7 +8416,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-h",
+        "dialShape": "round",
         "dialBackground": "#0e0e0c",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a3a34",
@@ -8478,7 +8478,7 @@
         }
       ],
       "options": {
-        "dialShape": "rect-v",
+        "dialShape": "round",
         "dialBackground": "#0c0c08",
         "dialFillMode": "solid",
         "dialBorderColor": "#4a4a3a",
@@ -8573,7 +8573,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-flat",
+        "dialShape": "round",
         "dialBackground": "#f0ead8",
         "dialFillMode": "radial",
         "dialColor2": "#e8e0c8",
@@ -8683,7 +8683,7 @@
         }
       ],
       "options": {
-        "dialShape": "hex-point",
+        "dialShape": "round",
         "dialBackground": "#101010",
         "dialFillMode": "solid",
         "dialBorderColor": "#444440",
@@ -8825,7 +8825,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-h",
+        "dialShape": "round",
         "dialBackground": "#0c0c08",
         "dialFillMode": "radial",
         "dialColor2": "#181812",
@@ -8890,7 +8890,7 @@
         }
       ],
       "options": {
-        "dialShape": "oval-v",
+        "dialShape": "round",
         "dialBackground": "#f0ead8",
         "dialFillMode": "solid",
         "dialBorderColor": "#3a3a28",
@@ -8985,7 +8985,7 @@
         }
       ],
       "options": {
-        "dialShape": "square",
+        "dialShape": "round",
         "dialBackground": "#101010",
         "dialFillMode": "solid",
         "dialBorderColor": "#444440",
