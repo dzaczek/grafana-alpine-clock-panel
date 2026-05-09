@@ -2743,7 +2743,8 @@ function DialGradientDefs({
         id={id}
         cx={`${options.dialGradientCenterX}%`}
         cy={`${options.dialGradientCenterY}%`}
-        r="70%"
+        r="85%"
+        gradientUnits="objectBoundingBox"
       >
         <stop offset={`${options.dialGradientInnerStop}%`} stopColor={options.dialBackground} />
         <stop offset={`${options.dialGradientOuterStop}%`} stopColor={end} />
