@@ -3285,6 +3285,13 @@ export const AlpineClockPanel: React.FC<Props> = ({ options, data, width, height
   const minuteBounceRef = useRef<{ lastTick: number; jumpAt: number }>({ lastTick: -1, jumpAt: 0 });
   const secondBounceRef = useRef<{ lastTick: number; jumpAt: number }>({ lastTick: -1, jumpAt: 0 });
 
+  // Global metric smooth animation state — exponential decay toward target.
+  const gmSmoothRef = useRef<{ animPct: number; initialized: boolean; lastMs: number }>({
+    animPct: 0,
+    initialized: false,
+    lastMs: 0,
+  });
+
   // Resolve current time (either from data frame or real-time).
   const wallNowMs = frameNowMs;
   let now = new Date(wallNowMs);
@@ -3641,8 +3648,29 @@ export const AlpineClockPanel: React.FC<Props> = ({ options, data, width, height
     const span = gmMax - gmMin;
     const clamped =
       value === null ? null : Math.max(gmMin, Math.min(gmMax, value));
-    const pct =
+    const targetPct =
       clamped === null || span === 0 ? 0 : (clamped - gmMin) / span;
+
+    // Smooth animation for global metric hand — exponential decay toward target.
+    const smoothRef = gmSmoothRef.current;
+    if (!smoothRef.initialized || !options.gmSmooth) {
+      smoothRef.animPct = targetPct;
+      smoothRef.initialized = true;
+      smoothRef.lastMs = wallNowMs;
+    } else {
+      const frameDeltaMs = Math.max(1, wallNowMs - smoothRef.lastMs);
+      smoothRef.lastMs = wallNowMs;
+      const frameDeltaSec = frameDeltaMs / 1000;
+      const duration = Math.max(0.1, options.gmSmoothDuration ?? 1);
+      const tau = duration / 3; // time constant: 3× tau = ~95% complete
+      const alpha = 1 - Math.exp(-frameDeltaSec / tau);
+      smoothRef.animPct += (targetPct - smoothRef.animPct) * alpha;
+      // Snap if very close to avoid infinite micro-adjustments.
+      if (Math.abs(targetPct - smoothRef.animPct) < 0.0001) {
+        smoothRef.animPct = targetPct;
+      }
+    }
+    const pct = smoothRef.animPct;
     const angleDeg = options.gmStartAngle + pct * options.gmSweepAngle;
     const tip = (r * options.gmHandLength) / 100;
     const tail = (r * options.gmHandTail) / 100;

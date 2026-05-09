@@ -679,7 +679,16 @@ function registerGlobalMetric(builder: PanelOptionsEditorBuilder<AlpineClockOpti
       category: cat,
       defaultValue: true,
       showIf: en,
-    description: 'When enabled, the hand animates smoothly between value changes instead of jumping.',
+      description: 'When enabled, the hand animates smoothly between value changes instead of jumping.',
+    })
+    .addSliderInput({
+      path: 'gmSmoothDuration',
+      name: 'Smooth transition duration (s)',
+      category: cat,
+      defaultValue: 1.0,
+      settings: { min: 0.1, max: 60, step: 0.1 },
+      showIf: (c) => en(c) && c.gmSmooth,
+      description: 'How many seconds the global metric hand takes to travel from its current angle to the new target value.',
     })
 
     // Hand geometry

@@ -426,6 +426,7 @@ export interface AlpineClockOptions {
   gmStartAngle: number;   // degrees; 0 = 12 o'clock, positive = clockwise
   gmSweepAngle: number;   // degrees span between min and max (e.g. 270, 360)
   gmSmooth: boolean;      // smooth interpolation when value changes
+  gmSmoothDuration: number; // seconds for the hand to travel from current to target angle (0.1–60)
 
   // Hand geometry (same vocabulary as other hands)
   gmHandShape: HandShape;
