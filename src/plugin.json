@@ -32,6 +32,7 @@
       }
     ],
     "screenshots": [
+      { "name": "Paradox of Plenty — 108 themed clocks", "path": "img/screenshot-paradox-of-plenty.png" },
       { "name": "Grand Central Terminal clock", "path": "img/screenshot-grand-central.png" },
       { "name": "Big Ben Elizabeth Tower clock", "path": "img/screenshot-big-ben.png" },
       { "name": "Night Driver dashboard with GM hand", "path": "img/screenshot-night-driver.png" },
