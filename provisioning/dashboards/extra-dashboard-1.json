@@ -33,7 +33,7 @@
         "hourHandShape": "dauphine",
         "minuteHandShape": "dauphine",
         "hourNumberStyle": "roman",
-        "showSun": true,
+        "showSun": false,
         "dialBackground": "#ffffff",
         "dialBorderColor": "#dddddd",
         "hourTickHeight": 2,
