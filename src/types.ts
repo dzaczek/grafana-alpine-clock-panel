@@ -64,6 +64,11 @@ export interface AlpineClockOptions {
   dialBorderColor: string;
   dialBorderWidth: number;
 
+  // Chapter ring — decorative inner ring between dial and bezel (station clocks)
+  showChapterRing: boolean;
+  chapterRingColor: string;
+  chapterRingWidth: number;  // px
+
   // Bezel (outer ring / lunette)
   showBezel: boolean;
   bezelThickness: number;       // % of half-extent (radius)

@@ -4130,6 +4130,16 @@ export const AlpineClockPanel: React.FC<Props> = ({ options, data, width, height
             stroke={options.dialBorderColor}
             strokeWidth={options.dialBorderWidth}
           />
+          {options.showChapterRing && options.chapterRingWidth > 0 && (
+            <circle
+              cx={0}
+              cy={0}
+              r={r + options.chapterRingWidth / 2}
+              fill="none"
+              stroke={options.chapterRingColor}
+              strokeWidth={options.chapterRingWidth}
+            />
+          )}
           {mechanicalMovementEnabled && (
             <>
               <g clipPath="url(#alpine-mechanical-movement-clip)">

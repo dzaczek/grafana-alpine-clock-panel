@@ -1682,6 +1682,32 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
 
   builder
 
+    // Chapter ring — decorative inner ring (Grand Central / station clock style)
+    .addBooleanSwitch({
+      path: 'showChapterRing',
+      name: 'Show chapter ring',
+      category: ['Chapter ring'],
+      defaultValue: false,
+      description: 'A thin decorative ring between the dial edge and the bezel, typical of station and terminal clocks like Grand Central.',
+    })
+    .addColorPicker({
+      path: 'chapterRingColor',
+      name: 'Chapter ring color',
+      category: ['Chapter ring'],
+      defaultValue: '#b8965a',
+      showIf: (c) => c.showChapterRing,
+      description: 'Color of the chapter ring. Warm brass or gold for classic station clocks, silver or black for modern.',
+    })
+    .addSliderInput({
+      path: 'chapterRingWidth',
+      name: 'Chapter ring width (px)',
+      category: ['Chapter ring'],
+      defaultValue: 2.5,
+      settings: { min: 0.5, max: 8, step: 0.5 },
+      showIf: (c) => c.showChapterRing,
+      description: 'Thickness of the chapter ring in pixels. 2-3 px gives a refined station clock look.',
+    })
+
     // Bezel (lunette)
     .addBooleanSwitch({
       path: 'showBezel',
