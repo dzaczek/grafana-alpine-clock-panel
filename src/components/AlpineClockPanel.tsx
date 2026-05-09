@@ -3292,6 +3292,16 @@ export const AlpineClockPanel: React.FC<Props> = ({ options, data, width, height
     lastMs: 0,
   });
 
+  // Subdial smooth animation — one slot per subdial (1..4, 0-indexed).
+  const subdialSmoothRefs = useRef<
+    Array<{ animValue: number | null; initialized: boolean; lastMs: number }>
+  >([
+    { animValue: null, initialized: false, lastMs: 0 },
+    { animValue: null, initialized: false, lastMs: 0 },
+    { animValue: null, initialized: false, lastMs: 0 },
+    { animValue: null, initialized: false, lastMs: 0 },
+  ]);
+
   // Resolve current time (either from data frame or real-time).
   const wallNowMs = frameNowMs;
   let now = new Date(wallNowMs);
@@ -3619,11 +3629,29 @@ export const AlpineClockPanel: React.FC<Props> = ({ options, data, width, height
       const sdCy = distPx * Math.sin(rad);
       const radius = (r * config.size) / 100 / 2;
       const raw = readMetric(data, config.fieldName, config.reducer, config.queryRefId);
-      // Linear transform applied once, BEFORE min/max clamping, reducing and
-      // formatting. Defaults are scale=1 / offset=0, so legacy configs stay
-      // identical.
-      const value =
+      const targetValue =
         raw === null ? null : raw * (config.scale || 1) + (config.offset || 0);
+
+      // Smooth animation for subdial hand — exponential decay toward target value.
+      const sdRef = subdialSmoothRefs.current[n - 1];
+      if (!sdRef.initialized || targetValue === null || sdRef.animValue === null) {
+        sdRef.animValue = targetValue;
+        sdRef.initialized = true;
+        sdRef.lastMs = wallNowMs;
+      } else {
+        const frameDeltaMs = Math.max(1, wallNowMs - sdRef.lastMs);
+        sdRef.lastMs = wallNowMs;
+        const frameDeltaSec = frameDeltaMs / 1000;
+        const duration = 0.3; // fixed 0.3s time constant for subdial smoothness
+        const tau = duration / 3;
+        const alpha = 1 - Math.exp(-frameDeltaSec / tau);
+        sdRef.animValue += (targetValue - sdRef.animValue) * alpha;
+        const snapThreshold = 0.001 * (config.max - config.min || 1);
+        if (Math.abs(targetValue - sdRef.animValue) < snapThreshold) {
+          sdRef.animValue = targetValue;
+        }
+      }
+      const value = sdRef.animValue;
       return { n, config, cx: sdCx, cy: sdCy, radius, value };
     })
     .filter((s): s is NonNullable<typeof s> => s !== null);
