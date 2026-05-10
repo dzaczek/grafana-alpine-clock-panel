@@ -66,16 +66,11 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ## 5. Project-Specific: Releasing
 
-**Always bump `package.json` version before pushing the git tag.**
-
-The release workflow validates that `PLUGIN_VERSION` (read from `package.json`) matches the git tag. If they differ, the release fails with:
-```
-Plugin version doesn't match tag name. The tag should be vX.Y.Z
-```
-
-Correct release order — never skip a step:
+**Every change must bump the version.** No exceptions. After ANY code, dashboard, or docs change is committed and pushed:
 1. Update `"version"` in `package.json` to the new version
 2. Commit and push to main
 3. Only then: `git tag vX.Y.Z && git push origin vX.Y.Z`
 
-Version bump rules: patch (deps, bugfixes), minor (new features), major (breaking changes).
+This ensures every commit is releaseable and the git tag always matches `package.json`.
+
+Version bump rules: patch (deps, bugfixes, docs), minor (new features), major (breaking changes).
