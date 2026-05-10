@@ -1,0 +1,65 @@
+name: Feature Request
+description: Suggest a new watch complication, hand shape, dial style, or any idea
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Alpine Clock Panel is built for watch enthusiasts and data viz tinkerers. If you have an idea for a new feature, we'd love to hear it.
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What's the idea?
+      description: Describe the feature you'd like to see. What would it do? How would it look on the clock face?
+      placeholder: "A moonphase complication that shows the current lunar phase as a small disc at 6 o'clock."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: What part of the clock does this affect?
+      options:
+        - New hand shape or silhouette
+        - New dial shape
+        - New complication (moonphase, power reserve, etc.)
+        - New bezel style or scale
+        - New subdial feature
+        - New global metric feature
+        - New mechanical movement feature
+        - New numeral style
+        - Panel editor / UX improvement
+        - Dashboard / provisioning
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: inspiration
+    attributes:
+      label: Inspiration or reference
+      description: |
+        Is there a real-world watch, clock, or dashboard that inspired this idea?
+        Links to images, articles, or existing Grafana panels are welcome.
+      placeholder: "Like the A. Lange & Söhne Lange 1 — the outsize date and asymmetric dial layout."
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: How would you use it?
+      description: Describe a real scenario where this feature would be useful on your dashboard.
+      placeholder: "I monitor 4 data centers and want a world-time bezel to show UTC offsets for each region."
+
+  - type: textarea
+    id: example-config
+    attributes:
+      label: Example configuration (optional)
+      description: If you already have an idea of what options this feature would need, sketch them out here.
+      placeholder: |
+        - moonphaseEnabled: boolean
+        - moonphaseSize: number (% of radius)
+        - moonphasePosition: 'top' | 'bottom' | 'left' | 'right'
+        - moonphaseAngle: number (degrees)

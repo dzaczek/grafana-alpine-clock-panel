@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/dzaczek/grafana-alpine-clock-panel#readme
+    about: Read the README and configuration reference before opening an issue.
+  - name: Grafana Plugin Catalog
+    url: https://grafana.com/plugins/dzaczek-alpineclock-panel
+    about: Check the official plugin page for version history and compatibility.

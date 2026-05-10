@@ -1,0 +1,99 @@
+name: Bug Report
+description: Something is broken or not working as expected
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill out the sections below — the more detail you provide, the faster we can fix it.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug. What did you expect to happen? What happened instead?
+      placeholder: "When I set the hour hand shape to 'dauphine', the hand renders as a plain rectangle instead."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact steps to trigger the bug.
+      placeholder: |
+        1. Open Grafana, create a new dashboard
+        2. Add an Alpine Clock Panel
+        3. Go to Hour hand → Shape → select 'dauphine'
+        4. The hand renders as a plain rectangle
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where does it happen?
+      options:
+        - Panel editor (config UI)
+        - Dashboard view (clock rendering)
+        - Provisioned dashboard
+        - CI / build
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      description: Which version of Alpine Clock Panel are you using?
+      placeholder: "1.4.3"
+    validations:
+      required: true
+
+  - type: input
+    id: grafana-version
+    attributes:
+      label: Grafana version
+      description: Which version of Grafana are you running?
+      placeholder: "13.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser are you using?
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: dashboard-json
+    attributes:
+      label: Example dashboard JSON
+      description: |
+        If the bug is related to a specific clock configuration, paste the **panel JSON** here.
+        You can get it from the panel inspector: Panel menu → Inspect → Panel JSON.
+        This helps us reproduce the exact setup.
+      render: json
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag and drop screenshots here. A picture of the broken clock face or misbehaving UI element helps a lot.
+
+  - type: textarea
+    id: console
+    attributes:
+      label: Browser console output
+      description: If there are any errors in the browser console (F12 → Console), paste them here.
+      render: shell
