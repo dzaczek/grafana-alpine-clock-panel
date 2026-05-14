@@ -117,7 +117,7 @@ jobs:
           PLUGIN_ID: ${{ steps.metadata.outputs.plugin-id }}
 
       - name: Generate provenance attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: ${{ steps.metadata.outputs.archive }}
 
