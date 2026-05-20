@@ -4,6 +4,26 @@ All notable changes to this project should be documented in this file.
 
 The format follows Keep a Changelog and the project uses Semantic Versioning.
 
+## 1.5.0 (2026-05-20)
+
+### Added
+
+- Frozen example suggestions directly in the visualization picker: Grand Central Terminal, Classic Swiss, Vintage Gold, Minimal Baton, and Square Sharp
+- Canonical default option snapshots for both the legacy clock baseline and the new Grand Central baseline
+- Regression tests covering defaults, migration behavior, and example suggestion materialization
+- Subdial analog scale controls for scale start angle and scale sweep angle
+
+### Changed
+
+- New empty Alpine Clock panels now start with the Grand Central Terminal visual style
+- Panel option registration now reads runtime defaults from a centralized defaults module instead of scattering the active baseline across editor literals
+
+### Fixed
+
+- Existing sparse panels now migrate to the legacy default set before the new baseline is applied, preventing visual drift after changing defaults
+- Example clocks are now fully materialized and no longer depend on whatever the current plugin defaults happen to be
+- Plugin examples no longer risk changing appearance when future default values are adjusted
+
 ## 1.4.0 (2026-05-09)
 
 ### Added

@@ -1,6 +1,9 @@
 import { PanelPlugin, PanelOptionsEditorBuilder } from '@grafana/data';
 import { AlpineClockOptions } from './types';
 import { AlpineClockPanel } from './components/AlpineClockPanel';
+import { GRAND_CENTRAL_PANEL_DEFAULTS } from './defaults';
+import { migrateAlpineClockPanel } from './migrations';
+import { alpineClockSuggestionsSupplier } from './suggestions';
 import { TIMEZONE_OPTIONS } from './timezones';
 
 const HAND_SHAPE_OPTIONS = [
@@ -64,6 +67,45 @@ interface HandDefaults {
   width: number;
   bounceOn: boolean;
   bounceAmp: number;
+}
+
+const DEFAULTABLE_EDITOR_METHODS = new Set([
+  'addBooleanSwitch',
+  'addColorPicker',
+  'addNumberInput',
+  'addRadio',
+  'addSelect',
+  'addSliderInput',
+  'addTextInput',
+]);
+
+function withDefaultValues(
+  builder: PanelOptionsEditorBuilder<AlpineClockOptions>,
+  defaults: AlpineClockOptions
+): PanelOptionsEditorBuilder<AlpineClockOptions> {
+  let wrappedBuilder: PanelOptionsEditorBuilder<AlpineClockOptions>;
+
+  wrappedBuilder = new Proxy(builder, {
+    get(target, prop, receiver) {
+      const value = Reflect.get(target, prop, receiver);
+
+      if (typeof value !== 'function' || !DEFAULTABLE_EDITOR_METHODS.has(String(prop))) {
+        return value;
+      }
+
+      return (config: { path?: string; defaultValue?: unknown }) => {
+        const nextConfig =
+          config?.path && Object.prototype.hasOwnProperty.call(defaults, config.path)
+            ? { ...config, defaultValue: defaults[config.path as keyof AlpineClockOptions] }
+            : config;
+
+        value.call(target, nextConfig);
+        return wrappedBuilder;
+      };
+    },
+  });
+
+  return wrappedBuilder;
 }
 
 /**
@@ -347,6 +389,26 @@ function registerSubdial(
       defaultValue: 100,
       showIf: en,
       description: 'Value that maps to the end of the subdial scale.',
+    })
+    .addSliderInput({
+      path: `subdial${n}ScaleStartAngle` as any,
+      name: 'Scale start (deg, 0 = up)',
+      category: cat,
+      defaultValue: 0,
+      settings: { min: 0, max: 360, step: 1 },
+      showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog',
+      description:
+        "Clock angle where the subdial scale starts. 0° = 12 o'clock, 90° = 3 o'clock, 180° = 6 o'clock.",
+    })
+    .addSliderInput({
+      path: `subdial${n}ScaleSweepAngle` as any,
+      name: 'Scale sweep (deg)',
+      category: cat,
+      defaultValue: 360,
+      settings: { min: 10, max: 360, step: 1 },
+      showIf: (c) => en(c) && (c as any)[`subdial${n}Mode`] === 'analog',
+      description:
+        'Angular range covered by the scale between min and max. Example: 270° gives a classic gauge-style sweep.',
     })
     .addTextInput({
       path: `subdial${n}Label` as any,
@@ -1495,7 +1557,7 @@ function registerMechanicalMovement(builder: PanelOptionsEditorBuilder<AlpineClo
     });
 }
 
-export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setPanelOptions((builder) => {
+function registerPanelOptions(builder: PanelOptionsEditorBuilder<AlpineClockOptions>) {
   builder
     // Time
     .addSelect({
@@ -2670,4 +2732,11 @@ export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel).setP
     });
 
   return builder;
-});
+}
+
+export const plugin = new PanelPlugin<AlpineClockOptions>(AlpineClockPanel)
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
+  .setDefaults(GRAND_CENTRAL_PANEL_DEFAULTS)
+  .setMigrationHandler(migrateAlpineClockPanel)
+  .setSuggestionsSupplier(alpineClockSuggestionsSupplier)
+  .setPanelOptions((builder) => registerPanelOptions(withDefaultValues(builder, GRAND_CENTRAL_PANEL_DEFAULTS)));

@@ -3,6 +3,7 @@
   "type": "panel",
   "name": "Alpine Clock Panel",
   "id": "dzaczek-alpineclock-panel",
+  "suggestions": true,
   "info": {
     "keywords": ["panel", "clock", "analog", "watch", "timezone", "gauge", "bezel", "chronograph"],
     "description": "The most geeky clock panel ever for Grafana: build a watch-style clock from hand geometry and numerals to bezel scales, subdials, segmented gauges, and transparent mechanical movement.",
