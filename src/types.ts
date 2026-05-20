@@ -252,6 +252,8 @@ export interface AlpineClockOptions {
   subdial1BorderWidth: number;
   subdial1Min: number;
   subdial1Max: number;
+  subdial1ScaleStartAngle: number;
+  subdial1ScaleSweepAngle: number;
   subdial1Label: string;
   subdial1LabelPosition: SubdialLabelPosition;
   subdial1LabelColor: string;
@@ -289,6 +291,8 @@ export interface AlpineClockOptions {
   subdial2BorderWidth: number;
   subdial2Min: number;
   subdial2Max: number;
+  subdial2ScaleStartAngle: number;
+  subdial2ScaleSweepAngle: number;
   subdial2Label: string;
   subdial2LabelPosition: SubdialLabelPosition;
   subdial2LabelColor: string;
@@ -326,6 +330,8 @@ export interface AlpineClockOptions {
   subdial3BorderWidth: number;
   subdial3Min: number;
   subdial3Max: number;
+  subdial3ScaleStartAngle: number;
+  subdial3ScaleSweepAngle: number;
   subdial3Label: string;
   subdial3LabelPosition: SubdialLabelPosition;
   subdial3LabelColor: string;
@@ -363,6 +369,8 @@ export interface AlpineClockOptions {
   subdial4BorderWidth: number;
   subdial4Min: number;
   subdial4Max: number;
+  subdial4ScaleStartAngle: number;
+  subdial4ScaleSweepAngle: number;
   subdial4Label: string;
   subdial4LabelPosition: SubdialLabelPosition;
   subdial4LabelColor: string;

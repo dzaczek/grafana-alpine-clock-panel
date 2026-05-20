@@ -2090,6 +2090,8 @@ interface SubdialConfig {
   borderWidth: number;
   min: number;
   max: number;
+  scaleStartAngle: number;
+  scaleSweepAngle: number;
   label: string;
   labelPosition: 'none' | 'inside-top' | 'inside-bottom' | 'outer-top' | 'outer-bottom';
   labelColor: string;
@@ -2131,6 +2133,8 @@ function getSubdialConfig(options: AlpineClockOptions, n: 1 | 2 | 3 | 4): Subdia
     borderWidth: p<number>('BorderWidth'),
     min: p<number>('Min'),
     max: p<number>('Max'),
+    scaleStartAngle: p<number>('ScaleStartAngle'),
+    scaleSweepAngle: p<number>('ScaleSweepAngle'),
     label: p<string>('Label'),
     labelPosition: p<SubdialConfig['labelPosition']>('LabelPosition'),
     labelColor: p<string>('LabelColor'),
@@ -2232,6 +2236,9 @@ function Subdial({
   const range = config.max - config.min;
   const normalised =
     value === null || range === 0 ? 0 : Math.min(Math.max((value - config.min) / range, 0), 1);
+  const scaleStartAngle = config.scaleStartAngle ?? 0;
+  const scaleSweepAngle = config.scaleSweepAngle ?? 360;
+  const isFullSweep = Math.abs(scaleSweepAngle) >= 359.999;
 
   // Threshold-based color overrides. `thresholdMode` decides whether the
   // value-indicator (hand/digital text), the subdial background, or both are
@@ -2269,8 +2276,10 @@ function Subdial({
   // Ticks — only drawn in analog mode (digital hides them for a clean readout).
   const ticks: React.ReactNode[] = [];
   if (config.mode === 'analog' && config.tickCount > 0) {
+    const tickDivisor = isFullSweep ? config.tickCount : Math.max(config.tickCount - 1, 1);
     for (let i = 0; i < config.tickCount; i++) {
-      const a = (i / config.tickCount) * 360 - 90;
+      const pct = tickDivisor === 0 ? 0 : i / tickDivisor;
+      const a = scaleStartAngle + pct * scaleSweepAngle - 90;
       const rad = (a * Math.PI) / 180;
       const outer = radius * 0.92;
       const inner = radius * 0.8;
@@ -2293,11 +2302,17 @@ function Subdial({
   if (config.mode === 'analog' && config.showNumbers) {
     const fs = Math.max((radius * config.numberFontSize) / 100, 4);
     const numberR = radius * 0.62;
-    const entries = [
-      { v: config.min, a: 0 },
-      { v: (config.min + config.max) / 2, a: 120 },
-      { v: config.max, a: 240 },
-    ];
+    const entries = isFullSweep
+      ? [
+          { v: config.min, a: scaleStartAngle },
+          { v: (config.min + config.max) / 2, a: scaleStartAngle + 120 },
+          { v: config.max, a: scaleStartAngle + 240 },
+        ]
+      : [
+          { v: config.min, a: scaleStartAngle },
+          { v: (config.min + config.max) / 2, a: scaleStartAngle + scaleSweepAngle / 2 },
+          { v: config.max, a: scaleStartAngle + scaleSweepAngle },
+        ];
     entries.forEach((e, idx) => {
       const rad = ((e.a - 90) * Math.PI) / 180;
       numbers.push(
@@ -2318,7 +2333,7 @@ function Subdial({
   }
 
   // Analog hand — maps normalised value to full 0..360° sweep.
-  const handAngle = normalised * 360;
+  const handAngle = scaleStartAngle + normalised * scaleSweepAngle;
   const handLen = radius * 0.8;
   const handW = Math.max((radius * config.handWidth) / 100, 0.5);
   const analogHand = config.mode === 'analog' && (
