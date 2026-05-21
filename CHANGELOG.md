@@ -4,6 +4,12 @@ All notable changes to this project should be documented in this file.
 
 The format follows Keep a Changelog and the project uses Semantic Versioning.
 
+## 1.5.2 (2026-05-21)
+
+### Fixed
+
+- Final fix for provenance attestation — explicitly using actions/attest-build-provenance@v4 to match successful splitflap-panel pattern.
+
 ## 1.5.1 (2026-05-21)
 
 ### Fixed
