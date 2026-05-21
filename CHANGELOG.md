@@ -4,6 +4,12 @@ All notable changes to this project should be documented in this file.
 
 The format follows Keep a Changelog and the project uses Semantic Versioning.
 
+## 1.5.1 (2026-05-21)
+
+### Fixed
+
+- Fixed provenance attestation in GitHub Actions to comply with new Grafana signing requirements.
+
 ## 1.5.0 (2026-05-20)
 
 ### Added
