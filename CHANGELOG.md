@@ -4,6 +4,12 @@ All notable changes to this project should be documented in this file.
 
 The format follows Keep a Changelog and the project uses Semantic Versioning.
 
+## 1.5.4 (2026-05-21)
+
+### Changed
+
+- Reverted to official Grafana release workflow pattern to ensure full compatibility with modern provenance attestation requirements.
+
 ## 1.5.3 (2026-05-21)
 
 ### Changed
