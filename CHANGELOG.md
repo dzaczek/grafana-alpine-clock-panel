@@ -4,6 +4,13 @@ All notable changes to this project should be documented in this file.
 
 The format follows Keep a Changelog and the project uses Semantic Versioning.
 
+## 1.5.3 (2026-05-21)
+
+### Changed
+
+- Updated development dependencies (Webpack, ESLint, Sass) to latest versions.
+- Cleaned up repository by merging pending Dependabot PRs.
+
 ## 1.5.2 (2026-05-21)
 
 ### Fixed
