@@ -5,6 +5,10 @@
 <h1 align="center">Alpine Clock Panel</h1>
 
 <p align="center">
+  <a href="https://buymeacoffee.com/dzaczek">☕ Buy Me a Coffee</a>
+</p>
+
+<p align="center">
   <strong>A watchmaker's toolkit for Grafana.</strong><br>
   Build analog clocks, instrument gauges, and mechanical watch faces<br>
   pixel by pixel — directly from the panel editor.
